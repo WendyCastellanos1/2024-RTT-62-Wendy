@@ -4,7 +4,10 @@ import java.text.DecimalFormat;
 
 public class Homework303_2_1{
 
+    static final double MULTIPLIER_SALES_TAX = 1.075;
+
     public static void main(String[] args) {
+
         //int example: declare two int vars, assign value to each; sum to var, print result.
         int num1 = 10;
         int num2 = 20;
@@ -20,7 +23,7 @@ public class Homework303_2_1{
         //int plus double example
         int number1 = 10;
         double number2 = 10.8d;
-        double newSum = number1 + number2;
+        double newSum = (double)number1 + number2;
         System.out.println("\nThe sum of " + number1 + " and " + number2 + " =  " + newSum);
 
         //two ints...divide larger by smaller
@@ -42,7 +45,7 @@ public class Homework303_2_1{
         //Misc. instructions; cast y as a double and assign to q. Print q before and after the re-assignment.
         int x = 5;
         int y = 6;
-        double q = y / x;
+        double q = (double)y / (double)x;
         System.out.println("\nThe variable q is: " + q);
         q = (double)y;
         System.out.println("The variable q is now: " + q);
@@ -60,7 +63,7 @@ public class Homework303_2_1{
         double priceMatchaLatte = 3.50;
         double priceStaleMuffin = 2.75;
 
-        final double MULTIPLIER_SALES_TAX = 1.075;
+        //sales tax multiplier defined as constant at top
 
         double subtotal = (3 * priceMuddyCoffee) + (4 * priceMatchaLatte)
                 + (2 * priceStaleMuffin);
@@ -68,7 +71,7 @@ public class Homework303_2_1{
         double totalSale = subtotal * MULTIPLIER_SALES_TAX;
 
         //attempt to format the double to two decimal places
-        DecimalFormat df = new DecimalFormat("#.##");
+        DecimalFormat df = new DecimalFormat("0.00");
         totalSale = Double.parseDouble(df.format(totalSale)); //may not half-round to ceiling, though
 
         System.out.println("\nAt the cafe, the customer's total is $" + totalSale + ", including sales tax.");
