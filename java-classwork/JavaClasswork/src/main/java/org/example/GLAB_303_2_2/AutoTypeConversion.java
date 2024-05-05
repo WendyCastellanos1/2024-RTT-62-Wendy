@@ -10,6 +10,7 @@ public class AutoTypeConversion {
         float q = 10.60f;
         // int z = x + y;  //Error; CANNOT convert from double to int
         double z = x + y;
+
         System.out.println("Sum of two numbers: " + z);
 
         // long r = p-q; // (2) // Error: CANNOT convert from float to long

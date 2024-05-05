@@ -5,8 +5,9 @@ public class SplitDemo {
     public static void main(String[] args) {
         String letters = "a::b::c::d:e";
 
-        // splittting the string at "::"
+        // splitting the string at "::"
         // storing the result in an array of strings
+
         String[] result = letters.split("::");
 
         // converting array to string and printing it

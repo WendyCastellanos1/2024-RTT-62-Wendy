@@ -24,7 +24,7 @@ public class NumberSix {
                     numDay = scanner.nextInt();
                 } else {
                     System.out.println("Error: No integer found. Game over.");
-                    break; //prevent infinite loop by exiting the loop [could code around this later]
+                    break; //prevent infinite loop by exiting the loop [try "continue" later]
                 }
             }
 
@@ -36,6 +36,7 @@ public class NumberSix {
         } while (out0fRange);
 
         scanner.close();
+
         //print the day of the week based on the input
         switch (numDay) {
             case 1: {
@@ -67,7 +68,7 @@ public class NumberSix {
                 break;
             }
             default: {
-                //pre-validation handled out-of-bounds, so handle unknown exception
+                //pre-validation handled out-of-bounds, so handle unknown exception vaguely
                 System.out.println("Run the program again and only enter an integer.");
             }
         }

@@ -1,4 +1,5 @@
 package org.example.GLAB_303_5_2;
+
 import java.util.Scanner;
 
 public class SubtractionQuizLoop {
@@ -37,6 +38,5 @@ public class SubtractionQuizLoop {
                         ((number1 - number2 == answer) ? " correct" : "wrong");
             }
         }
-
     }
 }

@@ -9,13 +9,15 @@ public class ExplicitTest {
         //explicit type casting
         long l = (long)d;
         int i = (int)l;
-        System.out.println("Double value " + d); //see that decimal portion is there
-        System.out.println("Long value " + l); //explicit cast to long truncates decimal
-        System.out.println("Integer value " + i); //explicit cast to int is uneventful here
+
+        System.out.println("Double value " + d);    //see that decimal portion is there
+        System.out.println("Long value " + l);      //explicit cast to long truncates decimal
+        System.out.println("Integer value " + i);   //explicit cast to int is uneventful here
 
         byte b;
         int z = 257;
         double dou = 323.142;
+
         System.out.println("Conversion of int to byte.");
         b = (byte)z; //z = 257 b = 1  bc 1 is remainder of 257/256 (range of byte).
         System.out.println("z = " + z + " b = " + b);

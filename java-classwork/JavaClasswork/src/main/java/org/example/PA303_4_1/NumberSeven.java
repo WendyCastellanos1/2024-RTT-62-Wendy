@@ -26,7 +26,7 @@ public class NumberSeven {
 
         Scanner scanner = new Scanner(System.in);
 
-        //prompt for user's filing status using enum, reset to correct one, not default
+        //prompt for user's filing status using enum info, reset to correct one, overriding default
         System.out.println("What is your filing status?\n"
             + "0 for Single \n"
             + "1 for Married Filing Jointly or Qualifying Widower\n"
@@ -42,7 +42,7 @@ public class NumberSeven {
         //capture user's response
         taxableIncome = scanner.nextInt();      //TODO validation
 
-        //determine tax rate based on status, income (static methods were created for readability, no re-use)
+        //determine tax rate based on status and income (static methods were created for readability, not re-use)
         if (status == FilingStatus.SINGLE){
             taxRate = findTaxRate_single(taxableIncome);
         }else if (status == FilingStatus.MARRIED_FILING_JOINTLY_0R_QUALIFYING_WIDOWER){
@@ -54,9 +54,13 @@ public class NumberSeven {
         }else{
             System.out.println("Without an approved filing status, we cannot determine your taxes owed.");
         }
+
         //calculate and print the taxes owed
         double taxes = calculateTaxOwed(taxableIncome, taxRate);
+
         System.out.println("Your expected tax burden, before the standard deduction and other discounts, is " + taxes + ".");
+
+        scanner.close();
     }
 
     static double findTaxRate_single (int income) {

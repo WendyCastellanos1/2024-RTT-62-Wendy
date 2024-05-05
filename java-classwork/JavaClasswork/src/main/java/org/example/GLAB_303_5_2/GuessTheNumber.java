@@ -12,6 +12,7 @@ public class GuessTheNumber {
         System.out.println("Guess a magic number between 0 and 100;");
 
         int guess = -1;
+
         while (guess != number) {
             // Prompt the user to guess the number
             System.out.print("\nEnter your guess: ");

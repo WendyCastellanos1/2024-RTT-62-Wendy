@@ -1,9 +1,7 @@
 package org.example.ALAB_303_2_1;
 
 public class TwoHourTest {
-    /*  I don't have two hours left in my evening. I'll finish the other work
-        by 10 pm and then need to walk (many hours sitting) and sleep.
-        I can do this one on Friday or over the weekend!
+    /*
 
         "This is a timed test with a total duration of 2 hours (120 minutes).This is
     an in-class assessment. Your instructor will designate at least 2 hours for

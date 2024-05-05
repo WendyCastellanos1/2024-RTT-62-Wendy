@@ -2,7 +2,8 @@ package org.example.PA_303_2_2;
 import java.util.Scanner;
 
 public class HackerRank_Stdin_and_Stdout_II {
-    //my code copied from HackerRank, no input files here, so don't run it
+
+    //my code transferred from my  HackerRank, no input files here, so don't run it
 
     public static void main(String[] args) {
         //Wendy Castellanos for PerScholas

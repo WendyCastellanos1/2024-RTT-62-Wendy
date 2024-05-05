@@ -10,6 +10,7 @@ less than 10. Change x to equal 15, and notice the result (console
 should not display anything) */
 
         int x = 7;
+
         if (x < 10){
             x = 15;
             System.out.println(x);

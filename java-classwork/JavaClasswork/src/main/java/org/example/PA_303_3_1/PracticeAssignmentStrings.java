@@ -5,7 +5,7 @@ public class PracticeAssignmentStrings {
     /* HackerRank:
     Screenshots in the homework folder
     Code copied here, though the inputs are not available here, so don't run!
-    TODO: 3rd, 4th, 5th exercises (10:45 pm) and still need to read the slides for tomorrow.
+    TODO: 3rd, 4th, 5th exercises (10:45 pm)
      */
 }
 
