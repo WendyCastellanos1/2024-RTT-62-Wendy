@@ -20,7 +20,7 @@ public class JavaStringTokens {     // public class Solution {
 
         //split string into tokens
 //       String[] tokenArray = s.split( "[A-Za-z!,?._'@]+"); //doesn't work
-        //String[] tokenArray = s.split( "\s");
+        String[] tokenArray = s.split( "\s");
 
         int numTokens = 0;
 

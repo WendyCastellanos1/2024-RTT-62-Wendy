@@ -7,12 +7,12 @@ public class Product {
     private String name;
     private boolean beverage;
 
-    //constructor - default (NOTE: no return type)
+    //constructor (default)      (NOTE: no return type)
     public Product(){
 
     }
 
-    //constructor (NOTE: no return type)
+    //constructor (overloaded)   (NOTE: no return type)
     public Product(double price, String name, boolean beverage) {  //incoming versions of the vars
         this.price = price;     //this keyword delineates WHICH price
         this.name = name;
