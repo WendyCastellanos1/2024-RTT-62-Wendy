@@ -18,8 +18,10 @@ public class PalindromeExample {
             reverse = reverse + original.charAt(i);
         }
         if (original.equals(reverse)) {
+            //it is a palindrome
             System.out.println("Entered string/number is a palindrome.");
         } else {
+            //it is not a palindrome
             System.out.println("Entered string/number isn't a palindrome.");
         }
     }

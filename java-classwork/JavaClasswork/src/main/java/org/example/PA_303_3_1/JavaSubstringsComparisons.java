@@ -16,7 +16,9 @@ public class JavaSubstringsComparisons {
         largest = "";
 
         //determine the array size needed to hold maximum substrings of k length, reaching the last letter
-        int arraySize = (s.length() - 1) - (s.length() % k);
+        int stringLength = s.length();
+        //int arraySize = (stringLength - 1) - (stringLength % k);
+        int arraySize = stringLength + 1 - k;
 
         //declare an array of strings to hold the substrings
         String[] mySubstrings = new String[arraySize];
@@ -35,6 +37,7 @@ public class JavaSubstringsComparisons {
         Collections.sort(stringList);
 
         //identify the smallest and largest from the sorted array   a < z
+        // 'smallest' must be the lexicographically smallest substring of length 'k'
         smallest = stringList.get(0);                           //first is smallest
         largest = stringList.get(stringList.size() - 1);        //last is largest
 
@@ -55,7 +58,6 @@ public class JavaSubstringsComparisons {
 }
 
 
-// 'smallest' must be the lexicographically smallest substring of length 'k'
 // find the pattern to design the loop
 //        String s1 = s.substring(0, 0 + k);
 //        String s2 = s.substring(1, 1 + k);
@@ -69,16 +71,15 @@ public class JavaSubstringsComparisons {
 //        String s10 = s.substring(9, 9 + k);
 //        String s11 = s.substring(10, 10 + k);
 
-//code below compiled and moved substrings around, but is not designed to make a full sort
+//code below compiled and moved substrings around, but is not designed to make a ful abc sort
 ////loop through the array to practice comparing one to another and swapping locations
 ////OJO: This does NOT order them in abc order, just a practice
-////     The ArrayList is used below to capture the elements and SORT
 //String temp = new String();
 ////for(String subString : mySubstrings){ //enhanced for loop
 //        for (int i = 0; i < arraySize - 1; i++) {
 //        if ((mySubstrings[i].compareTo(mySubstrings[i + 1]) > 0)) { //if true, str 2 needs to swap left
-//temp = mySubstrings[i];                 //store the smaller value in temp
-//mySubstrings[i] = mySubstrings[i + 1];  //move the larger value to the first position
-//mySubstrings[i + 1] = temp;                 //move the smaller value to the second position
-//            }
-//                    }
+//              temp = mySubstrings[i];                 //store the smaller value in temp
+//              mySubstrings[i] = mySubstrings[i + 1];  //move the larger value to the first position
+//              mySubstrings[i + 1] = temp;                 //move the smaller value to the second position
+//         }
+// }
