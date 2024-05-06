@@ -19,7 +19,7 @@ public class JavaStringTokens {     // public class Solution {
         //String regex = "[A-Za-z !,?._'@]+";      // or ?    [A-Za-z !,?._'@]+,  comma or no?
 
         //split string into tokens
-       String[] tokenArray = s.split( "[A-Za-z!,?._'@]+"); //doesn't work
+//       String[] tokenArray = s.split( "[A-Za-z!,?._'@]+"); //doesn't work
         //String[] tokenArray = s.split( "\s");
 
         int numTokens = 0;
