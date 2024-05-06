@@ -10,4 +10,5 @@ public class PracticeAssignmentStrings {
     Screenshots placed in reach of GitHub.
 
      */
+}
 
