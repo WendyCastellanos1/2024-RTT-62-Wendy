@@ -1,4 +1,4 @@
-package org.example.PA303_4_1;
+package org.example.PA_303_4_1;
 
 public class NumberOne {
 
