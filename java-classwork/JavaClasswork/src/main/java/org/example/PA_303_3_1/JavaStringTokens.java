@@ -16,14 +16,10 @@ public class JavaStringTokens {     // public class Solution {
         System.out.println("Enter a single string, like: He is a very very good boy, isn't he?  ");
         String s = scan.nextLine();
 
-        //String regex = "[A-Za-z !,?._'@]+";      // or ?    [A-Za-z !,?._'@]+,  comma or no?
-
         //split string into tokens
-//       String[] tokenArray = s.split( "[A-Za-z!,?._'@]+"); //doesn't work
-        String[] tokenArray = s.split( "\s");
+        String[] tokenArray = s.split( "[^a-zA-Z]");
 
         int numTokens = 0;
-
         for (int i = 0; i < tokenArray.length; ++i){
             if (!tokenArray[i].isEmpty()) {
                 numTokens++;
