@@ -1,4 +1,4 @@
-package org.example.LectureCodeAndChallenges;
+package org.example.LectureArrays;
 
 import java.util.Arrays;
 

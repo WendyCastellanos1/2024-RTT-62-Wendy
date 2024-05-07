@@ -1,8 +1,8 @@
-package org.example;
+package org.example.Homework_303_2_1;
 import java.lang.Math;
 import java.text.DecimalFormat;
 
-public class Homework303_2_1{
+public class HomeworkMathTasks {
 
     static final double MULTIPLIER_SALES_TAX = 1.075;
 
