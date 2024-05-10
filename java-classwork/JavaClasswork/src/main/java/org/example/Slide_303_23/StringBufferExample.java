@@ -2,6 +2,11 @@ package org.example.Slide_303_23;
 
 public class StringBufferExample {
     public static void main(String[] args) {
+
+        //note: 2nd argument is not inclusive of the osition
+        //note: run this through the debugger
+        //for the KBA, use a blank scratch paper to (re)write the string down after each operation
+
         StringBuffer sb = new StringBuffer("filename.txt");
 
         sb.insert(0,"new_");
