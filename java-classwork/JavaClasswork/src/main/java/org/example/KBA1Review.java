@@ -28,6 +28,19 @@ public class KBA1Review {
 
         //method overloading: name and number of arguments determined.
 
+        //public static void main(String[] args) be able to pick something wrong
+        //polymorphism the ability of variables & methods of object to take on multiple forms
+
+        boolean bt = true;    //lower case! true and false are keywords.
+        boolean bf = false;
+
+        //an example tests inheritance understanding. what will the code do?
+        //java does not support multiple inheritances
+        //file extension of a java source code is java
+
+        //which keywords for class declaration: public, private, abstract, class, extends, imlements
+
+
         //protected: subclasses in OTHER packages, or any class within the same package
 
         //difference between ++y and y++   if its on its own line of code, doesn't matter, same
