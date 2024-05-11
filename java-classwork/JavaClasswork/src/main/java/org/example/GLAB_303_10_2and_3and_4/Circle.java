@@ -1,9 +1,10 @@
-package org.example.GLAB_303_10_2and_3;
+package org.example.GLAB_303_10_2and_3and_4;
 
-public class Circle extends Shape {
+public class Circle extends Shape implements Movable {
 
     //fields
     protected double radius;
+    private int x, y;  // x and y coordinates of the point
     private final double PI = Math.PI;
 
     //constructors
@@ -12,14 +13,22 @@ public class Circle extends Shape {
     }
     public Circle(double radius, double height) {
         this.radius = radius;
-        super.height = height;
+        super.height = height;  //would be for cylinder
+    }
+    /* constructs a MovablePoint instance at the given x and y */
+    public Circle(int x, int y, double radius) {
+        this.x = x;
+        this.y = y;
+        this.radius = radius;
     }
 
     //methods
+    @Override
     public double getArea() {
-    //double area = PI * this.radius * this.radius;
+        //double area = PI * this.radius * this.radius;
         double area = PI * Math.pow(this.radius, 2); // initializing value in parent class variable
         return area; //reference to parent class variable
+
     }
     @Override
     public void displayShapeName() {
@@ -31,7 +40,34 @@ public class Circle extends Shape {
     public String toString() {
         return "Circle[ radius = " + radius + super.toString() + "]";
     }
+
+    public String getCoordinate(){
+        return "(" + x + "," + y + ")";
+    }
+
+    // need to implement all the abstract methods defined in the interface Movable
+    @Override
+    public void moveUp(){
+        y++;
+    }
+
+    @Override
+    public void moveDown() {
+        y--;
+    }
+
+    @Override
+    public void moveLeft() {
+        x--;
+    }
+
+    @Override
+    public void moveRight() {
+        x++;
+    }
 }
+
+/*  original code for GLAB_303_10_2, before changes in _3 and _4  */
 
 //public class Circle extends Shape {
 //

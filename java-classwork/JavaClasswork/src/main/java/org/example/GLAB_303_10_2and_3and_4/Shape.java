@@ -1,4 +1,4 @@
-package org.example.GLAB_303_10_2and_3;
+package org.example.GLAB_303_10_2and_3and_4;
 
 public abstract class Shape {
 
@@ -37,6 +37,8 @@ public abstract class Shape {
         System.out.println("I am a Shape.");
     }
 }
+
+/*  Functional code after GLABs 303_2 and _3, before _4 */
 
 //public class Shape {
 //
