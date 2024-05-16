@@ -4,7 +4,7 @@ public class KBA1Review {
 
     public static void main(String[] args) {
 
-        //know make an array
+        //know how to make an array
         int[]  myArray = new int[12];
         int[] arr1; arr1 = new int[12];
 
@@ -38,16 +38,15 @@ public class KBA1Review {
         //java does not support multiple inheritances
         //file extension of a java source code is java
 
-        //which keywords for class declaration: public, private, abstract, class, extends, imlements
-
+        //which keywords for class declaration: public, private, abstract, class, extends, implements
 
         //protected: subclasses in OTHER packages, or any class within the same package
 
         //difference between ++y and y++   if its on its own line of code, doesn't matter, same
         //y++ does increment last,after use
-        //mod % gives teh remainder of the division    (for loop with mod, know continue and break)
+        //mod % gives the remainder of the division    (for loop with mod, know continue and break)
         // continue skips any code after it and goes to the top of the  loop for next iteration
-        //break - exist the loop immediately, and doesn't execute any code after break inside the loop;
+        //break - exit the loop immediately, and doesn't execute any code after break inside the loop;
 
         String a = "AFTER";
         String b = "BETA";
