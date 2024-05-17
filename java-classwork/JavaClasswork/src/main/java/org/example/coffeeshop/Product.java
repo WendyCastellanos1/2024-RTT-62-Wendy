@@ -6,6 +6,25 @@ public class Product {
     private double price;
     private String name;
     private boolean beverage;
+    private int quantityAvailable;
+
+    public int getQuantityAvailable() {
+        return quantityAvailable;
+    }
+
+    @Override
+    public String toString() {
+        return "Product{" +
+                "price=" + price +
+                ", name='" + name + '\'' +
+                ", beverage=" + beverage +
+                ", quantityAvailable=" + quantityAvailable +
+                '}';
+    }
+
+    public void setQuantityAvailable(int quantityAvailable) {
+        this.quantityAvailable = quantityAvailable;
+    }
 
     //constructor (default)      (NOTE: no return type)
     public Product(){
@@ -16,6 +35,7 @@ public class Product {
     public Product(double price, String name, boolean beverage) {  //incoming versions of the vars
         this.price = price;     //this keyword delineates WHICH price
         this.name = name;
+        //this.quantityAvailable = quantityAvailable;
         this.beverage = beverage;
     }
 

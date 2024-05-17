@@ -28,7 +28,12 @@ public class CoffeeShop {
         products.add(cakePop);
 
         Product eggSandwich = new Product(7.89, "Egg Sandwich", false);
-            products.add(eggSandwich);
+        products.add(eggSandwich);
+
+        //add the products from the csv file to the others above
+        ProductReader pr = new ProductReader();
+        List<Product> productsFromFile = pr.readProducts();
+        products.addAll(productsFromFile);
     }
 
     public void printProducts(){
