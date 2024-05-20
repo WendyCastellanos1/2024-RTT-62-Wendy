@@ -1,5 +1,6 @@
 
-package org.example.PA_303_11_1;        //delete this for HackerRank
+package org.example.PA_303_11_1;
+//delete this for HackerRank
 import java.util.*;
 import java.util.Scanner;
 
