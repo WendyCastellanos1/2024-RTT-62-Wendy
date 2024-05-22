@@ -16,8 +16,7 @@ public class ForEachExample {
             names.add ( "Ellen") ;
 
             //lambda way        //same outcome as the new style for loop
-            names.forEach(name -> { System.out.println (name); }
-            );
+            names.forEach( name -> { System.out.println (name); }  );
 
             //using lamba to remove items from the list
             names = names.stream().filter(name -> !name.startsWith("E")).collect(Collectors.toList());  //stream it!

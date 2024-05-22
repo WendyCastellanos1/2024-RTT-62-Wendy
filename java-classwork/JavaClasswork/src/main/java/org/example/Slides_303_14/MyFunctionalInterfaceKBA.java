@@ -10,6 +10,8 @@ public interface MyFunctionalInterfaceKBA {
         return a + a;
     }
 
+    //answer is 25
+
 
 
 }
