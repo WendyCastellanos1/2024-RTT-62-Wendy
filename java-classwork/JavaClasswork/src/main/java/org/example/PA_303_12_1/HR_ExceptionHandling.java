@@ -55,11 +55,12 @@ public class HR_ExceptionHandling {
             } else {
                 //divide
                 System.out.println(x / y);
-                scanner.close();
             }
         } catch (java.lang.ArithmeticException ex) {
             System.out.println(ex.getMessage());
-            scanner.close();    //we're done
+        }
+        finally {
+            scanner.close();
         }
     }
 }
