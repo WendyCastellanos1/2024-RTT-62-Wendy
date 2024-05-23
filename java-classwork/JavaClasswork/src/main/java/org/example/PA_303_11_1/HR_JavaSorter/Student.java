@@ -1,4 +1,4 @@
-package org.example.PA_303_11_1;
+package org.example.PA_303_11_1.HR_JavaSorter;
 
 public class Student{
 

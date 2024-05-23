@@ -1,5 +1,4 @@
-package org.example.PA_303_11_1;
-import java.util.Comparator;
+package org.example.PA_303_11_1.HR_JavaSorter;
 
 public class SortByName implements java.util.Comparator<Student> {
 

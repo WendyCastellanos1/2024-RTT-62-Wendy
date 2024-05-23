@@ -1,10 +1,6 @@
 //
-//
+//import java.util.*;
 //import java.lang.*;
-//import java.util.ArrayList;
-//import java.util.Collections;
-//import java.util.List;
-//import java.util.Scanner;
 //
 //class Student{
 //
@@ -33,19 +29,12 @@
 //        this.CGPA = CGPA;
 //    }
 //}
-//class SortById implements java.util.Comparator<Student> {
 //
-//    // method sorts in ascending order by id
-//    public int compare(Student a, Student b)
-//    {
-//        return a.getId() - b.getId();
-//    }
-//}
 //public class Solution {
 //
 //    public static void main(String[] args) {
 //
-//        List<Student> students = new ArrayList<Student>();
+//        List<org.example.PA_303_11_1.HR_JavaSorter.Student> students = new ArrayList<org.example.PA_303_11_1.HR_JavaSorter.Student>();
 //        Scanner scanner = new Scanner(System.in);
 //
 //        // get quantity of lines to fetch
@@ -56,7 +45,7 @@
 //        for (int i = 0; i < quantity; i++) {
 //
 //            // create a student and load up data
-//            Student student = new Student();
+//            org.example.PA_303_11_1.HR_JavaSorter.Student student = new org.example.PA_303_11_1.HR_JavaSorter.Student();
 //
 //            if (scanner.hasNextLine()) {
 //                // read three pieces of data from a single line of input
@@ -71,13 +60,17 @@
 //                students.add(student);
 //            }
 //        }
-//        // loop to order the list by id using a comparator
-//        for (int j = 0; j < quantity; j++) {
-//            Collections.sort(students, new SortById());
-//        }
+//        //use comparator to order on GPA, names, Ids
+//        Comparator<Student> comparator =
+//                Comparator
+//                        .comparing(Student::getCGPA).reversed()
+//                        .thenComparing(Student::getName)
+//                        .thenComparing(Student::getId);
+//
+//        Collections.sort(students, comparator);
 //
 //        //iterate over students to print their names
-//        for (Student studentX : students){
+//        for(org.example.PA_303_11_1.HR_JavaSorter.Student studentX : students){
 //            System.out.println(studentX.getName());
 //        }
 //        scanner.close();
