@@ -58,7 +58,8 @@
 			SELECT e.job_title, COUNT(e.id) AS 'num_employees_with_job_title'
 			FROM employees e
 			WHERE e.job_title IS NOT NULL
-			GROUP BY e.job_title;
+			GROUP BY e.job_title
+            ORDER BY e.job_title;
 
 -- *****question 0.5***************************************************************************************
 -- I want to see a list of all payments each customer has made.  Order the list by customer name ascending, then by the payment amount descending
@@ -89,7 +90,7 @@
             SELECT COUNT(*) AS 'count' FROM  offices WHERE city IS NOT NULL;-- 7 offices now
             
 		-- answer
-			SELECT  off.city AS 'office', COUNT(DISTINCT c.id) AS customer_qty
+			SELECT  off.city AS 'office', COUNT(*) AS customer_qty   -- had COUNT (c.id) and worked same, was easier for me to understand
 			FROM   offices off
 				INNER JOIN employees e ON off.id = e.office_id
 				INNER JOIN customers c ON e.id = c.sales_rep_employee_id
@@ -142,7 +143,7 @@
         -- answer: use ROW_NUMBER() over PARTITION(partition by ___     order by ___ desc) as row_num   e.g:  row_number over (partition by id order by rate desc) as row_num    --not an alias
 		SELECT customer_name, state, profit_margin
         FROM (	SELECT  c.customer_name, c.state,
-						SUM(p.msrp - p.buy_price) AS profit_margin,
+						SUM(od.quantity_ordered * (p.msrp - p.buy_price)) AS profit_margin,
                         (ROW_NUMBER() over (partition by state order by SUM(p.msrp - p.buy_price) DESC)) AS row_num 				
 				FROM customers c
 					INNER JOIN orders o ON c.id = o.customer_id
@@ -261,21 +262,26 @@
 			order by p.id;
             
 		-- answer:  see top 5 products in terms of all sales across all time
-			SELECT p.product_name, SUM(od.quantity_ordered) AS 'total ordered'
+			SELECT p.product_name, SUM(od.quantity_ordered) AS total_ordered
 			FROM   products p
 				INNER JOIN orderdetails od ON p.id = od.product_id
 				INNER JOIN orders o ON od.order_id = o.id
-			GROUP BY p.product_name
-			ORDER BY SUM(od.quantity_ordered) DESC
+			WHERE od.order_id NOT IN ( SELECT o.id FROM orders WHERE o.status = 'Cancelled')  -- additional requirement, Elaine
+			GROUP BY p.id										-- p.product_name  works too, but int faster of course
+			ORDER BY total_ordered DESC
 			LIMIT 5;
 
 -- *****question 7.5*********************************************************************************************
 	-- how many times has each product appeared in an order regardless of how many were purchased.
     
-			SELECT p.id, p.product_name, COUNT(od.product_id) AS 'product_appearances'
+			SELECT p.product_name, COUNT(od.product_id) AS product_appearances
 			FROM   products p
 			INNER JOIN orderdetails od ON p.id = od.product_id
-			GROUP BY p.product_name, p.id;
+			GROUP BY p.id
+            ORDER BY product_appearances;
+            
+		-- validate
+        select * from orderdetails where product_id = 1;
 
 -- *****question 7.6*********************************************************************************************
 	-- how many products would be out of stock based on the amount sold acrosss time.  -- not sure if the data will support this .. basically 
