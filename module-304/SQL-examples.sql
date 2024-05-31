@@ -1,3 +1,42 @@
+SELECT DATABASE();
+USE EXAMPLES;
+
+select * from lots;
+select * from lots where id = 1;
+select count(*) from lots;   -- 4
+
+select * from offers;
+select * from offers where lot_id = 1;
+select * from offers where lot_id = 4;
+select count(*) from offers;  -- 20
+
+-- note: change to left join if the inner join is not the right  interpretation of the instructions
+-- show lots WITH offers
+-- using the round fcn only
+select l.name as 'name', round(min(o.amount), 2) as min_offer, round(avg(o.amount), 2) as avg_offer, round(max(o.amount), 2) as max_offer, count(o.amount) as offers
+from lots l join offers o on l.id = o.lot_id
+group by o.lot_id
+order by offers DESC;
+
+-- show lots WITH offers
+-- using the format fcn only
+select l.name as 'name', format(min(o.amount), 2) as min_offer, format(avg(o.amount), 2) as avg_offer, format(max(o.amount), 2) as max_offer, count(o.amount) as offers
+from lots l join offers o on l.id = o.lot_id
+group by o.lot_id
+order by offers DESC;
+
+-- show lots WITH offers
+-- using both format and round functions
+select l.name as 'name', format(round(min(o.amount), 2), 2) as min_offer, format(round(avg(o.amount), 2), 2) as avg_offer, format(round(max(o.amount), 2), 2) as max_offer, count(o.amount) as offers
+from lots l join offers o on l.id = o.lot_id
+group by o.lot_id
+order by offers DESC;
+
+
+
+
+-- original examples SQL  (not SBA)
+
 select * from customers;
 
 -- I want all employees that work in an office in the USA
@@ -122,3 +161,58 @@ group by c.id, o.id
 having total_order_cost > 50000  -- only operates on the aggregate values
 order by c.customer_name;
 -- limit would be last possibility
+
+
+-- Below: load data into sba lots db
+
+insert into lots
+    values (1, 'Merremia qunquefolia (L.) Hallier f.' );
+
+insert into lots
+    values (3, 'Hobenbergia antilana Mez');
+    
+insert into lots
+    values (4, 'Penstemom eriantherus Pursh var. argillosus M.E. Jones');
+    
+insert into offers
+	values (1, 510);
+    insert into offers
+	values (2, 703.80);
+    insert into offers
+	values (2, 181.80);
+    insert into offers
+	values (1, 38.06);
+    insert into offers
+	values (2, 368.78);
+    insert into offers
+	values (3, 91.40);
+    insert into offers
+	values (2, 413.80);
+    insert into offers
+	values (3, 157.99);
+    insert into offers
+	values (3, 885.82);
+    insert into offers
+	values (2, 863.99);
+    insert into offers
+	values (1, 307.61);
+    insert into offers
+	values (2, 120.39);
+    insert into offers
+	values (1, 771.96);
+    insert into offers
+	values (2, 801.42);
+    insert into offers
+	values (3, 871.59);
+    insert into offers
+	values (1, 541.61);
+    insert into offers
+	values (3, 477.62);
+    insert into offers
+	values (2, 303.29);
+    insert into offers
+	values (2, 612.83);
+    insert into offers
+	values (3, 464.98);
+    
+
