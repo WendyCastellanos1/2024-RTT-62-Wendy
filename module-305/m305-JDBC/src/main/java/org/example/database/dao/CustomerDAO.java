@@ -6,11 +6,14 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 
+import java.util.List;
+
 public class CustomerDAO {
 
+    SessionFactory factory = new Configuration().configure().buildSessionFactory();
+
     public void insert(Customer customer) {
-        // these 2 lines of code prepare the hibernate session for use
-        SessionFactory factory = new Configuration().configure().buildSessionFactory();
+        // prepare the hibernate session for use
         Session session = factory.openSession();
 
         // begin the transaction
@@ -27,8 +30,7 @@ public class CustomerDAO {
     }
 
     public void update(Customer customer) {
-        // these 2 lines of code prepare the hibernate session for use
-        SessionFactory factory = new Configuration().configure().buildSessionFactory();
+        // prepare the hibernate session for use
         Session session = factory.openSession();
 
         // begin the transaction
@@ -45,8 +47,7 @@ public class CustomerDAO {
     }
 
     public void delete(Customer customer) {
-        // these 2 lines of code prepare the hibernate session for use
-        SessionFactory factory = new Configuration().configure().buildSessionFactory();
+        // prepare the hibernate session for use
         Session session = factory.openSession();
 
         // begin the transaction
@@ -64,7 +65,6 @@ public class CustomerDAO {
 
     public Customer findById(Integer id) {
 
-        SessionFactory factory = new Configuration().configure().buildSessionFactory();
         Session session = factory.openSession();
 
         // JPA Query - the syntax is slightly different than regular SQL
@@ -93,41 +93,25 @@ public class CustomerDAO {
 
     public Customer findByCustomerName(String customerName){
 
-        SessionFactory factory = new Configuration().configure().buildSessionFactory();
         Session session = factory.openSession();
 
         String hql = "select c from Customer c where c.customer_name = :customerName";
         TypedQuery<Customer> query = session.createQuery(hql, Customer.class);
         query.setParameter("customerName", customerName);
 
-        try {
-            Customer result = query.getSingleResult();
-            return result;
-        }catch (Exception e){ // hibernate returns null if no record found
-            return null;
-        }finally {
-            // close the connection pool and the transaction
-            session.close();
-        }
+        List<Customer> result = query.getResultList();
+        session.close();
     }
 
     public Customer findByContactFirstName(String contact_firstName){
 
-        SessionFactory factory = new Configuration().configure().buildSessionFactory();
         Session session = factory.openSession();
 
         String hql = "select c from Customer c where c.contact_firstName = :contact_firstName";
         TypedQuery<Customer> query = session.createQuery(hql, Customer.class);
         query.setParameter("contact_firstName", contact_firstName);
 
-        try {
-            Customer result = query.getSingleResult();
-            return result;
-        }catch (Exception e){ // hibernate returns null if no record found
-            return null;
-        }finally {
-            // close the connection pool and the transaction
-            session.close();
-        }
+        List<Customer> result = query.getResultList();
+        session.close();
     }
 }

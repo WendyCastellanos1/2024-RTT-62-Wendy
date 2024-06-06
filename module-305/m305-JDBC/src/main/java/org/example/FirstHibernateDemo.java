@@ -4,8 +4,6 @@ import org.example.database.dao.EmployeeDAO;
 import org.example.database.entity.Employee;
 import org.example.database.dao.CustomerDAO;
 import org.example.database.entity.Customer;
-
-import javax.swing.plaf.synth.SynthTextAreaUI;
 import java.util.List;
 import java.util.Scanner;
 
@@ -28,7 +26,8 @@ public class FirstHibernateDemo {
         newCustomer.setPostal_code("77844");
         newCustomer.setCountry("United States");
         newCustomer.setSales_rep_employee_id(1);
-        newCustomer.setCredit_limit(50000);
+        Double creditLimit = 50000.00;
+        newCustomer.setCredit_limit(creditLimit);
 
         customerDAO.insert(newCustomer);
 

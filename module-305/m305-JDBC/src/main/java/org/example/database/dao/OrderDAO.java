@@ -82,7 +82,7 @@ public class OrderDAO {
         try {
             Order result = query.getSingleResult();
             return result;
-        }catch (Exception e){ // hibernate returns null if no record found
+        }catch (NoResultException e){ // hibernate returns null if no record found
             return null;
         }finally {
             // finally we close the hibernate session so it can release the resources its holding
@@ -103,7 +103,7 @@ public class OrderDAO {
         try {
             Order result = query.getSingleResult();
             return result;
-        }catch (Exception e){ // hibernate returns null if no record found
+        }catch (NoResultException e){ // hibernate returns null if no record found
             return null;
         }finally {
             // close the connection pool and the transaction

@@ -1,6 +1,7 @@
 package org.example.database.entity;
 
 import jakarta.persistence.*;
+import lombok.*;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -8,7 +9,7 @@ import lombok.Setter;
 @Setter
 @Getter
 @Entity //tells there's a db
-@Table(name = "order_details")
+@Table(name = "orderdetails")
 
  public class OrderDetail {
 
@@ -26,10 +27,9 @@ import lombok.Setter;
    @Column(name = "quantity_ordered")
    private Integer quantityOrdered;
 
-   @Column(name = "price_each")
+   @Column(name = "price_each", columnDefinition = "DECIMAL(10,2)")
    private Double priceEach;
 
    @Column(name = "order_line_number")
-   private Integer orderLineNumber;
-
+   private short orderLineNumber;
 }

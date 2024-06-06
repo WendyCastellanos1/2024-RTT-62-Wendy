@@ -49,9 +49,16 @@ public class Customer {
     @Column(name = "country")
     private String country;
 
-    @Column(name = "sales_rep_employee_id")
-    private Integer sales_rep_employee_id;
+    // allow hibernate to make the query: select e.* from customers c, employee e where c.sales_rep_employee_id = e.id .....
+    @ToString.Exclude
+    @ManyToOne(fetch = FetchType.LAZY, optional = true)
+    @JoinColumn(name = "sales_rep_employee_id", nullable = true)
+    private Employee employee;
 
-    @Column(name = "credit_limit")
-    private double credit_limit;
+    @Column(name = "sales_rep_employee_id", insertable=false, updatable=false)  // makes it read-only   can only use a primitive if column is nullable
+    private Integer sales_rep_employee_id;  // can return nulls, primitive int would have exploded with NULL
+
+
+    @Column(name = "credit_limit", columnDefinition = "DECIMAL" )
+    private Double credit_limit;
 }

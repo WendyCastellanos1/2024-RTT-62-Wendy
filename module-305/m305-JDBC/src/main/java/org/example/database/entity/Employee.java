@@ -1,7 +1,10 @@
 package org.example.database.entity;
 
+
 import jakarta.persistence.*;
 import lombok.*;
+
+import java.util.List;
 
 //lombok does the getters and setters for us; I don't have to type or generate them.
 @Setter
@@ -15,9 +18,15 @@ import lombok.*;
 public class Employee {
     //look at table to see fields
     @Id //this identifies the PK
-    @GeneratedValue(strategy = GenerationType.IDENTITY) // this is indicating to HIberate that it's doing an auto-incrment
+    @GeneratedValue(strategy = GenerationType.IDENTITY) // this is indicating to Hiberate that it's doing an auto-increment
     @Column(name = "id")
     private Integer id;
+
+    //do (below) for each foreign key
+    //s select c.* from customers c, employees e where....
+    @ToString.Exclude
+    @OneToMany(mappedBy = "employee", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    private List<Customer> customers;
 
     @Column(name = "office_id")
     private Integer officeId;

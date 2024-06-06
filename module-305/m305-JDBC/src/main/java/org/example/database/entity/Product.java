@@ -28,7 +28,7 @@ public class Product {
     private Integer productlineId;
 
     @Column(name = "product_scale")
-    private Integer productScale;
+    private String productScale;
 
     @Column(name = "product_vendor")
     private String productVendor;
@@ -36,12 +36,12 @@ public class Product {
     @Column(name = "product_description")
     private String productDescription;
 
-    @Column(name = "quantity_in_stock")
+    @Column(name = "quantity_in_stock")  // TODO add correct version of columnDefinition = "SMALL_INT")
     private Short quantityInStock;      // or Integer
 
     @Column(name = "buy_price", columnDefinition = "DECIMAL")
     private Double buyPrice;
 
-    @Column(name = "msrp")
+    @Column(name = "msrp", columnDefinition = "DECIMAL")
     private Double msrp;
 }

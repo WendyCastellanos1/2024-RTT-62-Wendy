@@ -27,7 +27,7 @@ public class Order {
     private Integer customer_id;
                                     //   optional: add     , nullable = false  so Hibernate does NOT validate that
     @Column(name = "order_date")    // @Column(name = "order_date", nullable = false)
-    @Temporal(TemporalType.TIMESTAMP)  // if a timestamp
+    @Temporal(TemporalType.DATE)  // if a timestamp
     private Date orderDate;
 
     @Column(name = "required_date")

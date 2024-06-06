@@ -11,7 +11,7 @@
         <!-- this is the database connection information -->
         <property name="dialect">org.hibernate.dialect.MySQL8Dialect</property>
         <property name="connection.username">dev</property>
-       <property name="connection.password">PutTHePASSWORDHEREv</property>
+       <property name="connection.password">Puppy.12mysqldev</property>
 
         <property name="connection.pool_size">3</property>
 
@@ -21,6 +21,7 @@
 
         <!-- this is validation for      validate: checks if table is there. if no, throws and exception -->
         <property name="hbm2ddl.auto">validate</property>  <!-- danger:update   would tell hibernate to auto-update your db upon change java side -->
+        <property name="current_session_context_class">thread</property>
 
         <!-- this tells hibernate which entities you have in your project  -->
         <!-- each entity needs to have a line here in the config file -->
