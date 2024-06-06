@@ -11,7 +11,7 @@ import lombok.Setter;
 @Table(name = "products")
 
 
-public class Products {
+public class Product {
 
     @Id //this identifies the PK
     @GeneratedValue(strategy = GenerationType.IDENTITY) // this is indicating to Hiberate that it's doing an auto-incrment
@@ -37,12 +37,11 @@ public class Products {
     private String productDescription;
 
     @Column(name = "quantity_in_stock")
-    private Integer quantityInStock;
+    private Short quantityInStock;      // or Integer
 
-    @Column(name = "buy_price")
+    @Column(name = "buy_price", columnDefinition = "DECIMAL")
     private Double buyPrice;
 
     @Column(name = "msrp")
     private Double msrp;
-
 }

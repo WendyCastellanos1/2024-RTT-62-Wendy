@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+
+<hibernate-configuration>
+    <session-factory>
+        <property name="connection.driver_class">com.mysql.cj.jdbc.Driver</property>
+        <property name="connection.url">jdbc:mysql://localhost:3306/classic_models</property>
+
+        <!-- this is the database connection information -->
+        <property name="dialect">org.hibernate.dialect.MySQL8Dialect</property>
+        <property name="connection.username">dev</property>
+       <property name="connection.password">PutTHePASSWORDHEREv</property>
+
+        <property name="connection.pool_size">3</property>
+
+        <!-- these next 2 are nice to show what query hibernate is running. you can turn them on and off as you debug your code.turn on and off as needed for debug comfort-->
+        <property name="show_sql">true</property>
+        <property name="format_sql">true</property>
+
+        <!-- this is validation for      validate: checks if table is there. if no, throws and exception -->
+        <property name="hbm2ddl.auto">validate</property>  <!-- danger:update   would tell hibernate to auto-update your db upon change java side -->
+
+        <!-- this tells hibernate which entities you have in your project  -->
+        <!-- each entity needs to have a line here in the config file -->
+        <mapping class="org.example.database.entity.Employee"/>
+        <mapping class="org.example.database.entity.Order"/>
+        <mapping class="org.example.database.entity.OrderDetail"/>
+        <mapping class="org.example.database.entity.Product"/>
+        <mapping class="org.example.database.entity.Customer"/>
+
+    </session-factory>
+</hibernate-configuration>

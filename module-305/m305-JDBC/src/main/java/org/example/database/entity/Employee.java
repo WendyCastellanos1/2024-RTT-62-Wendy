@@ -1,17 +1,15 @@
 package org.example.database.entity;
 
 import jakarta.persistence.*;
-import jakarta.persistence.Column;  // Jakarta Persistence Query Language
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 
 //lombok does the getters and setters for us; I don't have to type or generate them.
 @Setter
 @Getter
-@Entity //tells there's a db
+@Entity
+@ToString
+@AllArgsConstructor
+@NoArgsConstructor
 @Table(name = "employees")
 
 public class Employee {
@@ -22,7 +20,7 @@ public class Employee {
     private Integer id;
 
     @Column(name = "office_id")
-    private String officeId;
+    private Integer officeId;
 
     @Column(name = "lastname")
     private String lastname;  //if it matches db field name Hibernate figures this out

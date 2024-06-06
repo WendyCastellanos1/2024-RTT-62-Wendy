@@ -34,7 +34,7 @@ public class Update_preparedSt_Example {
             //System.out.println(rs.getInt("lastName));
             System.out.println(rs.getString("firstName"));
             System.out.println(rs.getString("lastName"));
-            System.out.println(rs.getString("email")));
+            System.out.println(rs.getString("email"));
             System.out.println(rs.getString("officeCode"));
             }
         }

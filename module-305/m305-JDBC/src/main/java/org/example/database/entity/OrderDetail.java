@@ -10,7 +10,7 @@ import lombok.Setter;
 @Entity //tells there's a db
 @Table(name = "order_details")
 
- public class Order_Details{
+ public class OrderDetail {
 
    @Id //this identifies the PK
    @GeneratedValue(strategy = GenerationType.IDENTITY) // this is indicating to Hiberate that it's doing an auto-incrment

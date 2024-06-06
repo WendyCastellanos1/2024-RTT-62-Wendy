@@ -1,24 +1,26 @@
 package org.example.database.entity;
 
 import jakarta.persistence.*;   // Jakarta Persistence Query Language
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 
 //lombok does the getters and setters for us; I don't have to type or generate them.
 @Setter
 @Getter
 @Entity //tells there's a db
+@ToString
+@AllArgsConstructor
+@NoArgsConstructor
 @Table(name = "customers")
 
-public class Customers {
+public class Customer {
 
     @Id //this identifies the PK
-    @GeneratedValue(strategy = GenerationType.IDENTITY) // this is indicating to HIberate that it's doing an auto-increment
+    @GeneratedValue(strategy = GenerationType.IDENTITY) // this is indicating to Hibernate that it's doing an auto-increment
     @Column(name = "id")
     private Integer id;
 
     @Column(name = "customer_name")
-    private String name;
+    private String customer_name;
 
     @Column(name = "contact_lastname")
     private String contact_lastName;
@@ -52,5 +54,4 @@ public class Customers {
 
     @Column(name = "credit_limit")
     private double credit_limit;
-
 }
