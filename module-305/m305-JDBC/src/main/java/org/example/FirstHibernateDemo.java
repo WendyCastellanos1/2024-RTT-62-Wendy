@@ -4,7 +4,10 @@ import org.example.database.dao.EmployeeDAO;
 import org.example.database.entity.Employee;
 import org.example.database.dao.CustomerDAO;
 import org.example.database.entity.Customer;
+
+import javax.swing.plaf.synth.SynthTextAreaUI;
 import java.util.List;
+import java.util.Scanner;
 
 public class FirstHibernateDemo {
 
@@ -28,6 +31,23 @@ public class FirstHibernateDemo {
         newCustomer.setCredit_limit(50000);
 
         customerDAO.insert(newCustomer);
+
+        // find this customer now
+        Customer myCustomer = new Customer();
+        myCustomer = customerDAO.findById(5); // note: hard-coded ID - change
+
+        System.out.println(myCustomer);
+
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Enter the new last name ");
+
+        myCustomer.setContact_lastName(scanner.nextLine());
+        System.out.println("Enter the new first name ");
+
+        myCustomer.setContact_firstName(scanner.nextLine());
+
+        customerDAO.update(myCustomer);
+
 
         // let's create a new employee in the database
         EmployeeDAO employeeDAO = new EmployeeDAO();
