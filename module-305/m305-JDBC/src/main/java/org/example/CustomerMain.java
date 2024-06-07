@@ -3,14 +3,11 @@ ackage org.example;
 import org.example.database.dao.CustomerDAO;
 import org.example.database.dao.OrderDAO;
 import org.example.database.entity.Customer;
+import org.example.database.entity.Order;
 
 import java.util.InputMismatchException;
 import java.util.List;
 import java.util.Scanner;
-import org.example.database.dao.CustomerDAO;
-import org.example.database.dao.CustomerDAO;
-import org.example.database.entity.Customer;
-import org.example.database.entity.Order;
 
 public class CustomerMain {
     // want to be able to search for a customer
@@ -30,9 +27,8 @@ public class CustomerMain {
 
         // prompt the user to enter a  customer id
         int  customerId = promptCustomerId();
-
         //fetch the list of orders
-        List<Order> orders = OrderDAO.findByCustomerId(customerId); //TODO write this function in customerdao
+        List<Order> orders = orderDAO.findByCustomerId(customerId);
 
         // print our orders menu
         printOrders(orders);
@@ -65,21 +61,35 @@ public class CustomerMain {
     public int promptCustomerId(){
         while (true){
             try {
-                System.out.println("Enter the customer id (numeric): ");
+                System.out.println("Enter the customer id so I can find the orders : ");
                 int id = scanner.nextInt();
                 return id;
             }catch (InputMismatchException e){
-                System.out.println("Please enter a valid number for customer id: ");
+                System.out.println("Please enter a valid customer id: ");
+            }
+        }
+    }
+
+    public String promptComment(){
+        while (true){
+            try {
+                System.out.println("Enter the new comment for the order : ");
+                String comment = scanner.nextLine();
+                return comment;
+            }catch (InputMismatchException e){
+                System.out.println("Please enter a valid comment for the order: ");
             }
         }
     }
 
     public void printOrders(List<Order> orders){
         //print
-        System.out.println("Order ID | some field | some other field | some other field | some other field ");
+        System.out.println("Order_Id | Customer_id | Order_Date | Required_Date | Shipped_Date | Status | Comments ");
         System.out.println("==========================================================");
-        for ( Order order: orders ) {           //TODO put real field headers above.  and real gets below
-            System.out.println(order.getId() + " | "  + order.getProductName() + " | " + order.getQuantityInStock());
+        for ( Order order: orders ) {
+            System.out.println( order.getId() + " | "  + order.getCustomer_id() + " | " + order.getOrderDate()
+                    + " | " + order.getRequiredDate() + " | " + order.getShippedDate() + " | "
+                    + order.getStatus()) + " | "  + order.getCustomer() );
         }
         System.out.println("\n");
     }
