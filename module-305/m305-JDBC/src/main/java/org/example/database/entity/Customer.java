@@ -3,6 +3,8 @@ package org.example.database.entity;
 import jakarta.persistence.*;   // Jakarta Persistence Query Language
 import lombok.*;
 
+import java.util.List;
+
 //lombok does the getters and setters for us; I don't have to type or generate them.
 @Setter
 @Getter
@@ -49,15 +51,20 @@ public class Customer {
     @Column(name = "country")
     private String country;
 
-    // allow hibernate to make the query: select e.* from customers c, employee e where c.sales_rep_employee_id = e.id .....
+    // allow hibernate to make the query: select e.* from customers c, employee e where c.sales_rep_employee_id = e.id
     @ToString.Exclude
     @ManyToOne(fetch = FetchType.LAZY, optional = true)
     @JoinColumn(name = "sales_rep_employee_id", nullable = true)
     private Employee employee;
 
+    // one customer has 0 to many orders. an order is for one and only one customer.
+    // select o.* from orders o , customers c where o.customer.id = c.id
+    @ToString.Exclude
+    @OneToMany(mappedBy = "customer", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    private List<Order> orders;
+
     @Column(name = "sales_rep_employee_id", insertable=false, updatable=false)  // makes it read-only   can only use a primitive if column is nullable
     private Integer sales_rep_employee_id;  // can return nulls, primitive int would have exploded with NULL
-
 
     @Column(name = "credit_limit", columnDefinition = "DECIMAL" )
     private Double credit_limit;

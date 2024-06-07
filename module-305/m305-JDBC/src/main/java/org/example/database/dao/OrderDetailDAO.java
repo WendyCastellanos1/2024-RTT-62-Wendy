@@ -6,11 +6,14 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 
+import java.util.List;
+
 public class OrderDetailDAO {
 
+    SessionFactory factory = new Configuration().configure().buildSessionFactory();
+
     public void insert(OrderDetail orderDetail) {
-        // these 2 lines of code prepare the hibernate session for use
-        SessionFactory factory = new Configuration().configure().buildSessionFactory();
+        // prepare the hibernate session for use
         Session session = factory.openSession();
 
         // begin the transaction
@@ -27,8 +30,7 @@ public class OrderDetailDAO {
     }
 
     public void update(OrderDetail orderDetail) {
-        // these 2 lines of code prepare the hibernate session for use
-        SessionFactory factory = new Configuration().configure().buildSessionFactory();
+        // prepare the hibernate session for use
         Session session = factory.openSession();
 
         // begin the transaction
@@ -45,8 +47,7 @@ public class OrderDetailDAO {
     }
 
     public void delete(OrderDetail orderDetail) {
-        // these 2 lines of code prepare the hibernate session for use
-        SessionFactory factory = new Configuration().configure().buildSessionFactory();
+        // prepare the hibernate session for use
         Session session = factory.openSession();
 
         // begin the transaction
@@ -55,7 +56,7 @@ public class OrderDetailDAO {
         // insert the employee to the database
         session.delete(orderDetail);
 
-        /// commit our transaction
+        // commit our transaction
         session.getTransaction().commit();
 
         // cleanup the session
@@ -64,7 +65,6 @@ public class OrderDetailDAO {
 
     public OrderDetail findById(Integer id) {
 
-        SessionFactory factory = new Configuration().configure().buildSessionFactory();
         Session session = factory.openSession();
 
         // JPA Query - the syntax is slightly different than regular SQL
@@ -91,42 +91,28 @@ public class OrderDetailDAO {
         }
     }
 
-    public OrderDetail findByOrderId(int orderId){
+    public List<OrderDetail> findByOrderId(int orderId){
 
-        SessionFactory factory = new Configuration().configure().buildSessionFactory();
         Session session = factory.openSession();
 
         String hql = "select od from OrderDetail  od where od.orderId = :orderId";
         TypedQuery<OrderDetail> query = session.createQuery(hql, OrderDetail.class);
         query.setParameter("orderId", orderId);
 
-        try {
-            OrderDetail result = query.getSingleResult();
-            return result;
-        }catch (Exception e){ // hibernate returns null if no record found
-            return null;
-        }finally {
-            // close the connection pool and the transaction
-            session.close();
-        }
+        List<OrderDetail> result = query.getResultList();
+        session.close();
+        return result;
     }
-    public OrderDetail findByProductId(int productId) {
+    public List<OrderDetail> findByProductId(int productId) {
 
-        SessionFactory factory = new Configuration().configure().buildSessionFactory();
         Session session = factory.openSession();
 
         String hql = "select od from OrderDetail  od where od.productId = :productId";
         TypedQuery<OrderDetail> query = session.createQuery(hql, OrderDetail.class);
         query.setParameter("productId", productId);
 
-        try {
-            OrderDetail result = query.getSingleResult();
-            return result;
-        } catch (Exception e) { // hibernate returns null if no record found
-            return null;
-        } finally {
-            // close the connection pool and the transaction
-            session.close();
-        }
+        List<OrderDetail> result = query.getResultList();
+        session.close();
+        return result;
     }
 }

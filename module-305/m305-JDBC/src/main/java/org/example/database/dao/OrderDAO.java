@@ -6,11 +6,14 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 
+import java.util.List;
+
 public class OrderDAO {
 
+    SessionFactory factory = new Configuration().configure().buildSessionFactory();
+
     public void insert(Order order) {
-        // these 2 lines of code prepare the hibernate session for use
-        SessionFactory factory = new Configuration().configure().buildSessionFactory();
+        // prepare the hibernate session for use
         Session session = factory.openSession();
 
         // begin the transaction
@@ -28,7 +31,6 @@ public class OrderDAO {
 
     public void update(Order order) {
         // these 2 lines of code prepare the hibernate session for use
-        SessionFactory factory = new Configuration().configure().buildSessionFactory();
         Session session = factory.openSession();
 
         // begin the transaction
@@ -37,7 +39,7 @@ public class OrderDAO {
         // insert the employee to the database
         session.merge(order);
 
-        /// commit our transaction
+        // commit our transaction
         session.getTransaction().commit();
 
         // cleanup the session
@@ -45,8 +47,7 @@ public class OrderDAO {
     }
 
     public void delete(Order order) {
-        // these 2 lines of code prepare the hibernate session for use
-        SessionFactory factory = new Configuration().configure().buildSessionFactory();
+        // prepare the hibernate session for use
         Session session = factory.openSession();
 
         // begin the transaction
@@ -63,8 +64,7 @@ public class OrderDAO {
     }
 
     public Order findById(Integer id) {
-
-        SessionFactory factory = new Configuration().configure().buildSessionFactory();
+        // prepare the hibernate session for use
         Session session = factory.openSession();
 
         // JPA Query - the syntax is slightly different than regular SQL
@@ -82,32 +82,26 @@ public class OrderDAO {
         try {
             Order result = query.getSingleResult();
             return result;
-        }catch (NoResultException e){ // hibernate returns null if no record found
+        } catch (NoResultException e) { // hibernate returns null if no record found
             return null;
-        }finally {
+        } finally {
             // finally we close the hibernate session so it can release the resources its holding
             //specifically the connection pool and close the transaction
             session.close();
         }
     }
 
-    public Order findByCustomerId(int customerId){
-
-        SessionFactory factory = new Configuration().configure().buildSessionFactory();
+    public List<Order> findByCustomerId(int customerId) {
+        // prepare the hibernate session for use
         Session session = factory.openSession();
 
         String hql = "select o from Order  o where o.customer_id = :customerId";
         TypedQuery<Order> query = session.createQuery(hql, Order.class);
         query.setParameter("customerId", customerId);
 
-        try {
-            Order result = query.getSingleResult();
-            return result;
-        }catch (NoResultException e){ // hibernate returns null if no record found
-            return null;
-        }finally {
-            // close the connection pool and the transaction
-            session.close();
-        }
+        List<Order> result = query.getResultList();
+        session.close();
+        return result;
     }
 }
+

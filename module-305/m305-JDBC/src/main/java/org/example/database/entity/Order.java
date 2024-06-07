@@ -1,11 +1,10 @@
 package org.example.database.entity;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
+
 import java.util.Date;
+import java.util.List;
 
 //lombok does the getters and setters for us; I don't have to type or generate them.
 @Setter
@@ -23,7 +22,13 @@ public class Order {
     @Column(name = "id")
     private Integer id;
 
-    @Column(name = "customer_id")
+    // the "many" orders can belong to "one" customer
+    @ToString.Exclude
+    @ManyToOne(fetch = FetchType.LAZY, optional = true)
+    @JoinColumn(name = "customer_id", nullable = true)
+    private Customer customer;
+
+    @Column(name = "customer_id", insertable=false, updatable=false)
     private Integer customer_id;
                                     //   optional: add     , nullable = false  so Hibernate does NOT validate that
     @Column(name = "order_date")    // @Column(name = "order_date", nullable = false)

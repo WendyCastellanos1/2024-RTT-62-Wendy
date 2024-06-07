@@ -10,28 +10,14 @@ import java.util.List;
 
 public class EmployeeDAO {
 
-    public void insert(Employee employee) {
-        // these 2 lines of code prepare the hibernate session for use
-        SessionFactory factory = new Configuration().configure().buildSessionFactory();
-        Session session = factory.openSession();
+    SessionFactory factory = new Configuration().configure().buildSessionFactory();
 
-        // begin the transaction
-        session.getTransaction().begin();
 
-        // insert the employee to the database
-        session.save(employee);
-
-        /// commit our transaction
-        session.getTransaction().commit();
-
-        // cleanup the session
-        session.close();
-    }
 
     //2010 start of this design pattern
 
     public Employee findById(Integer id) {
-        SessionFactory factory = new Configuration().configure().buildSessionFactory();
+
         Session session = factory.openSession();
 
         // JPA Query - the syntax is slightly different than regular SQL
@@ -60,7 +46,7 @@ public class EmployeeDAO {
     }
 
     public List<Employee> findByFirstName(String firstName) {
-       SessionFactory factory = new Configuration().configure().buildSessionFactory();
+
        Session session = factory.openSession();
 
        // JPA Query - the syntax is slightly different than regular SQL
@@ -84,8 +70,25 @@ public class EmployeeDAO {
         return result;
     }
 
+    public void insert(Employee employee) {
+        // prepare the hibernate session for use
+        Session session = factory.openSession();
+
+        // begin the transaction
+        session.getTransaction().begin();
+
+        // insert the employee to the database
+        session.save(employee);
+
+        /// commit our transaction
+        session.getTransaction().commit();
+
+        // cleanup the session
+        session.close();
+    }
+
     public void update(Employee employee) {
-        SessionFactory factory = new Configuration().configure().buildSessionFactory();
+
         Session session = factory.openSession();
         session.getTransaction().begin();
         session.merge(employee);            // the one line that changes
@@ -94,7 +97,7 @@ public class EmployeeDAO {
     }
 
     public void delete(Employee employee) {
-        SessionFactory factory = new Configuration().configure().buildSessionFactory();
+
         Session session = factory.openSession();
         session.getTransaction().begin();
         session.delete(employee);               // the one line that changes

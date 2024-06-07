@@ -91,7 +91,7 @@ public class CustomerDAO {
         }
     }
 
-    public Customer findByCustomerName(String customerName){
+    public List<Customer>  findByCustomerName(String customerName){
 
         Session session = factory.openSession();
 
@@ -101,9 +101,10 @@ public class CustomerDAO {
 
         List<Customer> result = query.getResultList();
         session.close();
+        return result;
     }
 
-    public Customer findByContactFirstName(String contact_firstName){
+    public List<Customer> findByContactFirstName(String contact_firstName){
 
         Session session = factory.openSession();
 
@@ -113,5 +114,6 @@ public class CustomerDAO {
 
         List<Customer> result = query.getResultList();
         session.close();
+        return result;
     }
 }

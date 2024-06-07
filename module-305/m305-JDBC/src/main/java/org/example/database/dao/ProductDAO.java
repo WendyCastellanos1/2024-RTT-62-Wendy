@@ -14,7 +14,7 @@ public class ProductDAO {
         SessionFactory factory = new Configuration().configure().buildSessionFactory();
 
         public void insert(Product product) {
-            // these 2 lines of code prepare the hibernate session for use
+            // prepare the hibernate session for use
             Session session = factory.openSession();
 
             // begin the transaction
@@ -50,7 +50,7 @@ public class ProductDAO {
 
         public void delete(Product product) {
 
-            // these 2 lines of code prepare the hibernate session for use
+            // prepare the hibernate session for use
             Session session = factory.openSession();
 
             // begin the transaction
@@ -121,13 +121,14 @@ public class ProductDAO {
         TypedQuery<Product> query = session.createQuery(hql, Product.class);
         query.setParameter("productName", productName);
 
+        // same product could show up multiple times in the results
         List<Product> products = query.getResultList(); // don't need try, catch, finally block if its a list
 
         session.close();
         return products;
     }
 
-        public Product findByCode(String productCode){
+        public List<Product> findByCode(String productCode){
 
             Session session = factory.openSession();
 
@@ -135,15 +136,9 @@ public class ProductDAO {
             TypedQuery<Product> query = session.createQuery(hql, Product.class);
             query.setParameter("productCode", productCode);
 
-            // TODO change to a list bc db does not enforce uniqueness on this
-            try {
-                Product result = query.getSingleResult();
-                return result;
-            }catch (NoResultException e){ // hibernate returns null if no record found
-                return null;
-            }finally {
-                // close the connection pool and the transaction
-                session.close();
-            }
+            List<Product> products = query.getResultList();
+
+            session.close();
+            return products;
         }
     }
