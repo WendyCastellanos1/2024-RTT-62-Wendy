@@ -1,8 +1,6 @@
-ackage org.example;
+package org.example;
 
-import org.example.database.dao.CustomerDAO;
 import org.example.database.dao.OrderDAO;
-import org.example.database.entity.Customer;
 import org.example.database.entity.Order;
 
 import java.util.InputMismatchException;
@@ -10,7 +8,7 @@ import java.util.List;
 import java.util.Scanner;
 
 public class CustomerMain {
-    // want to be able to search for a customer
+    //
     //    1) be able to prompt user for a customer id (number)
     //    2)     use  findByCustomerId to get the orders for that customer
     //    2.2) print the orders
@@ -19,7 +17,6 @@ public class CustomerMain {
     //    4)     update the comment on the order to be whatever you want
     //    5) save the order to the database
 
-    private CustomerDAO customerDAO = new CustomerDAO();
     private OrderDAO orderDAO = new OrderDAO();
     private Scanner scanner = new Scanner(System.in);
 
@@ -46,7 +43,7 @@ public class CustomerMain {
             }
         }
 
-        String comment = promptComment();  //TODO write this function
+        String comment = promptComment();
         System.out.println(comment);
 
         //save the order to the database
@@ -89,7 +86,7 @@ public class CustomerMain {
         for ( Order order: orders ) {
             System.out.println( order.getId() + " | "  + order.getCustomer_id() + " | " + order.getOrderDate()
                     + " | " + order.getRequiredDate() + " | " + order.getShippedDate() + " | "
-                    + order.getStatus()) + " | "  + order.getCustomer() );
+                    + order.getStatus() + " | "  + order.getCustomer() );
         }
         System.out.println("\n");
     }
@@ -108,7 +105,7 @@ public class CustomerMain {
     }
 
     public static void main(String[] args) {
-        org.example.ProductMain pm = new org.example.ProductMain();
-        pm.run();
+        CustomerMain cm = new CustomerMain();
+        cm.run();
     }
 }
