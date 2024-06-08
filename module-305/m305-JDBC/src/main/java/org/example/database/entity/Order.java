@@ -28,6 +28,10 @@ public class Order {
     @JoinColumn(name = "customer_id", nullable = true)
     private Customer customer;
 
+    @ToString.Exclude
+    @OneToMany(mappedBy = "order", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    private List<OrderDetail> orderDetails;
+
     @Column(name = "customer_id", insertable=false, updatable=false)
     private Integer customer_id;
                                     //   optional: add     , nullable = false  so Hibernate does NOT validate that

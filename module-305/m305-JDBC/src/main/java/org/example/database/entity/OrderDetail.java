@@ -9,7 +9,11 @@ import lombok.Setter;
 @Setter
 @Getter
 @Entity //tells there's a db
+@NoArgsConstructor
+@AllArgsConstructor
 @Table(name = "orderdetails")
+
+
 
  public class OrderDetail {
 
@@ -21,15 +25,26 @@ import lombok.Setter;
    @Column(name = "order_id")
    private int orderId;
 
+     @ToString.Exclude
+     @ManyToOne(fetch = FetchType.LAZY, optional = false)
+     @JoinColumn(name = "order_id", nullable = false)
+     private Order order;
+
+    @ToString.Exclude
+    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @JoinColumn(name = "product_id", nullable = false)
+    private Product product;
+
    @Column(name = "product_id")
    private Integer productId;
 
-   @Column(name = "quantity_ordered")
-   private Integer quantityOrdered;
+   @Column(name = "quantity_ordered") //could put default to 0
+   private Integer quantityOrdered = 0;
 
    @Column(name = "price_each", columnDefinition = "DECIMAL(10,2)")
    private Double priceEach;
 
    @Column(name = "order_line_number")
-   private short orderLineNumber;
+   private Integer orderLineNumber;
+
 }

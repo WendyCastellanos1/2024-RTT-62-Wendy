@@ -1,9 +1,7 @@
 package org.example.database.entity;
 
-
 import jakarta.persistence.*;
 import lombok.*;
-
 import java.util.List;
 
 //lombok does the getters and setters for us; I don't have to type or generate them.

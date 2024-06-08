@@ -115,4 +115,22 @@ public class OrderDetailDAO {
         session.close();
         return result;
     }
+    public OrderDetail findByOrderIdAndProductId(Integer orderId, Integer productId) {
+        Session session = factory.openSession();
+
+        String hql = "SELECT od FROM OrderDetail od where od.product.id = :productId and od.order.id = :orderId";
+
+        TypedQuery<OrderDetail> query = session.createQuery(hql,OrderDetail.class);
+        query.setParameter("orderId", orderId);
+        query.setParameter("productId", productId);
+
+        try {
+            OrderDetail result = query.getSingleResult();
+            return result;
+        } catch ( Exception e ) {
+            return null;
+        } finally {
+            session.close();
+        }
+    }
 }

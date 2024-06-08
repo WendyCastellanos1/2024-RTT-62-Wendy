@@ -1,22 +1,29 @@
 package org.example.database.entity;
 
+import lombok.*;
+import org.example.database.entity.OrderDetail;
 import jakarta.persistence.*;
-import lombok.Getter;
-import lombok.Setter;
+
+import java.util.List;
 
 //lombok does the getters and setters for us; I don't have to type or generate them.
 @Setter
 @Getter
 @Entity //tells there's a db
+@NoArgsConstructor
+@AllArgsConstructor
 @Table(name = "products")
-
 
 public class Product {
 
     @Id //this identifies the PK
-    @GeneratedValue(strategy = GenerationType.IDENTITY) // this is indicating to Hiberate that it's doing an auto-incrment
+    @GeneratedValue(strategy = GenerationType.IDENTITY) // this is indicating to Hibernate that it's doing an auto-increment
     @Column(name = "id")
     private Integer id;
+
+    @ToString.Exclude
+    @OneToMany(mappedBy = "product", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    private List<OrderDetail> orderdetails;
 
     @Column(name = "product_code")
     private String productCode;

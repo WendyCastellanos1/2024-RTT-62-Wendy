@@ -24,6 +24,7 @@ public class CustomerMain {
 
         // prompt the user to enter a  customer id
         int  customerId = promptCustomerId();
+
         //fetch the list of orders
         List<Order> orders = orderDAO.findByCustomerId(customerId);
 
@@ -82,21 +83,23 @@ public class CustomerMain {
     public void printOrders(List<Order> orders){
         //print
         System.out.println("Order_Id | Customer_id | Order_Date | Required_Date | Shipped_Date | Status | Comments ");
-        System.out.println("==========================================================");
+        System.out.println("=========================================================================================");
         for ( Order order: orders ) {
             System.out.println( order.getId() + " | "  + order.getCustomer_id() + " | " + order.getOrderDate()
                     + " | " + order.getRequiredDate() + " | " + order.getShippedDate() + " | "
-                    + order.getStatus() + " | "  + order.getCustomer() );
+                    + order.getStatus() + " | ");  // + order.getCustomer() );
         }
-        System.out.println("\n");
+
     }
+
     public int promptForOrderId() {
         // validate for non-numeric or invalid numeric id, like not in db
         while ( true ) {
             try {
-                System.out.print("/n Enter the order id to modify: ");
-                int id = scanner.nextInt();
-                return id;
+                System.out.println("Enter the order id to modify: ");
+                // int id = Integer.parseInt(scanner.nextLine());
+                 int id = scanner.nextInt();
+                scanner.nextLine();  // try
             } catch (Exception e) {
                 System.out.println("Please enter a valid number for order id: ");
                 scanner.nextLine();  //  SBA: to consume the  NEWLINE character SBA!!!!!!!!!!!!!!!!!!! .nextInt doesn't consume it!

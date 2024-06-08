@@ -2,7 +2,6 @@ package org.example.database.entity;
 
 import jakarta.persistence.*;   // Jakarta Persistence Query Language
 import lombok.*;
-
 import java.util.List;
 
 //lombok does the getters and setters for us; I don't have to type or generate them.
