@@ -1,5 +1,7 @@
 package org.example.Band_Craft.entity;
 
+// this class represents a junction table between members and event_types to map member interest to gigs they would like to be notified for
+
 import jakarta.persistence.*;   // Jakarta Persistence Query Language
 import lombok.*;
 import java.util.List;

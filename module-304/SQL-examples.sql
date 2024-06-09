@@ -12,8 +12,8 @@ select count(*) from offers;  -- 20
 
 -- note: change to left join if the inner join is not the right  interpretation of the instructions
 -- show lots WITH offers
--- using the round fcn only
-select l.name as 'name', round(min(o.amount), 2) as min_offer, round(avg(o.amount), 2) as avg_offer, round(max(o.amount), 2) as max_offer, count(o.amount) as offers
+-- using the round fcn only, name instead of 'name'
+select l.name as name, round(min(o.amount), 2) as min_offer, round(avg(o.amount), 2) as avg_offer, round(max(o.amount), 2) as max_offer, count(o.amount) as offers
 from lots l join offers o on l.id = o.lot_id
 group by o.lot_id
 order by offers DESC;
