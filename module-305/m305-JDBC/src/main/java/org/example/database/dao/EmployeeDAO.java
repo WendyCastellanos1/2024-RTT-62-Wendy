@@ -12,26 +12,23 @@ public class EmployeeDAO {
 
     SessionFactory factory = new Configuration().configure().buildSessionFactory();
 
-
-
     //2010 start of this design pattern
 
     public Employee findById(Integer id) {
 
         Session session = factory.openSession();
 
-        // JPA Query - the syntax is slightly different than regular SQL
-        //this is where code goes to execute the query
+        // JPA Query
         String hql = "select e from Employee e where e.id = :id";
 
-        // this typed query is how hibernate knows what kind of object to fill up with the query results
+        // how hibernate knows what kind of object to fill up with the query results
         TypedQuery<Employee> query = session.createQuery(hql, Employee.class);
 
         // this is similar to the prepared statement. we are going to set the value in the query:id
         // to the value passed into the function
         query.setParameter("id", id);
 
-        // w// turn on and off as needed for debug comfort
+        // w// turn on and off as needed for debug preference
         // when we know we are getting 0 or more records we use getResultList
         try {
             Employee result = query.getSingleResult();
@@ -78,7 +75,7 @@ public class EmployeeDAO {
         session.getTransaction().begin();
 
         // insert the employee to the database
-        session.save(employee);
+        session.save(employee);                  // save
 
         /// commit our transaction
         session.getTransaction().commit();
@@ -91,7 +88,7 @@ public class EmployeeDAO {
 
         Session session = factory.openSession();
         session.getTransaction().begin();
-        session.merge(employee);            // the one line that changes
+        session.merge(employee);            // merge
         session.getTransaction().commit();
         session.close();
     }
@@ -100,10 +97,11 @@ public class EmployeeDAO {
 
         Session session = factory.openSession();
         session.getTransaction().begin();
-        session.delete(employee);               // the one line that changes
+        session.delete(employee);               // delete
         session.getTransaction().commit();
         session.close();
     }
+
 }
 
 

@@ -67,4 +67,9 @@ public class Customer {
 
     @Column(name = "credit_limit", columnDefinition = "DECIMAL" )
     private Double credit_limit;
+
+    //TODO write this,
+    public String getCustomerName() {
+         return null;
+    }
 }

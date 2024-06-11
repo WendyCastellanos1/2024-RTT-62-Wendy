@@ -2,16 +2,10 @@ package org.example;
 
 import org.example.database.entity.Customer;
 import org.example.database.dao.CustomerDAO;
-
 import org.example.database.entity.Product;
 import org.example.database.dao.ProductDAO;
-
-import org.example.database.dao.OrderDAO;
-import org.example.database.dao.OrderDAO;
-
 import org.example.database.entity.Order;
 import org.example.database.dao.OrderDAO;
-
 import org.example.database.entity.OrderDetail;
 import org.example.database.dao.OrderDetailDAO;
 
@@ -34,7 +28,7 @@ public class AddProductToOrder {
 
         //TODO add the comments later from ERic's
         Customer customer = order.getCustomer();
-        System.out.println("This order is for customer with an if = " + customer.getId() + " and name = " + customer.getCustomerName());
+        //System.out.println("This order is for customer with an if = " + customer.getId() + " and name = " + customer.getCustomerName());
 
         //lets print out the products
         for (OrderDetail od : order.getOrderDetails() ) {
