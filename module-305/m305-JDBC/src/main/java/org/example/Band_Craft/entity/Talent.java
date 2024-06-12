@@ -52,7 +52,9 @@ public class Talent {
     @Column(name = "date_updated")   // defaults to NULL in db if not sent, e.g. not an update
     private Date dateUpdated;
 
-   // TODO
+   // TODO FK to user_id or member_id
     // last_updated_id
+   @Column(name = "last_updated_id")   // defaults to NULL in db if not sent, e.g. not an update
+   private Date lastUpdatedId;
 
 }

@@ -13,7 +13,7 @@ import java.util.List;
 @ToString
 @AllArgsConstructor
 @NoArgsConstructor
-@Table(name = "members")
+@Table(name = "member_event_types")
 
 public class MemberEventType {
 

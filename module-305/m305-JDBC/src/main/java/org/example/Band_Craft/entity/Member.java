@@ -109,9 +109,12 @@ public class Member {
     @Column(name = "date_updated")   // defaults to NULL in db if not sent, e.g. not an update
     private Date dateUpdated;
 
-    // TODO
+    // TODO FK
     // last_updated_id
-    // FK on last_updated_id TODO: Does this self-join work?
+    @Column(name = "last_updated_id")
+    private int lastUpdatedId;
+
+    // FK on last_updated_id TODO: Does this self-join work?  OR are we linking to user_id?
     // select m.id from members m, members mm where m.id = mm.last_updated_id;  // defaults to -1
 //    @ManyToOne(cascade={CascadeType.ALL})
 //    @JoinColumn(name="last_updated_id")

@@ -5,7 +5,6 @@ package org.example.Band_Craft.entity;
 import jakarta.persistence.*;   // Jakarta Persistence Query Language
 import lombok.*;
 import org.example.Band_Craft.Enums;
-
 import java.util.List;
 
 //lombok does the getters and setters
