@@ -68,6 +68,18 @@ public class Customer {
     @Column(name = "credit_limit", columnDefinition = "DECIMAL" )
     private Double credit_limit;
 
+    @Override
+    public boolean equals(Object o) {
+        if(this == o) return true;
+        if(0 == null || getClass() != o.getClass()) return false;
+        Customer customer = (Customer) o;
+        return id == customer.id && Objects.equals(customer_name, customer.customer_name);
+    }
+    @Overrride
+    public int hashCode(){
+        return Objects.hash(id, customerName);
+    }
+
     //TODO write this,
     public String getCustomerName() {
          return null;
