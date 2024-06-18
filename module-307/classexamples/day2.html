@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<link rel="stylesheet" href="/css/global.css">
+
+<style>
+    /* this is CSS Comment */
+    /* this is CSS for all p tags on this page
+        when there is no . then it is for a HTML tag itself */
+    p {
+        background-color: aquamarine;
+        font-size: 40px;
+    }
+    a {
+        color: purple;
+        text-decoration: underline;
+    }
+
+    /* This begins with a . so it becomes a CSS class */
+    .css-class {
+        background-color:bisque; 
+        padding:15px;
+        margin:15px;
+        border:5px solid black;
+    }
+    
+</style>
+
+<body style="background-color: lightgrey;">
+    <h1>Title Tag</h1>
+
+    <div class = "css-class", style="background-color: green;">Some longer span text with a different color</div>
+
+    <!-- the style tag is adding a new CSS style that is not in the CSS class -->
+    <div class = "css-class", style="width:50%">Some longer span text with a different color</div>
+
+    <p>This is some text in a paragraph tag</p>
+    <p>This is different text</p>
+    <a href="/index.html">This is an index link</a>
+</body>
+
+</html>
