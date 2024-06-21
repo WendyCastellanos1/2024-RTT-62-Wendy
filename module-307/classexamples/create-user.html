@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create User</title>
+
+    <style>
+        h1 {
+            color:brown;
+           
+        }
+        label { 
+            color: purple;
+            padding: 8px;
+        }
+      
+    </style>
+    
+
+</head>
+
+
+<body>
+
+    <div><h1>Band Craft</h1>
+    <br>
+    <p >New to the band? Let's create your user account.</p>
+
+    <br><br> 
+
+    <form>
+        <div>
+            <label for="username" class="label_form">Preferred username:</label>
+            <input type="text" id="username"
+             name="username" 
+             action="write_the_url_for_server_side_script_to_send_to_here"
+             required>  Required: 8 or more characters</form>
+        </div>
+
+        <br><br><br>
+
+        <div>
+            <label for="password1" class="label_form">Enter your password:</label>
+            <input type="text" id="password1" 
+            name="password1" 
+            action="write_the_url_for_server_side_script_to_send_to_here">
+        </div>
+        <br><br>
+        <div>
+            <label for="password2" class="label_form">Re-enter your password:</label>
+            <input type="text" id="password2" 
+            name="password2" 
+            action="write_the_url_for_server_side_script_to_send_to_here">
+        </div>
+        <br><br><br>
+        <button type="button" id="submitButton">Submit</button>
+    
+    </form>
+
+    <script>
+        document.addEventListener(
+              'DOMContentLoaded', () => {
+            document.getElementById('submitButton').
+                addEventListener('click', function () {
+                    alert('Form submitted!');
+                });
+        });
+    </script>
+
+</body>
+
+</html>
