@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="resources\css\index.css">
+        <title>Login</title>
+
+        <div class="header">
+            <img src = "images\band_craft_small.png" alt = "Band Craft Logo" style ="float: left"/>
+              <a href="#contact">Contact</a>
+              <a href="#about">About</a>
+        </div>
+        
+    </head>
+
+
+    <body>
+
+        
+
+        <!-- <div><h1>Band Craft</h1></div><br>  --> 
+
+        <p><h3> Login</h3></p><br>
+
+        <form>
+            <div>
+                <label for="username" class="label_form">Enter your username:</label>
+                <input type="text" id="username" name="username" action="write_the_url_for_server_side_script_to_send_to_here" required>  Hint: Enter your email.</form>
+            </div>
+
+            <br><br>
+
+            <div>
+                <label for="password" class="label_form">Enter your password:</label>
+                <input type="text" id="password" name="password" action="write_the_url_for_server_side_script_to_send_to_here"></form>
+            </div>
+            
+            <br><br>
+            <button type="button" id="submitButton">Next</button>
+        
+        </form>
+
+        <script>
+            document.addEventListener(
+                'DOMContentLoaded', () => {
+                document.getElementById('submitButton').
+                    addEventListener('click', function () {
+                        alert('Form submitted!');
+                    });
+            });
+        </script>
+
+    </body>
+
+</html>

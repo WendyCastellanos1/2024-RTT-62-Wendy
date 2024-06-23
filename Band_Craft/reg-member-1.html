@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="resources\css\index.css">
+    <title>Registration - Member General Information</title>
+
+    <div class="header">
+        <img src = "images\band_craft_small.png" alt = "Band Craft Logo" style ="float: left"/>
+          <a href="#contact">Contact</a>
+          <a href="#about">About</a>
+    </div>
+
+</head>
+
+
+
+<body>
+    
+
+        <br><h2>Registration: Part 1</h2><br>
+    
+        <form action="write_the_url_for_server_side_script_to_send_to_here" required>
+
+            <div>
+                <p><h3>What should we call you?</h3></p>
+                <label for="first_name" class="label_form">First Name:</label>
+                <input type="text" id="first_name"
+                 name="first_name">
+            </div>
+    
+            <br>
+
+            <div>
+                <label for="last_name" class="label_form">Last Name:</label>
+                <input type="text" id="last_name"
+                 name="last_name" >
+            </div>
+
+            <br>
+
+            <div>
+                <label for="nickname" class="label_form">Nickname:</label>
+                <input type="text" id="nickname"
+                 name="nickname" >
+            </div>
+
+            <br>
+
+            <div>
+                <p><h3>Band announcements and resources are sent by email, and sometimes by text</h3></p>
+                <label for="email" class="label_form">Primary Email:</label>
+
+                <input type="text" id="email" name="email">
+            </div>
+
+            <br>
+
+            <div>
+                <label for="email_alt" class="label_form">Alternative Email:</label>
+
+                <input type="text" id="email_alt" name="email_alt">
+            </div>
+
+      
+            <br>
+
+            <div>
+                <label for="phone_cell" class="label_form">Cell Phone:</label>
+
+                <input type="text" id="phone_cell" name="phone_cell">
+            </div>
+
+            <br>
+
+            <div>
+                <label for="phone_alt" class="label_form">Alternative Phone:</label>
+
+                <input type="text" id="phone_alt" name="phone_alt">
+            </div>
+
+            <br>
+
+            
+
+            <div>
+                <p><h3>Some events benefit from generational knowledge, culture, and awareness.</h3></p>
+
+                <label for="generation" class="label_form">Birth Generation (optional):</label>
+
+                <select name="generation" id="generation">
+                    <option value="ns">Select one...</option>
+                    <option value="a">Gen Alpha</option>
+                    <option value="z">Gen Z</option>
+                    <option value="m">Milennial</option>
+                    <option value="x">Gen X</option>
+                    <option value="b">Baby Boomer</option>
+                    <option value="s">Silent Generation</option>
+                </select>
+            </div>
+
+            <br>
+
+            <div>
+                <p><i>Some events may be gender-focused, or gender-restricted.</i></p>
+
+                <label for="gender" class="label_form">Gender:</label>
+            
+                <select name="gender" id="gender">
+                    <option value="ns">Select one...</option>
+                    <option value="f">Female</option>>
+                    <option value="m">Male</option>
+                    <option value="o">Other</option>
+                </select>
+            </div>
+
+             <br>
+           
+            <div>
+                <label for="gender_comment" class="label_form">Gender Comment:</label>
+
+                <input type="text" id="gender_comment" name="gender_comment"> 
+            </div>
+
+            <br>
+
+            <br>
+
+            <button type="button" id="submitButton">Next</button>
+        
+        </form>
+    
+        <script>
+            document.addEventListener(
+                  'DOMContentLoaded', () => {
+                document.getElementById('submitButton').
+                    addEventListener('click', function () {
+                        alert('Form submitted!');
+                    });
+            });
+        </script>
+     </div>
+    
+</body>
+
+
+</html>
