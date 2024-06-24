@@ -97,7 +97,7 @@ public class EmployeeDAO {
 
         Session session = factory.openSession();
         session.getTransaction().begin();
-        session.delete(employee);               // delete
+        session.delete(employee);             // delete
         session.getTransaction().commit();
         session.close();
     }

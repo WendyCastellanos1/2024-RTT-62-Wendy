@@ -5,10 +5,7 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="resources\css\index.css">
-        <title>Registration: More Information</title>
-
-        
-
+        <title>Profile: Part 2</title>
     </head>
 
 
@@ -18,19 +15,18 @@
             <a class="active" href="#home"> <img class="header" src="images\band_craft_small.png" alt="Logo" class="logo"/>  </a>
     
             <div class="topnav">
-                <a href="#contact">Contact</a>
-                <a href="#about">About</a>
+               
             </div>
         </div>
     
-        <br><div><h2>Registration: Part 2</h2></div><br>
+        <div><h2>Profile: Part 2</h2></div>
 
         <form>    
 
-            <div>
-                <p><h3>Generational knowledge, culture, and awareness is valued.</h3></p>
+            <div class = "inputs-container">
+                <p><h3>Generational saavy is valued.</h3></p>
 
-                <label for="generation" class="label_form">Birth Generation:</label><br><br>
+                <label for="generation" class="label_form">Birth Generation:</label>
 
                 <select name="generation" id="generation">
                     <option value="ns">Select one...</option>
@@ -42,11 +38,9 @@
                     <option value="s">Silent Generation</option>
                 </select>
             </div>
-
             <br>
-
             <div>
-                <p><h3>Some events or locations could be gender-restricted.</h3></p>
+                <p><h3>Some locations could be gender-restricted.</h3></p>
 
                 <label for="gender" class="label_form">Gender:</label>
             
@@ -58,7 +52,7 @@
                 </select>
             </div>
 
-                <br>
+            <br>
             
             <div>
                 <label for="gender_comment" class="label_form">Gender Comment:</label>
@@ -72,12 +66,10 @@
                 <input type="checkbox" id="spanish" name="spanish" value="spanish">
                 <label for="spanish"> Spanish</label>
                 <input type="checkbox" id="portuguese" name="portuguese" value="portuguese">
-                <label for="portuguese"> Portuguese</label><br><br>
+                <label for="portuguese"> Portuguese</label>
                 <input type="checkbox" id="other_language" name="other_language" value="other_language">
                 <label for="other_language"> Other Language(s)</label>
             </div>
-
-            <br>
 
             <div>
                 <label for="speaks_other_comment" class="label_form">Comment (optional):</label>
@@ -92,21 +84,28 @@
             <div>
                 <label for="bio" class="label_form">Tell us about yourself (bio): </label><br>
 
-                <input type = "textarea" maxlength = "1000" rows = "4" cols = "40" name = "bio">   </textarea><br>
-
+                <input type = "textarea" maxlength = "1000" rows = "4" cols = "40"  name = "bio">   </textarea><br>
             </div>
 
             <br>
             
             <div>
-                <label for="profile_image_url" class="label_form">URL to one of a photo or public-facing social media account</label><br>
+                <label for="photo_upload" class="label_form">Upload a photo for your profile</label><br>
+
+                <input type="file" name="file" accept="image/*">
+            </div>
+
+            <br>
+
+            <div>
+                <label for="profile_image_url" class="label_form"></label>Link to your public-facing social media account</label><br>
 
                 <input type="text" id="profile_image_url" name="profile_image_url">
             </div>
 
             <br><br>
 
-            <button type="button" id="submitButton">Next</button>
+            <div><button type="button" id="submitButton" target = "#reg-member-2.html"> Next </button></div>
         
         </form>
 
@@ -122,4 +121,5 @@
         
     </body>
 
+   
 </html>

@@ -8,38 +8,34 @@
 
         <div class="header">
             <img src = "images\band_craft_small.png" alt = "Band Craft Logo" style ="float: left"/>
-              <a href="#contact">Contact</a>
-              <a href="#about">About</a>
+              
         </div>
-        
+
     </head>
 
 
     <body>
-
-        
-
-        <!-- <div><h1>Band Craft</h1></div><br>  --> 
-
-        <p><h3> Login</h3></p><br>
-
-        <form>
-            <div>
-                <label for="username" class="label_form">Enter your username:</label>
-                <input type="text" id="username" name="username" action="write_the_url_for_server_side_script_to_send_to_here" required>  Hint: Enter your email.</form>
-            </div>
-
-            <br><br>
-
-            <div>
-                <label for="password" class="label_form">Enter your password:</label>
-                <input type="text" id="password" name="password" action="write_the_url_for_server_side_script_to_send_to_here"></form>
-            </div>
-            
-            <br><br>
-            <button type="button" id="submitButton">Next</button>
-        
-        </form>
+        <div>
+            <form>
+                <table>
+                    <th><h2>Login</h2></th>
+                    <tr>
+                        <td><label for="username" class="label_form">Email:</label></td>
+                        <td><input type="text" id="username" name="username" 
+                            action="write_the_url_for_server_side_script_to_send_to_here" required></td>      
+                    </tr>
+                    <tr>
+                        <td><label for="password" class="label_form">Password:</label></td>
+                        <td><input type="text" id="password" name="password" 
+                            action="write_the_url_for_server_side_script_to_send_to_here"></td>
+                    </tr>   
+                    <tr>
+                        <td></td>
+                        <td><button type="button" id="submitButton">Next</button></td>
+                    </tr>     
+                </table>
+            </form>
+         </div>
 
         <script>
             document.addEventListener(
@@ -53,4 +49,8 @@
 
     </body>
 
+    <footer>
+        <br><p>Copyright 2024. 
+        <a href="mailto:wendy.castellanos1@gmail.com">Author: Wendy Castellanos</a></p>
+    </footer>
 </html>

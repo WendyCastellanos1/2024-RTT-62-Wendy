@@ -9,46 +9,40 @@
 
         <div class="header">
             <img src = "images\band_craft_small.png" alt = "Band Craft Logo" style ="float: left"/>
-              <a href="#contact">Contact</a>
-              <a href="#about">About</a>
+             
         </div>
-        
+
     </head>
 
 
     <body>
-
-        <br><p><h3> New to the band? Create your user account.</h3></p>
-
-        <br><br> 
-
-        <form>
-
-            <div>
-                <label for="username" class="label_form">Preferred username:</label>
-                <input type="text" id="username" name="username">  Required: 8 or more characters</form>
-            </div>
-
-            <br><br><br>
-
-            <div>
-                <label for="password1" class="label_form">Enter your password:</label>
-                <input type="text" id="password1" name="password1">
-            </div>
-
-            <br><br>
-
-            <div>
-                <label for="password2" class="label_form">Re-enter your password:</label>
-                <input type="text" id="password2" name="password2">
-            </div>
-
-            <br><br><br>
-            
-            <button type="button" id="submitButton">Next</button>
-        
-        </form>
-
+        <div>
+            <form>
+                <table>
+                    <th><h2>New User</h2></th>
+                    <tr>
+                        <td><label for="username" class="label_form">Primary Email:</label></td>
+                        <td><input type="text" id="username" name="username" 
+                            action="write_the_url_for_server_side_script_to_send_to_here" required></td>      
+                    </tr>
+                    <tr>
+                        <td><label for="password1" class="label_form">Password:</label></td>
+                        <td><input type="text" id="password1" name="password1" 
+                            action="write_the_url_for_server_side_script_to_send_to_here"></td>
+                    </tr>   
+                    <tr>
+                        <td><label for="password2" class="label_form">Re-enter password:</label></td>
+                        <td><input type="text" id="password2" name="password2" 
+                            action="write_the_url_for_server_side_script_to_send_to_here"></td>
+                    </tr>   
+                    <tr>
+                        <td></td>
+                        <td><button type="button" id="submitButton">Next</button></td>
+                    </tr>     
+                </table>
+            </form>
+        </div>
+           
         <script>
             document.addEventListener(
                 'DOMContentLoaded', () => {
@@ -61,4 +55,8 @@
 
     </body>
 
+    <footer>
+        <br><p>Copyright 2024. 
+        <a href="mailto:wendy.castellanos1@gmail.com">Author: Wendy Castellanos</a></p>
+    </footer>
 </html>

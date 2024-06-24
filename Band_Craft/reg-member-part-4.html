@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="resources\css\index.css">
+        <title>Profile: Part 4</title>
+    </head>
+
+
+    <body>
+        <div class="header">
+            <a class="active" href="#home"> <img class="header" src="images\band_craft_small.png" alt="Logo" class="logo"/>  </a>
+    
+            <div class="topnav">
+               
+            </div>
+        </div>
+
+
+        <div><h2>Profile: Part 4</h2></div>
+        <div>
+            <form>    
+                <div class = "inputs-container">
+                   
+                    <div><p>TODO:fetch newly mapped talent, append code below in stream for each talent</p>
+
+                        <p><h3>Talent: Electric Guitar </h3></p>
+                            <input type="checkbox" id="can_improv" name="can_improv" value="can_improv">
+                            <label for="can_improv">I can improvise (solo) / play solos</label><br>
+          
+                            <input type="checkbox" id="bass_guitar" name="bass_guitar" value="bass_guitar">
+                            <label for="bass_guitar">I can read chord charts (if applicable)</label><br>
+
+                            <input type="checkbox" id="drum_set" name="drum_set" value="drum_set">
+                            <label for="drum_set">I can sight-read (classical notation) for this instrument</label><br>
+
+                            <input type="checkbox" id="electric_guitar" name="electric_guitar" value="electric_guitar">
+                            <label for="electric_guitar">I have my own equipment</label><br>
+
+                            <input type="checkbox" id="acoustic_guitar" name="acoustic_guitar" value="acoustic_guitar">
+                            <label for="acoustic_guitar">I need a loaner instrument</label><br>
+
+                            <input type="checkbox" id="has_processor" name="has_processor" value="has_processor">
+                            <label for="has_processor">I use a processor/effects pedal(s).</label><br>
+
+                            <label for="processor_comments"><i>Describe:</i></label><br>
+                            <input type="text" id = "processor_comments" name="processor_comments" value="">
+
+                            <table>
+                                <th><h4> Key Preferences</h4></th>
+                                <tr>
+                                    <td><label for="key1_preferred">Favorite Key #1: </label></td>
+                                    <td><select id="key1_preferred" name="key1_preferred">
+                                            <option value="A">A</option>
+                                            <option value="B">B</option>
+                                            <option value="C">C</option>
+                                            <option value="D">D</option>
+                                            <option value="E">E</option>
+                                            <option value="F">F</option>
+                                            <option value="G">G</option>
+                                        </select>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><label for="key2_preferred">Favorite Key #2: </label></td>
+                                    <td><select id="key2_preferred" name="key2_preferred">
+                                            <option value="A">A</option>
+                                            <option value="B">B</option>
+                                            <option value="C">C</option>
+                                            <option value="D">D</option>
+                                            <option value="E">E</option>
+                                            <option value="F">F</option>
+                                            <option value="G">G</option>
+                                        </select>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td><label for="key1_harmony">Harmony Key #1: </label></td>
+                                    <td><select id="key1_harmony" name="key1_harmony">
+                                        <option value="A">A</option>
+                                        <option value="B">B</option>
+                                        <option value="C">C</option>
+                                        <option value="D">D</option>
+                                        <option value="E">E</option>
+                                        <option value="F">F</option>
+                                        <option value="G">G</option>
+                                        </select>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td><label for="key2_harmony">Harmony Key #2:</label></td>
+                                    <td>
+                                        <select id="key2_harmony" name="key2_harmony">
+                                            <option value="A">A</option>
+                                            <option value="B">B</option>
+                                            <option value="C">C</option>
+                                            <option value="D">D</option>
+                                            <option value="E">E</option>
+                                            <option value="F">F</option>
+                                            <option value="G">G</option>
+                                        </select>
+                                    </td>
+                                </tr>
+                            
+                                <tr>
+                                    <td><label for="key1_avoid">Avoid Key #1: </label></td>
+                                    <td><select id="key1_avoid" name="key1_avoid">
+                                            <option value="A">A</option>
+                                            <option value="B">B</option>
+                                            <option value="C">C</option>
+                                            <option value="D">D</option>
+                                            <option value="E">E</option>
+                                            <option value="F">F</option>
+                                            <option value="G">G</option>
+                                        </select>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><label for="key2_avoid">Avoid Key #2: </label></td>
+                                    <td><select id="key2_avoid" name="key2_avoid">
+                                            <option value="A">A</option>
+                                            <option value="B">B</option>
+                                            <option value="C">C</option>
+                                            <option value="D">D</option>
+                                            <option value="E">E</option>
+                                            <option value="F">F</option>
+                                            <option value="G">G</option>
+                                        </select>
+                                    </td>           
+                                </tr>     
+                            </table>
+                    </div><br><br>
+
+                    <div><button type="button" id="submitButton">Next</button></div>
+                </div>
+            </form>
+        </div>
+    </body>
+
+    <footer>
+        <br><p>Copyright 2024. 
+        <a href="mailto:wendy.castellanos1@gmail.com">Author: Wendy Castellanos</a></p>
+    </footer>
+
+
+</html>

@@ -88,9 +88,6 @@ public class Member {
     @Column( name = "speaks_other_comment")  // free form entry by member regarding other languages
     private Boolean speaks_other_comment;   // db defaults to false (0)
 
-    @Column(name = "is_adult_on_create")    // db defaults to false (0)
-    private Boolean is_adult_on_create;
-
     @Column(name = "is_banned")              // only a leader can overturn the ban
     private Boolean is_banned;               // db defaults to -1
 
@@ -99,6 +96,9 @@ public class Member {
 
     @Column(name = "profile_image_url")     // TODO: evaluate if we should store a photo; how to upload, etc.
     private String profileImageUrl;         // TODO: put a *default URL* for a generic image in the db
+
+    @Column(name = "social_media_url")
+    private String socialMediaUrl;
 
     // TODO: format to get datetime
     //date_created

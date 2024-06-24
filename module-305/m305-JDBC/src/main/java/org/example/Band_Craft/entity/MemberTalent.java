@@ -1,6 +1,8 @@
 package org.example.Band_Craft.entity;
 
-// This class represents a junction table between members and talents
+/* This class represents a junction table between members and talents.
+    Each unique junction has its own attributes.
+ */
 
 import jakarta.persistence.*;   // Jakarta Persistence Query Language
 import lombok.*;

@@ -1,5 +1,7 @@
-
-.h1 {
+body {
+    background-color:antiquewhite;
+}
+h1 {
     color:brown;
    
 }
@@ -15,10 +17,19 @@ button {
 img {
     display: inline-block;
   }
-navbar {
-    overflow: auto;
-    width: 100%;
-}
+input {
+    /* Your common styles here */
+    border: 2px solid #ccc;
+    padding: 8px;
+    margin-bottom: 10px;
+  }
+  .inputs-container {
+    flex-direction: column;
+    flex-wrap: wrap;
+  }
+  .flex-container {
+    display: flex;
+  }
 
 /* for the custom responsive header below */
 /* Style the header with a grey background and some padding */
