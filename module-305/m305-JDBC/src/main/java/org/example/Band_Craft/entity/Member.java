@@ -54,16 +54,16 @@ public class Member {
         //    private String generation;
 
    @Column(name = "phone_cell")         // required for texting, allow bogus numbers in case someone doesn't have a cell
-    private String phone_cell;
+    private String phoneCell;
 
     @Column(name = "phone_alt")             // optional
-    private String phone_alt;
+    private String phoneAlt;
 
     @Column(name = "email")                 // required because band emails go out with links to songs, etc.
     private String email;
 
     @Column(name = "email_alt")             // optional, but encouraged!
-    private String email_alt;               //optional
+    private String emailAlt;               //optional
 
     @Column(name = "registration_status")
     @Enumerated(EnumType.STRING)
@@ -71,25 +71,25 @@ public class Member {
 
     @Column(name = "is_active")             // leader sets this internally when approved
    // some answer required, though decline is an answer; exists bc some events benefit from generation-specific knowledg
-    private Boolean is_active;              // defaults to false (0)
+    private Boolean isActive;              // defaults to false (0)
 
     @Column(name = "date_returning")        //indicates return date for person going on hiatus
-    private Date date_returning;            // db defaults to Null
+    private Date dateReturning;            // db defaults to Null
 
     @Column(name = "speaks_spanish")        //  TODO: note that *enum Language* exists for whatever use
-    private Boolean speaks_Spanish;         // db defaults to false (0)
+    private Boolean speaksSpanish;         // db defaults to false (0)
 
     @Column(name = "speaks_portuguese")     // TODO: note that *enum Language* exists
-    private Boolean speaks_Portuguese;      // db defaults to false (0)
+    private Boolean speaksPortuguese;      // db defaults to false (0)
 
     @Column(name = "speaks_other")          // TODO: note that *enum Language* exists
-    private Boolean speaks_Other;
+    private Boolean speaksOther;
 
-    @Column( name = "speaks_other_comment")  // free form entry by member regarding other languages
-    private Boolean speaks_other_comment;   // db defaults to false (0)
+    @Column( name = "speaksOtherComment")  // free form entry by member regarding other languages
+    private Boolean speaksOtherComment;   // db defaults to false (0)
 
     @Column(name = "is_banned")              // only a leader can overturn the ban
-    private Boolean is_banned;               // db defaults to -1
+    private Boolean isBanned;               // db defaults to -1
 
     @Column(name = "bio")              // optional, member makes their own bio here when they join
     private String bio;                // db defaults to null

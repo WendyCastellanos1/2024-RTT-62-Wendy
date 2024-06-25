@@ -8,6 +8,7 @@
 <body>
     <h1 id="titleTag">Javascript examples</h1>
 
+
     <script>
         let element = document.getElementById("titleTag");
         console.log(element);
@@ -16,7 +17,41 @@
         //element.style.display = "none";
 
         console.log("hello world");
+        const variable = "ABC123";
+        name("p1", "p2");
+
+        let x = name("parameter", "p2");
+        console.log(x);
+
+        function name(param, param2){
+        console.log("In function " + param + " " + param2 + " " + variable);
+        return "ABC";
+        }
+
+        const person = {
+            firstName: "John",
+            lastName: "Doe",
+            age: 50,
+            eyeColor: "blue"
+            fullName: function() {
+                return this.firstName + " " + this.lastName;
+            }
+        };
+        console.log(person.firstName + " is " + person["age"] + " years old.");
+
+        // we can update variables in the person object  // WATCH VIDEO AGAIN AND FIX THIS
+        person.firstName = "ABC";
+        person.age = "24";
+
+
+        person.newVariable = "123";
+        person["anotherVariable"] = "XYZ";
+        
+        console.log(person);
+
     </script>
+
+    
 
 </body>
 </html>

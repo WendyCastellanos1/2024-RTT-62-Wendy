@@ -42,35 +42,41 @@ public class MemberTalent {
     @Column(name = "reads_chord_charts")
     private Boolean readsChordCharts;                   // optional
 
+    @Column(name = "sight_reads_this_talent")
+    private Boolean sightReadsThisTalent;                   // optional
+
     @Column(name = "key1_preferred")
     @Enumerated(EnumType.STRING)
-    private Enums.MusicalKeys musicalKey1_Preferred;    // optional
+    private Enums.MusicalKeys key1Preferred;    // optional
 
     @Column(name = "key2_preferred")
     @Enumerated(EnumType.STRING)
-    private Enums.MusicalKeys musicalKey2_Preferred;    // optional
+    private Enums.MusicalKeys key2Preferred;    // optional
 
     @Column(name = "key1_harmony")
     @Enumerated(EnumType.STRING)
-    private Enums.MusicalKeys musicalKey1_Harmony;
+    private Enums.MusicalKeys key1Harmony;
 
     @Column(name = "key2_harmony")                      // optional
     @Enumerated(EnumType.STRING)
-    private Enums.MusicalKeys musicalKey2_Harmony;
+    private Enums.MusicalKeys key2Harmony;
 
     @Column(name = "key1_avoid")
     @Enumerated(EnumType.STRING)
-    private Enums.MusicalKeys musicalKey1_Avoid;         // optional
+    private Enums.MusicalKeys key1Avoid;         // optional
 
     @Column(name = "key2_avoid")
     @Enumerated(EnumType.STRING)
-    private Enums.MusicalKeys musicalKey2_Avoid;        // optional
+    private Enums.MusicalKeys key2Avoid;        // optional
 
     @Column(name = "has_processor")
     private Boolean hasProcessor;                       // optional
 
     @Column(name = "processor_comments")
     private String processorComments;                   // optional, default is NULL in db
+
+    @Column(name = "has_own_equipment")
+    private Boolean hasOwnEquipment;
 
     @Column(name = "needs_loaner_instrument")
     private Boolean needsLoanerInstrument;              // optional

@@ -13,10 +13,6 @@
 
         <div class="header">
             <a class="active" href="#home"> <img class="header" src="images\band_craft_small.png" alt="Logo" class="logo"/>  </a>
-    
-            <div class="topnav">
-               
-            </div>
         </div>
     
         <div><h2>Profile: Part 2</h2></div>
@@ -51,61 +47,45 @@
                     <option value="o">Other</option>
                 </select>
             </div>
-
             <br>
-            
             <div>
-                <label for="gender_comment" class="label_form">Gender Comment:</label>
-
-                <input type="text" id="gender_comment" name="gender_comment"> 
+                <label for="genderComment" class="label_form">Gender Comment:</label>
+                <input type="text" id="genderComment" name="genderComment"> 
             </div>
-
             <br>
-
             <div><h3>Can you communicate in languages other than English?</h3>
-                <input type="checkbox" id="spanish" name="spanish" value="spanish">
-                <label for="spanish"> Spanish</label>
-                <input type="checkbox" id="portuguese" name="portuguese" value="portuguese">
-                <label for="portuguese"> Portuguese</label>
-                <input type="checkbox" id="other_language" name="other_language" value="other_language">
-                <label for="other_language"> Other Language(s)</label>
-            </div>
 
+                <input type="checkbox" id="speaksSpanish" name="speaksSpanish" value="speaksSpanish">
+                <label for="speaksSpanish">Spanish</label>
+
+                <input type="checkbox"  id="speaksPortuguese" name="speaksPortuguese" value="speaksPortuguese">
+                <label for="speaksPortuguese">Portuguese</label>
+                
+                <input type="checkbox"  id="speaksPortuguese" name="speaksOther" value ="speaksOther">
+                <label for="speaksOther">Other Language(s)</label>
+            </div>
             <div>
-                <label for="speaks_other_comment" class="label_form">Comment (optional):</label>
-
-                <input type="textarea" maxlength = "1000" id="speaks_other_comment" name="speaks_other_comment">
+                <label for="speaksOtherComment" class="label_form">Comment (optional):</label>
+                <input type="textarea" maxlength = "1000" name="speaksOtherComment">
             </div>
-
             <br>
-
             <p><h3>You are unique!</h3></p>
-
             <div>
                 <label for="bio" class="label_form">Tell us about yourself (bio): </label><br>
-
                 <input type = "textarea" maxlength = "1000" rows = "4" cols = "40"  name = "bio">   </textarea><br>
             </div>
-
             <br>
-            
             <div>
                 <label for="photo_upload" class="label_form">Upload a photo for your profile</label><br>
-
                 <input type="file" name="file" accept="image/*">
             </div>
-
             <br>
-
             <div>
-                <label for="profile_image_url" class="label_form"></label>Link to your public-facing social media account</label><br>
-
-                <input type="text" id="profile_image_url" name="profile_image_url">
+                <label for="profileImageUrl" class="label_form"></label>Link to your public-facing social media account</label><br>
+                <input type="text" id="profileImageUrl" name="profileImageUrl">
             </div>
-
             <br><br>
-
-            <div><button type="button" id="submitButton" target = "#reg-member-2.html"> Next </button></div>
+            <div><button type="button" id="submitButton" target = "#reg-member-2.html">Next</button></div>
         
         </form>
 
@@ -121,5 +101,9 @@
         
     </body>
 
-   
+    <footer>
+        <br><p>Copyright 2024. 
+        <a href="mailto:wendy.castellanos1@gmail.com">Author: Wendy Castellanos</a></p>
+    </footer>
+
 </html>

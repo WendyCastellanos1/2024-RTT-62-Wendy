@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <style>
+        .class1 {
+            color: blue;
+        }
+        .class-name{
+            color: red;
+        }
+    </style>
+
+    <h1 name = "h1Tag" class = "class1 class2">This is a header tag 1</h1>
+    <h1 name="imputText" class = "class1 class-name">This is a header tag 2</h1>
+    <h1 name="imputText" class = "class3">This is a header tag 3</h1>
+
+    input type="text" name="inputText"/>;
+
+
+    <script>
+        // returns 1
+        let element = document.getElementById("h1Tag");
+        console.log(element);
+
+        // finds element(s)
+        
+        console.log("======================getElementsByName");
+        let nameItems = document.getElementsByName();
+        for (let nameElement of nameItems) {
+            console.log(nameElement);
+            //console.log(items[itemKey]) // requires in instead of of in for looop
+        }
+
+        // finds element(s)
+        console.log("======================getElementsByTagName";
+        let li = document.getElementsByTagName('li');
+            for (const liKey in h1){
+                console.log(li[logKey]);
+            }
+
+        //this is the most common way of looking for elements on the DOM tree
+        console.log("======================getElementsByClassName");
+        let classItems = document.getEleementsByClassName("class1");
+
+        for (let classItem of classItems ) {
+            console.log(classItem);
+            classItem.classList.add("class-name");  // related to adding the css style in top of body
+            classItem.innerHTML = "New Text in the h1 Tag";
+        }
+
+    </script>
+
+</body>
+</html>

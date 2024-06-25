@@ -1,90 +1,82 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="resources\css\index.css">
-    <title>Registration - Part 1</title>
-
-    
-
-</head>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="resources\css\index.css">
+        <title>Registration - Part 1</title>
+    </head>
 
 
-<body>
-    <div class="header">
-        <img src = "images\band_craft_small.png" alt = "Band Craft Logo" style ="float: left"/>
-          
-    </div>
-    
-    <div class = "inputs-container">
+    <body>
+        <div class="header">
+            <img src = "images\band_craft_small.png" alt = "Band Craft Logo" style ="float: left"/>
+        </div>
+        
+        <div class = "inputs-container">
 
-        <h2>Profile: Part 1</h2>
+            <h2>Profile: Part 1</h2>
 
-    
-        <form action="write_the_url_for_server_side_script_to_send_to_here" required>
+        
+            <form action="write_the_url_for_server_side_script_to_send_to_here" required>
 
-            <div>
-                <p><h3>Name:</h3></p>
-                <label for="first_name" class="label_form">First Name: </label>
-                <input type="text" id="first_name" name="first_name">
-            </div>
+                <div>
+                    <p><h3>Name:</h3></p>
+                    <label for="firstName" class="label_form">First Name: </label>
+                    <input type="text" id="firstName" name="firstName">
+                </div>
 
-            <div>
-                <label for="last_name" class="label_form">Last Name: </label>
-                <input type="text" id="last_name" name="last_name">
-            </div>
+                <div>
+                    <label for="lastName" class="label_form">Last Name: </label>
+                    <input type="text" id="lastName" name="lastName">
+                </div>
 
-            <div>
-                <label for="nickname" class="label_form">Nickname:</label>
-                <input type="text" id="nickname"
-                 name="nickname">
-            </div>
+                <div>
+                    <label for="nickname" class="label_form">Nickname:</label>
+                    <input type="text" id="nickname" name="nickname">
+                </div>
 
+                <table>
+                    <th><h3>Communication:</h3></th>
+                    <tr>
+                        <td><label for="email" class="label_form">Primary Email:</label></td>
+                        <td><input type="text" id="email" name="email"></td>
+                    </tr>
+                    <tr>
+                        <td><label for="emailAlt" class="label_form">Alternative Email:</label></td>
+                        <td><input type="text" id="emailAlt" name="emailAlt"></td>
+                    </tr>
+                    <tr>
+                        <td><label for="phoneCell" class="label_form">Cell Phone (text):</label></td>
+                        <td><input type="text" id="phoneCell" name="phoneCell"></td>
+                    </tr>
+                    <tr>
+                        <td><label for="phoneAlt" class="label_form">Alternative Phone:</label></td>
+                        <td><input type="text" id="phoneAlt" name="phoneAlt"></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td><button type="button" id="submitButton">Next</button></td>
+                    </tr>
+                </table>
+            </form>
+        
+            <script>
+                document.addEventListener(
+                    'DOMContentLoaded', () => {
+                    document.getElementById('submitButton').
+                        addEventListener('click', function () {
+                            alert('Form submitted!');
+                        });
+                });
+            </script>
+        </div>  
+    </body>
 
-            <table>
-                <th><h3>Communication:</h3></th>
-                <tr>
-                    <td><label for="email" class="label_form">Primary Email:</label></td>
-                    <td><input type="text" id="email" name="email"></td>
-                </tr>
-                <tr>
-                    <td><label for="email_alt" class="label_form">Alternative Email:</label></td>
-                    <td><input type="text" id="email_alt" name="email_alt"></td>
-                </tr>
-                <tr>
-                    <td><label for="phone_cell" class="label_form">Cell Phone (text):</label></td>
-                    <td><input type="text" id="phone_cell" name="phone_cell"></td>
-                </tr>
-                <tr>
-                    <td><label for="phone_alt" class="label_form">Alternative Phone:</label></td>
-                    <td><input type="text" id="phone_alt" name="phone_alt"></td>
-                </tr>
-                <tr>
-                    <td></td>
-                    <td><button type="button" id="submitButton">Next</button></td>
-                </tr>
-            </table>
-        </form>
-    
-        <script>
-            document.addEventListener(
-                  'DOMContentLoaded', () => {
-                document.getElementById('submitButton').
-                    addEventListener('click', function () {
-                        alert('Form submitted!');
-                    });
-            });
-        </script>
-
-     </div>
-    
-</body>
-
-<footer>
-        <br><p>Copyright 2024. 
-        <a href="mailto:wendy.castellanos1@gmail.com">Author: Wendy Castellanos</a></p>
+    <footer>
+            <br><p>Copyright 2024. 
+            <a href="mailto:wendy.castellanos1@gmail.com">Author: Wendy Castellanos</a></p>
     </footer>
 
 </html>
