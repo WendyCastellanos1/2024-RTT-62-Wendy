@@ -4,8 +4,15 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
         <link rel="stylesheet" href="resources\css\index.css">
-        <title>Registration - Part 1</title>
+
+        <!--  Google font: Montserrat -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+
+        <title>Profile - Part 1</title>
     </head>
 
 
@@ -18,7 +25,6 @@
 
             <h2>Profile: Part 1</h2>
 
-        
             <form action="write_the_url_for_server_side_script_to_send_to_here" required>
 
                 <div>
@@ -41,7 +47,9 @@
                     <th><h3>Communication:</h3></th>
                     <tr>
                         <td><label for="email" class="label_form">Primary Email:</label></td>
-                        <td><input type="text" id="email" name="email"></td>
+                        <td><input type="text" id = "email" name = "email"  pattern="[^@\s]+@[^@\s]+\.[^@\s]+" title="Invalid email address" /></td>
+                        <!--  <input type="text" id="email" name="email">  -->
+                    
                     </tr>
                     <tr>
                         <td><label for="emailAlt" class="label_form">Alternative Email:</label></td>
@@ -62,20 +70,23 @@
                 </table>
             </form>
         
-            <script>
-                document.addEventListener(
-                    'DOMContentLoaded', () => {
-                    document.getElementById('submitButton').
-                        addEventListener('click', function () {
-                            alert('Form submitted!');
-                        });
-                });
-            </script>
-        </div>  
+        </div> 
+
+
+        <script>
+            document.addEventListener(
+                'DOMContentLoaded', () => {
+                document.getElementById('submitButton').
+                    addEventListener('click', function () {
+                        alert('Member Registration: Part 1 form submitted!');
+                    });
+            });
+        </script>
+
     </body>
 
     <footer>
-            <br><p>Copyright 2024. 
+            <br><p>BandCraft. Copyright 2024. 
             <a href="mailto:wendy.castellanos1@gmail.com">Author: Wendy Castellanos</a></p>
     </footer>
 

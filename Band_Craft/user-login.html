@@ -3,18 +3,26 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="resources\css\index.css">
-        <title>Login</title>
 
-        <div class="header">
-            <img src = "images\band_craft_small.png" alt = "Band Craft Logo" style ="float: left"/>
-              
-        </div>
+        <link rel="stylesheet" href="resources\css\index.css">
+
+        <!--  Google font: Montserrat -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+        <style>
+            img {padding-left: 40px};
+        </style>
+        <title>Login</title>
 
     </head>
 
 
     <body>
+        <div class="header">
+            <img src = "images\band_craft_small.png" alt = "Band Craft Logo" style ="float: left"/>
+        </div>
+
         <div>
             <form>
                 <table>
@@ -27,7 +35,8 @@
                     <tr>
                         <td><label for="password" class="label_form">Password:</label></td>
                         <td><input type="text" id="password" name="password" 
-                            action="write_the_url_for_server_side_script_to_send_to_here"></td>
+                            action="write_the_url_for_server_side_script_to_send_to_here" required></td>
+                            
                     </tr>   
                     <tr>
                         <td></td>
@@ -35,22 +44,23 @@
                     </tr>     
                 </table>
             </form>
-         </div>
+            
+         </div><br>
 
         <script>
             document.addEventListener(
                 'DOMContentLoaded', () => {
                 document.getElementById('submitButton').
                     addEventListener('click', function () {
-                        alert('Form submitted!');
+                        alert('Login form submitted!');
                     });
             });
         </script>
-
+        <img src="/images/pea-body-strumming.gif" alt="pea body strumming air guitar" width = "200px" height = "200px">
     </body>
 
     <footer>
-        <br><p>Copyright 2024. 
+        <br><p>BandCraft.Copyright 2024. 
         <a href="mailto:wendy.castellanos1@gmail.com">Author: Wendy Castellanos</a></p>
     </footer>
     

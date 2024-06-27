@@ -94,8 +94,8 @@ public class Member {
     @Column(name = "bio")              // optional, member makes their own bio here when they join
     private String bio;                // db defaults to null
 
-    @Column(name = "profile_image_url")     // TODO: evaluate if we should store a photo; how to upload, etc.
-    private String profileImageUrl;         // TODO: put a *default URL* for a generic image in the db
+    @Column(name = "profile_photo")     // TODO: evaluate if we should store a photo; how to upload, etc.
+    private String profilePhoto;         // TODO: put a *default URL* for a generic image in the db
 
     @Column(name = "social_media_url")
     private String socialMediaUrl;

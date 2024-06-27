@@ -17,12 +17,25 @@ button {
 img {
     display: inline-block;
   }
+  
+
 input {
     /* Your common styles here */
     border: 2px solid #ccc;
     padding: 8px;
     margin-bottom: 10px;
   }
+
+  /* <uniquifier>: Use a unique and descriptive class name
+ <weight>: Use a value from 100 to 900 .   removed .montserrat-<uniquifier>*/
+
+.montserrat {
+  font-family: "Montserrat", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: <weight>;
+  font-style: normal;
+}
+
   .inputs-container {
     flex-direction: column;
     flex-wrap: wrap;

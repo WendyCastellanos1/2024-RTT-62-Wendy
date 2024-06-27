@@ -4,7 +4,14 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
         <link rel="stylesheet" href="resources\css\index.css">
+
+         <!--  Google font: Montserrat -->
+         <link rel="preconnect" href="https://fonts.googleapis.com">
+         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+         <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+ 
         <title>Profile: Part 2</title>
     </head>
 
@@ -76,25 +83,27 @@
             </div>
             <br>
             <div>
-                <label for="photo_upload" class="label_form">Upload a photo for your profile</label><br>
-                <input type="file" name="file" accept="image/*">
+                <label for="profilePhoto" class="label_form">Upload a photo for your profile</label><br>
+                <input type="file" name="profilePhoto" accept="image/*">
             </div>
             <br>
             <div>
-                <label for="profileImageUrl" class="label_form"></label>Link to your public-facing social media account</label><br>
-                <input type="text" id="profileImageUrl" name="profileImageUrl">
+                <label for="socialMediaUrl" class="label_form"></label>Link to your public-facing social media account</label><br>
+                <input type="text" id="socialMediaUrl" name="socialMediaUrl">
             </div>
             <br><br>
             <div><button type="button" id="submitButton" target = "#reg-member-2.html">Next</button></div>
         
         </form>
 
+        
+
         <script>
             document.addEventListener(
                     'DOMContentLoaded', () => {
                 document.getElementById('submitButton').
                     addEventListener('click', function () {
-                        alert('Form submitted!');
+                        alert('Member Registration: Part 2 form submitted!');
                     });
             });
         </script>
