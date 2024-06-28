@@ -7,7 +7,6 @@
 
         <link rel="stylesheet" href="css\index.css">
         
-
          <!--  Google font: Montserrat -->
          <link rel="preconnect" href="https://fonts.googleapis.com">
          <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -34,17 +33,17 @@
                     </tr>
                     <tr>
                         <td><label for="password1" class="label_form">Password:</label></td>
-                        <td><input type="text" id="password1" name="password1" 
+                        <td><input type="password" id="password1" name="password1" 
                             action="write_the_url_for_server_side_script_to_send_to_here"></td>
                     </tr>   
                     <tr>
                         <td><label for="password2" class="label_form">Re-enter password:</label></td>
-                        <td><input type="text" id="password2" name="password2" 
+                        <td><input type="password" id="password2" name="password2" 
                             action="write_the_url_for_server_side_script_to_send_to_here"></td>
                     </tr>   
                     <tr>
                         <td></td>
-                        <td><button type="button" id="submitButton">Next</button></td>
+                        <td><a href = "user-login.html"><button type="button" id="submitButton">Next</button></a></td>
                     </tr>   
                 </table><br>
 
@@ -52,7 +51,8 @@
 
             </form>
         </div>
-        <script src="bc.js"></script> 
+
+        <script src = "bc.js"></script> 
         <script>
             document.addEventListener(
                 'DOMContentLoaded', () => {
@@ -62,6 +62,7 @@
                     });
             });
         </script>
+       
 
     </body>
 
