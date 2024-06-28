@@ -5,7 +5,8 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-        <link rel="stylesheet" href="resources\css\index.css">
+        <link rel="stylesheet" href="css\index.css">
+        
 
         <!--  Google font: Montserrat -->
         <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -30,12 +31,12 @@
                 <div>
                     <p><h3>Name:</h3></p>
                     <label for="firstName" class="label_form">First Name: </label>
-                    <input type="text" id="firstName" name="firstName">
+                    <input type="text" id="firstName" name="firstName" pattern="[a-zA-Z]+">
                 </div>
 
                 <div>
                     <label for="lastName" class="label_form">Last Name: </label>
-                    <input type="text" id="lastName" name="lastName">
+                    <input type="text" id="lastName" name="lastName" pattern="[a-zA-Z]+>
                 </div>
 
                 <div>
@@ -47,13 +48,12 @@
                     <th><h3>Communication:</h3></th>
                     <tr>
                         <td><label for="email" class="label_form">Primary Email:</label></td>
-                        <td><input type="text" id = "email" name = "email"  pattern="[^@\s]+@[^@\s]+\.[^@\s]+" title="Invalid email address" /></td>
-                        <!--  <input type="text" id="email" name="email">  -->
+                        <td><input type="text" id = "email" name = "email"  pattern="[^@\s]+@[^@\s]+\.[^@\s]+" title="Invalid email address"></td>
                     
                     </tr>
                     <tr>
                         <td><label for="emailAlt" class="label_form">Alternative Email:</label></td>
-                        <td><input type="text" id="emailAlt" name="emailAlt"></td>
+                        <td><input type="text" id="emailAlt" name="emailAlt" pattern="[^@\s]+@[^@\s]+\.[^@\s]+" title="Invalid alternative email address">></td>
                     </tr>
                     <tr>
                         <td><label for="phoneCell" class="label_form">Cell Phone (text):</label></td>

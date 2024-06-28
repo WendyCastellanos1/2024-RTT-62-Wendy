@@ -9,6 +9,8 @@ h3 {
     color: brown
 }
 label { 
+    font-family: 
+  
     color:rgb(29, 28, 27);
 }
 button {
@@ -32,8 +34,14 @@ input {
 .montserrat {
   font-family: "Montserrat", sans-serif;
   font-optical-sizing: auto;
-  font-weight: <weight>;
+  font-weight: 800;
   font-style: normal;
+}
+html * {
+  font-size: 16px;
+  line-height: 1.625;
+  color: black;
+  font-family: "Montserrat", "sans-serif"; 
 }
 
   .inputs-container {

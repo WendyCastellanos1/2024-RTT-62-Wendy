@@ -4,7 +4,8 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-        <link rel="stylesheet" href="resources\css\index.css">
+        <link rel="stylesheet" href="css\index.css">
+        
 
         <!--  Google font: Montserrat -->
         <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -29,14 +30,13 @@
                     <th><h2>Login</h2></th>
                     <tr>
                         <td><label for="userName" class="label_form">Email:</label></td>
-                        <td><input type="text" id="userName" name="userName" 
-                            action="write_the_url_for_server_side_script_to_send_to_here" required></td>      
+                        <td><input type="text" id="userName" name="userName" pattern="[^@\s]+@[^@\s]+\.[^@\s]+" title="Invalid email address">
+                            action="write_the_url_for_server_side_script_to_send_to_here"></td>      
                     </tr>
                     <tr>
                         <td><label for="password" class="label_form">Password:</label></td>
                         <td><input type="text" id="password" name="password" 
-                            action="write_the_url_for_server_side_script_to_send_to_here" required></td>
-                            
+                            action="write_the_url_for_server_side_script_to_send_to_here"></td> 
                     </tr>   
                     <tr>
                         <td></td>

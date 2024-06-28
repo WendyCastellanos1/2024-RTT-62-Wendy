@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // this is a comment in Javascript
+
+        //the substring function works the same way as Java does
+            //   0123456789
+        let a = "Hello World";
+        console.log(a.substring(4,5));   // includes start, excludes the end
+        console.log("Lastindex = " + a.lastIndexOf("l"));
+
+        let x = 5;
+        let y = 6;
+        let z = ("x*y");    // String vlaue is x * y    not multiplied
+        let b = x * y;      // no quotes, so math occurs
+        console.log(z);
+
+        // the difference between  == and ===
+        // not only is it a KBA question but it is important to know also
+        console.log("1" == 1);      // true     ignores data type
+        console.log("1" == "1");    // true
+        console.log(1 ==1)          // true
+        console.log("1" === 1)      // false bc compares data type as well, must match as well as value
+        console.log(1 === 1)        // true
+
+        // diff. bt let and var
+        let abc = "123";
+        // let abc = "abc123";  // can't do bc same code block as line above
+        abc = "something else";
+        var xyz = "123";
+        var xyz = "abc";    // var allows more than once in the code block (bad practice to do this)
+        console.log(xyz);   // prints abc
+
+        // how to make an *alert* box in js   , nice for debugging
+        alert("Some message to popup;");
+
+        // js is weakly typed language; variable can be of any type and that type can change! vs Java (strongly typed)
+        // vs Java - datatype must be specified at compile time and cannot be changed
+
+        // FACT: External js filed do CANNOT contain HTML      FALSE:  Extennal js files can contain HTML  FALSE!
+
+        // in js, concatenat strings using  +
+        let str = "Hello" + " World";
+        console.log(str);
+
+        // in js, date creation is flexible (vs java is very strict)
+        let date1 = new Date("Thu Jan 29 2009 17:34:41");  
+        let date2 = new Date("2024-01-29");
+
+        // getMonth thinks January is 0 (not 1), returns number bt 0 and 11
+        console.log("Month = " + date1.getMonth());
+        console.log("Month = " + date2.getMonth());
+        console.log(date1.getMonth() === date2.getMonth());   // true
+        console.log(date1.getHours() === date2.getHours());  // does NOT equal bc date2 doesn't offer HOURS
+
+        // in js, continue & break  work same as in Java
+        for (let i = 0; i < 5; i++ ) {
+            if (i == 3) {
+                break;          // continue;
+            }
+            console.log(i);
+        }
+        // TRUE: js is "safe" bc browswer does NOT allow access to CPU or memory
+
+        // Very common gotcha!!!
+        let trick = 8 + "8";
+        console.log(trick);     // 88 bc concatenation!  an every day important..to know
+
+        // getElementByTagName - find elements in document by their HTML tag
+            // example: find all the p tags
+
+        // getElementById  - finds elements in document by their id= "" attribute
+            // returns single element bc id is UNIQUE
+        
+        
+        // getElementsByClassName - finds all elements with the CSS class name
+
+        // getElementsByName - finds all elements with name = "" attribute
+
+        // ********KBA:  getQuerySelector - find FIRST element based on the CSS querySelector
+            // this one is the most powerful and most used
+
+            // you cannot subtract a string from a string
+            let q = "Hello" - "World";  // gives NaN  , means "not a number"
+            console.log(q);
+
+            // for loops
+            let person = {
+                firstName : "Eric",
+                lastName: "Heilig",
+                eyeColor: "brown"
+            }
+
+            // when we use *in* , it loops over the KEYS
+           
+            for (let i in person) {
+                console.log(i + " = " + person[i]);
+            }
+
+             // *of* is looping over VALUES of an array
+             let array = [1,2,3,4];
+             for ( let i of array) {
+                console.log(i);
+             }
+
+             // event listeners - 2 ways
+                // first is: onclick = "function()" on an html tag
+                // other is: using the addEventListener built into the js language  Slide 37 308.4
+                    // to use: 1. query the element from document
+                    //         2. use the addEventListener function first , you to query the element from the document
+                    //              then you can use the addEventListener('click', functionToRun());  // named the callback function....very similar to JQuery
+
+
+            // last KBA question on his list: shortest one may be correct?
+
+
+            // ** If you want to spend some time reading about and experimenting with splice() and slice()
+                // Eric has NEVER used either in 20 years
+                    // splice is destructive; in leetcode..have to slice a good amount (Izzy)
+            // TRUE -   Array.splice() changes the original array whereas Array.slice() does not.
+
+            // on 308.4 slide 28: creating new HTML elements
+            // there are 2 ways of creating elements
+            // document.createElement('p'); this will create a new p tag in the document - can make ALL tags
+            // createTextNode() // this only works for TEXT nodes like a p tag
+            // KBA createElement vs createTextNode
+
+            // KBA:  js trivia about numbers
+            // number datatype in js is EITHER an integer or a float
+
+            // ---------------forEach loop--------------
+                // the forEach method is called for each element in the array, like Java forEach but has differences
+                // nice part of this forEach is you get the acutal value, hte index or pos, and the array itself
+                // for each iteration of the loop.
+                // put extra comma after the 5 to amek a 6th element in the array that is actually empty
+                // pos.0,1,2,3,4,5   the index position
+            let arr = [1,2,3,4,5];
+            arr.forEach(function(value, index, array) {     // can name  or NOT name the function, similar to anonymous block in Java
+                console.log("value = " + value);
+                console.log("index = "  + index);
+                console.log(arr[index])
+
+                arr[index] = value * value;
+                console.log("multiply = " + arr[index]);
+            });
+            
+            //  js "autoboxes" 0 ot false, and 1 or greater is true
+            // can do arr.push   to push items onto array
+
+            // in the filter fcn, using only a single variable in the fcn, we get a variable called x
+                // filter fcn returns true or false, if true , it keeps element; if false, removes the element;
+                    // however, 0 is another way of representing FALSE
+                        //  SOOOO when x % 5 == 0  it is essentially returning FALSE
+                console.log(arr.reverse().filter( function(x) {
+                    return x%5;
+                }))
+                // when this evaluates to 0, it causes js to consider it FALSE which
+                    // then removes IT from the array
+                    // it does NOT ALTER original array
+                        // it CREATES NEW array and removes anything that evaluates to false
+                                 // gives a list of answers AFTER 1st part alters the array, then 2nd part filters based on auto-boxed bool
+            // from Bay: (Empty string) “”, 0, false, null, undefined, and NaN are Falsy Values
+
+
+    </script>
+    
+</body>
+</html>
