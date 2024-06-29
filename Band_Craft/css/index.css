@@ -50,6 +50,8 @@ html * {
   }
   .flex-container {
     display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
   }
 
 /* for the custom responsive header below */
