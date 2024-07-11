@@ -1,0 +1,17 @@
+<script>
+            let element = document.getElementById("titleTag");
+            console.log(element);
+            element.style.color = "blue";
+            element.style.fontSize = "50px";
+            //element.style.display = "none";
+
+            console.log("hello world");
+        </script>
+
+
+
+<div class="header" type = "Flex: display">
+<img src = "images\band_craft_small.png" alt = "Band Craft Logo" style ="float: left"/>
+  <a href="#contact">Contact</a>
+  <a href="#about">About</a>
+</div>

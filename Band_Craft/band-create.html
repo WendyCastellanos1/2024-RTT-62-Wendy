@@ -11,7 +11,7 @@
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
 
-        <title>Choose the band members</title>
+        <title>Band Configuration</title>
     </head>
 
     <body>
@@ -20,13 +20,11 @@
             <a class="active" href="#home"> <img class="header" src="images\band_craft_small.png" alt="Logo" class="logo"/>  </a>
         </div>
 
-        
+        <div><p><h2>Choose the band members:</h2></p></div><br>
 
-        <section style = "display: flex" >
+        <form action="">
 
-            <form action="">
-
-                <p><h2>Choose the band members:</h2></p>
+            <section style = "display: flex">
 
                 <div class = "flex-container">
                     
@@ -39,7 +37,7 @@
                             <option value="3">Taylor Li | needs loaner | solos</option>
                         </select>
                 </div>
-                <br>
+                
                 <div class = "flex-container">
                     
                         <label for="membersElectricGuitar_Rhythm">Electric Guitar (rhythm): </label>
@@ -84,7 +82,8 @@
                         <option value="2">Clark Samudio | needs loaner | chord charts</option>
                     </select>
                 </div>
-                <br>    
+            </section>
+            <section style = "display: flex"> 
                 <div class = "flex-container">
                         <label for="membersKeyboard">Keyboards: </label>
                         
@@ -104,7 +103,9 @@
                             <option value="2">Valentina Smith | sight-reads</option>
                         </select>
                 </div>
-                <br>
+            </section>
+
+            <section style = "display: flex">
                 <div class = "flex-container">
                         <label for="membersLeadVocals_1">Lead vocals #1: </label>
                         <select name = "membersDrumSet" id="membersDrumSet">
@@ -149,46 +150,45 @@
                 </div>
                 <br>
                 <div class = "flex-container">
-                    <div>
+                    
                         <label for="membersHarmonyVocals_2">Harmony vocals #2: </label>
                         
                         <select name = "membersHarmonyVocals_2" id="membersHarmonyVocals_2"></select>
-                    </div>
+                
                 </div>
-                <br>
+            </section>
+            <section style = "display: flex">
                 <div class = "flex-container">
-                    <div>
+                    
                         <img src="images/synthesizer.png" width = "40px" alt="mixer soundboard">
                         <label for="membersSound">Sound Person (mixer): </label>
                        
                         <select name = "membersSound" id="membersSound"></select>
                        
-                    </div>
                 </div>
                 <br>
                 <div class = "flex-container">
-                    <div>
+                    
                         <label for="membersRoadie">Roadie (set up, tuning): </label>
                         <br>
                         <select name = "membersRoadie" id="membersRoadie">
                             <option value="0">optional</option>
                         </select>
-                    </div>
+                    
                 </div>
                 <br>
                 <div class = "flex-container">
-                    <div>
+                    
                         <label for="membersArrangement">Music Arrangement (build sets): </label>
                         <br>
                         <select name = "membersArrangement" id="membersArrangement">
                             <option value="0"> <option value="">optional</option></option>
                         </select>
-                    </div>
+                    
                 </div>
-
-            </form>   
-        </section>
-
+            </section>
+       
+        </form>   
     </body>
 
 </html>
