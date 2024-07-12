@@ -15,9 +15,11 @@
     </div>
     <br>
     <div>
-        <h4 class="text-center"><a href="/search">Search for something</a></h4>
+        <h4 class="text-center"><a href="/search">Search for products</a></h4>
         <br>
         <h4 class="text-center"><a href="/products">View all products</a></h4>
+        <br>
+        <h4 class="text-center"><a href="/search-employees">Search for an employee</a></h4>
     </div>
 
 

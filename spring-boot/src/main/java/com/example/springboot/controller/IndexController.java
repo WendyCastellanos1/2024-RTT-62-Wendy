@@ -17,16 +17,10 @@ import org.springframework.web.servlet.ModelAndView;
 @Controller
 public class IndexController {
 
-    @Autowired
-    private ProductDAO productDAO;
-
     @GetMapping("/")
-    public ModelAndView index(@RequestParam(required=false) Integer id) {  //required=false allows object to be null, still render web page without error, just w/o data
+    public ModelAndView index(){
         // this function is for the home page of the website which is express as just a plain slash "/"
        ModelAndView response = new ModelAndView("index");
-
-       Product product = productDAO.findById(id);  // hard-coded product id
-       response.addObject("productKey", product);
 
         // by default the logging level is set to info so the debug message will not be printed in the terminal
         log.debug("Debug level");
@@ -39,55 +33,19 @@ public class IndexController {
        return response;
     }
 
-    @GetMapping("/index/{id}")
-    public ModelAndView indexPathVar(@PathVariable Integer id){
-
-        ModelAndView response = new ModelAndView("index");
-        Product product = productDAO.findById(id);
-        response.addObject("productKey", product);
-        return response;
-    }
-
     @GetMapping("/about")
     public ModelAndView canBeAnyFunctionNameYouWant() {
         ModelAndView response = new ModelAndView("about");
         return response;
     }
-    @GetMapping("/search")
-    public ModelAndView search() {
 
-        ModelAndView response = new ModelAndView("search");
-        List<Product> products = productDAO.findAll();
-        response.addObject("products", products);
 
-        return response;
-    }
-    @GetMapping("/products")
-    public ModelAndView products() {
-
-        ModelAndView response = new ModelAndView("products");
-        List<Product> products = productDAO.findAll();
-        // Page<Product> products = (Page<Product>) productDAO.findAll();
-        response.addObject("products", products);
-
-        return response;
-    }
-
-    @GetMapping("/product/{id}")
-    public ModelAndView productPathVar(@PathVariable Integer id){
-
-        ModelAndView response = new ModelAndView("product");
-        Product product = productDAO.findById(id);
-        response.addObject("productKey", product);
-        return response;
-    }
 
     @GetMapping("/homework")
     public ModelAndView homework(@RequestParam(required=false) String topic) {  // required=false allows object to be null, still render web page without error, just w/o data
 
         ModelAndView response = new ModelAndView("homework");
         response.addObject("message",  topic);
-
         return response;
     }
 

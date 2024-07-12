@@ -13,8 +13,8 @@ import lombok.*;
 
 public class Product {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Id // PK
+    @GeneratedValue(strategy = GenerationType.IDENTITY)     // auto-increment
     @Column(name = "id")
     private Integer id;
 

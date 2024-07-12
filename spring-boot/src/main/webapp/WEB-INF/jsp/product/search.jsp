@@ -1,8 +1,6 @@
-<!-- goes at TOP -->
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<jsp:include page="../include/header.jsp" />
 
-<jsp:include page="include/header.jsp" />
-<!-- a page header -->
+<!-- page header -->
 <section style="background-color:orange">
     <div class="container">
         <div class="row pt-5 pb-5">
@@ -11,7 +9,24 @@
     </div>
 </section>
 
-<!-- count of products in the list -->
+<!-- search form -->
+<section>
+    <div class="container">
+        <div class="row justify-content-center pt-5 pb-3">
+            <div class="col-8 text-center">
+                <form action="/search">
+                    <div class="mb-3">
+                        <label for="search" class="form-label"><h4>Product Name Search</h4></label>
+                        <input type="text" value="${search}" class="form-control" id="search" name="search" placeholder="Enter search term"/>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Search</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- show product count in the list -->
 <section>
     <div class="container">
         <div class="row pt-5 pb-5">
@@ -19,6 +34,8 @@
                 <h4 class="text-center"> ${products.size()} result(s)</h4>
             </div>
         </div>
+
+        <!-- show the rows of products -->
         <div class="row">
             <div class ="col-12">
                 <table class="table">
@@ -33,7 +50,8 @@
                         <tr>
                             <td>${product.id}</td>
                             <td>${product.productCode}</td>
-                            <td>${product.productName}</td>
+
+                            <td>  <a href="/product/${product.id}">   ${product.productName}   </a>  </td>
                             <td>${product.productDescription}</td>
                         </tr>
                     </c:forEach>
@@ -44,4 +62,4 @@
     </div>
 </section>
 
-<jsp:include page="include/footer.jsp" />
+<jsp:include page="../include/footer.jsp" />

@@ -1,7 +1,4 @@
-<!-- goes at TOP -->
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-
-<jsp:include page="include/header.jsp" />
+<jsp:include page="../include/header.jsp" />
 
     <!-- a page header -->
     <section style="background-color:orange">
@@ -21,7 +18,9 @@
     </table>
 
     <div>
-        <a href="/products">Return to Products List</a>
+        <a href="/products">View the master product list</a>
+        <br>
+        <a href="/search">Search for more products</a>
     </div>
 
-<jsp:include page="include/footer.jsp" />
+<jsp:include page="../include/footer.jsp" />

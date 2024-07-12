@@ -1,3 +1,6 @@
+<!-- goes at TOP -->
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
 <!doctype html>
 <html lang="en">
 <head>
@@ -30,9 +33,16 @@
                     <a class="nav-link" href="/about">About</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/search">Search</a>
+                    <a class="nav-link" href="/product/search">Product Search</a>
+                </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/products">Products</a>
+                    <a class="nav-link" href="/product/list">Product List</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/employee/search">Employee Search</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/employee/list">Employee List</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="/homework">Homework</a>
