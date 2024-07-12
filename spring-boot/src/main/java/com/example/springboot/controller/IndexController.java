@@ -81,4 +81,14 @@ public class IndexController {
         response.addObject("productKey", product);
         return response;
     }
+
+    @GetMapping("/homework")
+    public ModelAndView homework(@RequestParam(required=false) String topic) {  // required=false allows object to be null, still render web page without error, just w/o data
+
+        ModelAndView response = new ModelAndView("homework");
+        response.addObject("message",  topic);
+
+        return response;
+    }
+
 }
