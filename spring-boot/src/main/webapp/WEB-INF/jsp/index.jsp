@@ -1,13 +1,24 @@
 <jsp:include page = "include/header.jsp" />
 
-    <h1 class = "page-title">This is my first JSP page</h1>
-    <h2>${message}</h2>
+    <!-- a page header -->
+    <section style="background-color:orange">
+        <div class="container">
+            <div class="row pt-5 pb-5">
+                <h1 class="text-center">Home</h1>
+            </div>
+        </div>
+    </section>
+    <br>
 
-    <table class="table">
-        <tr><td>id</td>  <td>${productKey.id}</td></tr>
-        <tr><td>code</td>  <td>${productKey.productCode}</td></tr>
-        <tr><td>name</td>  <td>${productKey.productName}</td></tr>
-        <tr><td>description</td>  <td>${productKey.productDescription}</td></tr>
-    </table>
+    <div>"
+        <h2 class="text-center">${message}</h2>
+    </div>
+    <br>
+    <div>
+        <h4 class="text-center"><a href="/search">Search for something</a></h4>
+        <br>
+        <h4 class="text-center"><a href="/products">View all products</a></h4>
+    </div>
+
 
 <jsp:include page = "include/footer.jsp" />
