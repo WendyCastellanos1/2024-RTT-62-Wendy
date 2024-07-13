@@ -30,13 +30,14 @@ public class Order {
     @JoinColumn(name = "customer_id", nullable = true)
     private Customer customer;
 
+    @Column(name = "customer_id", insertable=false, updatable=false)
+    private Integer customerId;
+
     // foreign key situation: 1 to many order details are mapped to a single order
     @ToString.Exclude
     @OneToMany(mappedBy = "order", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private List<OrderDetail> orderDetails;
 
-    @Column(name = "customer_id", insertable=false, updatable=false)
-    private Integer customerId;
     //   optional: add     , nullable = false  so Hibernate does NOT validate that
     @Column(name = "order_date")    // @Column(name = "order_date", nullable = false)
     @Temporal(TemporalType.DATE)  // if a timestamp

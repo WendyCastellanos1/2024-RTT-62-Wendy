@@ -1,33 +1,47 @@
 <!-- goes at TOP -->
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
-
 <jsp:include page="../include/header.jsp" />
 
-<!-- a page header -->
+<!-- page header -->
 <section style="background-color:orange">
     <div class="container">
         <div class="row pt-5 pb-5">
-            <h1 class="text-center">Order List</h1>
+            <h1 class="text-center">Order Search</h1>
         </div>
     </div>
 </section>
 
+<!-- search form; section>container>one row>one column>form w/label and input, button -->
+<section>
+    <div class="container">
+        <div class="row justify-content-center pt-5 pb-3">
+            <div class="col-8 text-center">
+                <form action="../customer/search">
+                    <div class="mb-3">
+                        <label for="search" class="form-label"><h4>Enter the order ???: </h4></label>
+                        <input type="text" value="${searchKey}" class="form-control" id="search" name="search" placeholder="Enter search term"/>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Search</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
 
+<!-- count of orders in the list; section>container>one row>one column w/h4; another row w/column headers; x row(s) with employees -->
 <section>
     <div class="container">
         <div class="row pt-5 pb-5">
             <div class="col-12">
-                <!-- count of orders in the list -->
-                <h4 class="text-center">${ordersKey.size()} result(s)</h4>
+                <h4 class="text-center"> ${ordersKey.size()} result(s)</h4>
             </div>
         </div>
 
+        <!-- show the rows of orders -->
         <div class="row">
             <div class ="col-12">
                 <table class="table">
-
-                    <!-- header row for order list -->
                     <tr>
                         <th><b>Id</b></th>
                         <th><b>Customer Id</b></th>
@@ -39,7 +53,6 @@
                         <th><b>Order Details</b></th>
                     </tr>
 
-                    <!-- loop to print rows in product list -->
                     <c:forEach items="${ordersKey}" var="order">
                         <tr>
                             <td>${order.id}</td>

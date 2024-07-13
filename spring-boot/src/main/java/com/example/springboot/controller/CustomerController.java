@@ -29,32 +29,32 @@ public class CustomerController {
 
         ModelAndView response = new ModelAndView("/customer/list");
         List<Customer> customers = customerDAO.findAll();
-        response.addObject("customersToken", customers);
+        response.addObject("customersKey", customers);
 
         return response;
     }
 
-    // listens for url: localhost:8080/customer/detail
+    // listens for url: localhost:8080/customer/{id}
     @GetMapping("/{id}")
     public ModelAndView detail(@PathVariable Integer id) {
 
         ModelAndView response = new ModelAndView("/customer/detail");
         Customer customer = customerDAO.findById(id);
-        response.addObject("customerToken", customer);
+        response.addObject("customerKey", customer);
 
         return response;
     }
 
     // listens for url: localhost:8080/customer/search
     @GetMapping("/search")
-    public ModelAndView search(String userInput) {
+    public ModelAndView search(String search) {
 
         ModelAndView response = new ModelAndView("/customer/search");
-        log.debug("The user searched for: " + userInput);
-        response.addObject("searchToken", userInput);
+        log.debug("The user searched for: " + search);
+        response.addObject("searchKey", search);
 
-        List<Customer> customers = customerDAO.findByCustomerName(userInput);
-        response.addObject("customersToken", customers);
+        List<Customer> customers = customerDAO.findByCustomerName(search);
+        response.addObject("customersKey", customers);
 
         return response;
     }

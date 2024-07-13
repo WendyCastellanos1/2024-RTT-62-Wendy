@@ -1,3 +1,7 @@
+<!-- goes at TOP -->
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
+
 <jsp:include page="../include/header.jsp" />
 
     <!-- a page header -->
@@ -14,7 +18,7 @@
         <div class="container">
             <div class="row pt-5 pb-5">
                 <div class="col-12">
-                    <h4 class="text-center">${productsToken.size()} result(s)</h4>
+                    <h4 class="text-center">${productsKey.size()} result(s)</h4>
                 </div>
             </div>
 
@@ -31,11 +35,11 @@
                         </tr>
 
                         <!-- loop to print rows in product list -->
-                        <c:forEach items="${productsToken}" var="product">
+                        <c:forEach items="${productsKey}" var="product">
                             <tr>
                                 <td>${product.id}</td>
                                 <td>${product.productCode}</td>
-                               <!-- <td>  <a href="/product/${product.id}">   ${product.productName}   </a>  </td>  -->
+                                <td>  <a href="../product/${product.id}">   ${product.productName}   </a>  </td>
                                 <td>${product.productName}</td>
                                 <td>${product.productDescription}</td>
                             </tr>

@@ -29,12 +29,12 @@ public class EmployeeController {
 
         ModelAndView response = new ModelAndView("/employee/list");
         List<Employee> employees = employeeDAO.findAll();
-        response.addObject("employeesToken", employees);
+        response.addObject("employeesKey", employees);
 
         return response;
     }
 
-    // listens on url: localhost:8080/employee/detail
+    // listens on url: localhost:8080/employee/{id}  ????
     @GetMapping("/{id}")
     public ModelAndView detail(@PathVariable Integer id) {
 
@@ -42,23 +42,23 @@ public class EmployeeController {
         log.debug("The user wants the employee with id:  " +  id);
 
         Employee employee = employeeDAO.findById(id);
-        response.addObject("employeeToken", employee);
+        response.addObject("employeeKey", employee);
 
         return response;
     }
 
     // listens on url: localhost:8080/employee/search
     @GetMapping("/search")
-    public ModelAndView search(@RequestParam(required=false) String userInput) {
+    public ModelAndView search(@RequestParam(required=false) String search) {
 
         ModelAndView response = new ModelAndView("/employee/search");
-        log.debug("The user searched for the term: " + userInput);
+        log.debug("The user searched for the term: " + search);
 
         // Add the user input back to the model so that we can display the search term in the input field
-        response.addObject("searchToken", userInput);
+        response.addObject("searchKey", search);
 
-        List<Employee> employees = employeeDAO.findByFirstOrLastNameOrJobTitle(userInput);
-        response.addObject("employeesToken", employees);
+        List<Employee> employees = employeeDAO.findByFirstOrLastNameOrJobTitle(search);
+        response.addObject("employeesKey", employees);
 
         return response;
     }

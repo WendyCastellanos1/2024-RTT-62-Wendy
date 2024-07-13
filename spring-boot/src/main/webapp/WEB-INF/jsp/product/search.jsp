@@ -1,3 +1,6 @@
+<!-- goes at TOP -->
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
 <jsp:include page="../include/header.jsp" />
 
 <!-- page header -->
@@ -17,7 +20,7 @@
                 <form action="../product/search">
                     <div class="mb-3">
                         <label for="search" class="form-label"><h4>Product Search</h4></label>
-                        <input type="text" value="${searchToken}" class="form-control" id="search" name="search" placeholder="Enter search term"/>
+                        <input type="text" value="${searchKey}" class="form-control" id="search" name="search" placeholder="Enter search term"/>
                     </div>
                     <button type="submit" class="btn btn-primary">Search</button>
                 </form>
@@ -31,7 +34,7 @@
     <div class="container">
         <div class="row pt-5 pb-5">
             <div class="col-12">
-                <h4 class="text-center"> ${productsToken.size()} result(s)</h4>
+                <h4 class="text-center"> ${productsKey.size()} result(s)</h4>
             </div>
         </div>
 
@@ -46,12 +49,11 @@
                         <th><b>Description</b></th>
                     </tr>
 
-                    <c:forEach items="${productsToken}" var="product">
+                    <c:forEach items="${productsKey}" var="product">
                         <tr>
                             <td>${product.id}</td>
                             <td>${product.productCode}</td>
-
-                            <td>  <a href="/product/${product.id}">   ${product.productName}   </a>  </td>
+                            <td>  <a href="../product/${product.id}">   ${product.productName}   </a>  </td>
                             <td>${product.productDescription}</td>
                         </tr>
                     </c:forEach>

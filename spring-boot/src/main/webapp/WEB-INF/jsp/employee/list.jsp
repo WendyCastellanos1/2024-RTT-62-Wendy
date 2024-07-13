@@ -1,3 +1,7 @@
+<!-- goes at TOP -->
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
+
 <jsp:include page="../include/header.jsp" />
 
 <!-- a page header -->
@@ -14,7 +18,7 @@
     <div class="container">
         <div class="row pt-5 pb-5">
             <div class="col-12">
-                <h4 class="text-center"> ${employeesToken.size()} result(s)</h4>
+                <h4 class="text-center"> ${employeesKey.size()} result(s)</h4>
             </div>
         </div>
         <div class="row">
@@ -30,9 +34,9 @@
                         <th><b>Email</b></th>
                     </tr>
 
-                    <c:forEach items="${employeesToken}" var="employee">
+                    <c:forEach items="${employeesKey}" var="employee">
                         <tr>
-                            <td><a href="/employee/detail?id=${employee.id}">${employee.id}</a></td>
+                            <td><a href="../employee/${employee.id}">${employee.id}</a></td>
                             <td>${employee.officeId}</td>
                             <td>${employee.jobTitle}</td>
                             <td>${employee.lastName}</td>

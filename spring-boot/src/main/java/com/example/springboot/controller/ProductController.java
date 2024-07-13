@@ -29,34 +29,34 @@ public class ProductController {
 
         ModelAndView response = new ModelAndView("/product/list");
         List<Product> products = productDAO.findAll();
-        response.addObject("productsToken", products);
+        response.addObject("productsKey", products);
 
         return response;
     }
 
-    // listens on url: localhost:8080/product/detail
+    // listens on url: localhost:8080/product/{id}
     @GetMapping("/{id}")
     public ModelAndView detail(@PathVariable Integer id){
 
-        ModelAndView response = new ModelAndView("detail");
+        ModelAndView response = new ModelAndView("/product/detail");
         Product product = productDAO.findById(id);
-        response.addObject("productToken", product);
+        response.addObject("productKey", product);
 
         return response;
     }
 
     // listens on url: localhost:8080/product/search
     @GetMapping("/search")
-    public ModelAndView search(@RequestParam(required=false) String userInput) {
+    public ModelAndView search(@RequestParam(required=false) String search) {
 
         ModelAndView response = new ModelAndView("/product/search");
-        log.debug("The user searched for the term: " + userInput);
+        log.debug("The user searched for the term: " + search);
 
         // Add the user input back to the model so that we can display the search term in the input field
-        response.addObject("searchToken", userInput);
+        response.addObject("search", search);
 
-        List<Product> products = productDAO.findByNameOrCode(userInput);
-        response.addObject("productsToken", products);
+        List<Product> products = productDAO.findByNameOrCode(search);
+        response.addObject("productsKey", products);
 
         return response;
     }
