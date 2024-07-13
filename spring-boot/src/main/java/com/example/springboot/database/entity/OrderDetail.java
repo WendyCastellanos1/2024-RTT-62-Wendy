@@ -5,6 +5,8 @@ import lombok.*;
 import com.example.springboot.database.entity.Order;
 import com.example.springboot.database.entity.Product;
 
+import java.util.Objects;
+
 //lombok does the getters and setters
 @Setter
 @Getter
@@ -26,16 +28,17 @@ public class OrderDetail {
     @JoinColumn(name = "order_id", nullable = false)
     private Order order;
 
-    @Column(name = "order_id")
-    private int orderId;
+//    @Column(name = "order_id")
+//    private int orderId;
 
     @ToString.Exclude
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
+   // @JoinColumn(name = "productId", nullable = false)
     @JoinColumn(name = "product_id", nullable = false)
     private Product product;
 
-    @Column(name = "product_id")
-    private Integer productId;
+//    @Column(name = "product_id")
+//    private Integer productId;
 
     @Column(name = "quantity_ordered") //could put default to 0
     private Integer quantityOrdered = 0;
@@ -44,6 +47,18 @@ public class OrderDetail {
     private Double priceEach;
 
     @Column(name = "order_line_number")
-    private Integer orderLineNumber;
+    private Short orderLineNumber;
+
+//    @Override
+//    public boolean equals(Object o) {
+//        if(this == o) return true;
+//        if(o == null || getClass() != o.getClass()) return false;
+//        OrderDetail orderDetail = (OrderDetail) o;
+//        return id == orderDetail.id && Objects.equals(productId, orderDetail.productId);
+//    }
+//    @Override
+//    public int hashCode(){
+//        return Objects.hash(id, productId);
+//    }
 
 }

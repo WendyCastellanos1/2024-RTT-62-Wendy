@@ -4,6 +4,7 @@ import com.example.springboot.database.entity.Customer;
 import jakarta.persistence.*;
 import lombok.*;
 import java.util.List;
+import java.util.Objects;
 
 //lombok does the getters and setters
 @Setter
@@ -22,7 +23,7 @@ public class Employee {
     private Integer id;
 
     // foreign key situation: one employee can be assigned to serve many customers
-        // select c.* from customers c, employees e where c.sales_rep_id = e.id
+    // allows Hibernate to make the sql query: select c.* from customers c, employees e where c.sales_rep_id = e.id
     @ToString.Exclude
     @OneToMany(mappedBy = "employee", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private List<Customer> customers;
@@ -31,7 +32,7 @@ public class Employee {
     private Integer officeId;
 
     @Column(name = "lastname")
-    private String lastName;  //if it matches db field name Hibernate figures this out
+    private String lastName;  // if it matches db field name, Hibernate figures this out
 
     @Column(name = "firstname")
     private String firstName;
@@ -53,5 +54,17 @@ public class Employee {
 
     @Column(name = "profile_image_url")
     private String profileImageUrl;
+
+    @Override
+    public boolean equals(Object o) {
+        if(this == o) return true;
+        if(o == null || getClass() != o.getClass()) return false;
+        Employee employee = (Employee) o;
+        return id == employee.id && Objects.equals(lastName, employee.lastName);
+    }
+    @Override
+    public int hashCode(){
+        return Objects.hash(id, lastName);
+    }
 }
 

@@ -14,7 +14,7 @@
     <div class="container">
         <div class="row pt-5 pb-5">
             <div class="col-12">
-                <h4 class="text-center"> ${employees.size()} result(s)</h4>
+                <h4 class="text-center"> ${employeesToken.size()} result(s)</h4>
             </div>
         </div>
         <div class="row">
@@ -30,9 +30,9 @@
                         <th><b>Email</b></th>
                     </tr>
 
-                    <c:forEach items="${employees}" var="employee">
+                    <c:forEach items="${employeesToken}" var="employee">
                         <tr>
-                            <td><a href="/employee?id=${employee.id}">${employee.id}</a></td>
+                            <td><a href="/employee/detail?id=${employee.id}">${employee.id}</a></td>
                             <td>${employee.officeId}</td>
                             <td>${employee.jobTitle}</td>
                             <td>${employee.lastName}</td>

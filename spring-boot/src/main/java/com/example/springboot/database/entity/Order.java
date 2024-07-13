@@ -5,12 +5,13 @@ import jakarta.persistence.*;
 import lombok.*;
 import java.util.Date;
 import java.util.List;
+import java.util.Objects;
 
 //lombok does the getters and setters
 @Setter
 @Getter
 @ToString
-@Entity //tells there's a db
+@Entity // indicates a db
 @NoArgsConstructor
 @AllArgsConstructor
 @Table(name = "orders")
@@ -18,7 +19,7 @@ import java.util.List;
 
 public class Order {
 
-    @Id //this identifies the PK
+    @Id // PK
     @GeneratedValue(strategy = GenerationType.IDENTITY) // this is indicating to Hiberate that it's doing an auto-increment
     @Column(name = "id")
     private Integer id;
@@ -35,7 +36,7 @@ public class Order {
     private List<OrderDetail> orderDetails;
 
     @Column(name = "customer_id", insertable=false, updatable=false)
-    private Integer customer_id;
+    private Integer customerId;
     //   optional: add     , nullable = false  so Hibernate does NOT validate that
     @Column(name = "order_date")    // @Column(name = "order_date", nullable = false)
     @Temporal(TemporalType.DATE)  // if a timestamp
@@ -54,6 +55,18 @@ public class Order {
 
     @Column(name = "comments")
     private String comments;
+
+    @Override
+    public boolean equals(Object o) {
+        if(this == o) return true;
+        if(o == null || getClass() != o.getClass()) return false;
+        Order order = (Order) o;
+        return id == order.id && Objects.equals(customerId, order.customerId);
+    }
+    @Override
+    public int hashCode(){
+        return Objects.hash(id, customerId);
+    }
 }
 
 //  boolean handled by adding      ,columnDefinition = "BIT"

@@ -4,7 +4,7 @@
 <section style="background-color:orange">
     <div class="container">
         <div class="row pt-5 pb-5">
-            <h1 class="text-center">Search Page</h1>
+            <h1 class="text-center">Product Search</h1>
         </div>
     </div>
 </section>
@@ -14,10 +14,10 @@
     <div class="container">
         <div class="row justify-content-center pt-5 pb-3">
             <div class="col-8 text-center">
-                <form action="/search">
+                <form action="../product/search">
                     <div class="mb-3">
-                        <label for="search" class="form-label"><h4>Product Name Search</h4></label>
-                        <input type="text" value="${search}" class="form-control" id="search" name="search" placeholder="Enter search term"/>
+                        <label for="search" class="form-label"><h4>Product Search</h4></label>
+                        <input type="text" value="${searchToken}" class="form-control" id="search" name="search" placeholder="Enter search term"/>
                     </div>
                     <button type="submit" class="btn btn-primary">Search</button>
                 </form>
@@ -31,7 +31,7 @@
     <div class="container">
         <div class="row pt-5 pb-5">
             <div class="col-12">
-                <h4 class="text-center"> ${products.size()} result(s)</h4>
+                <h4 class="text-center"> ${productsToken.size()} result(s)</h4>
             </div>
         </div>
 
@@ -46,7 +46,7 @@
                         <th><b>Description</b></th>
                     </tr>
 
-                    <c:forEach items="${products}" var="product">
+                    <c:forEach items="${productsToken}" var="product">
                         <tr>
                             <td>${product.id}</td>
                             <td>${product.productCode}</td>

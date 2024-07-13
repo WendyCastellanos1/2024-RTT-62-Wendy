@@ -5,8 +5,7 @@ import lombok.*;
 import java.util.List;
 import java.util.Objects;
 
-
-//lombok does the getters and setters for us; I don't have to type or generate them.
+//lombok does the getters and setters
 @Setter
 @Getter
 @Entity // indicates a db
@@ -52,15 +51,15 @@ public class Customer {
     @Column(name = "country")
     private String country;
 
-    // Many customers are mapped to a single employee
-    // allow hibernate to make the query: select e.* from customers c, employee e where c.sales_rep_employee_id = e.id
+    // foreign key situation: any customers are mapped to a single employee
+    // allow Hibernate to make the sql query: select e.* from customers c, employee e where c.sales_rep_employee_id = e.id
     @ToString.Exclude
     @ManyToOne(fetch = FetchType.LAZY, optional = true)
     @JoinColumn(name = "sales_rep_employee_id", nullable = true)
     private Employee employee;
 
     // foreign key situation: one customer has 0 to many orders. an order is for one and only one customer.
-        // select o.* from orders o , customers c where o.customer_id = c.id
+    // allow Hibernate to make the sql query: select o.* from orders o , customers c where o.customer_id = c.id
     @ToString.Exclude
     @OneToMany(mappedBy = "customer", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private List<Order> orders;

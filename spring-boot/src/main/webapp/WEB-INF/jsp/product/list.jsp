@@ -4,7 +4,7 @@
     <section style="background-color:orange">
         <div class="container">
             <div class="row pt-5 pb-5">
-                <h1 class="text-center">Master Product List</h1>
+                <h1 class="text-center">Product List</h1>
             </div>
         </div>
     </section>
@@ -14,7 +14,7 @@
         <div class="container">
             <div class="row pt-5 pb-5">
                 <div class="col-12">
-                    <h4 class="text-center">${products.size()} result(s)</h4>
+                    <h4 class="text-center">${productsToken.size()} result(s)</h4>
                 </div>
             </div>
 
@@ -31,11 +31,12 @@
                         </tr>
 
                         <!-- loop to print rows in product list -->
-                        <c:forEach items="${products}" var="product">
+                        <c:forEach items="${productsToken}" var="product">
                             <tr>
                                 <td>${product.id}</td>
                                 <td>${product.productCode}</td>
-                               <td>  <a href="/product/${product.id}">   ${product.productName}   </a>  </td>
+                               <!-- <td>  <a href="/product/${product.id}">   ${product.productName}   </a>  </td>  -->
+                                <td>${product.productName}</td>
                                 <td>${product.productDescription}</td>
                             </tr>
                         </c:forEach>
@@ -46,4 +47,4 @@
         </div>
     </section>
 
-<jsp:include page="include/footer.jsp" />
+<jsp:include page="../include/footer.jsp" />

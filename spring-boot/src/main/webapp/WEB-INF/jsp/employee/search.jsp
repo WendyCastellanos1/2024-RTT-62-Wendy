@@ -15,10 +15,10 @@
     <div class="container">
         <div class="row justify-content-center pt-5 pb-3">
             <div class="col-8 text-center">
-                <form action="/search-employees">
+                <form action="/employee/search">
                     <div class="mb-3">
                         <label for="search" class="form-label"><h4>Enter a first name, last name, or job title: </h4></label>
-                        <input type="text" value="${search}" class="form-control" id="search" name="search" placeholder="Enter search term"/>
+                        <input type="text" value="${searchToken}" class="form-control" id="search" name="search" placeholder="Enter search term"/>
                     </div>
                     <button type="submit" class="btn btn-primary">Search</button>
                 </form>
@@ -33,7 +33,7 @@
     <div class="container">
         <div class="row pt-5 pb-5">
             <div class="col-12">
-                <h4 class="text-center"> ${employees.size()} result(s)</h4>
+                <h4 class="text-center"> ${employeesToken.size()} result(s)</h4>
             </div>
         </div>
 
@@ -51,9 +51,9 @@
                         <th><b>Email</b></th>
                     </tr>
 
-                    <c:forEach items="${employees}" var="employee">
+                    <c:forEach items="${employeesToken}" var="employee">
                         <tr>
-                            <td><a href="/employee?id=${employee.id}">${employee.id}</a></td>
+                            <td><a href="/employee/detail?id=${employee.id}">${employee.id}</a></td>
                             <td>${employee.officeId}</td>
                             <td>${employee.jobTitle}</td>
                             <td>${employee.lastName}</td>
@@ -68,6 +68,5 @@
         </div>
     </div>
 </section>
-
 
 <jsp:include page="../include/footer.jsp" />
