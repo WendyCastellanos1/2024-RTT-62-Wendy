@@ -55,6 +55,7 @@ public class OrderController {
 
         ModelAndView response = new ModelAndView("/order/list-by-customer");
         log.debug("The user wants the order(s) for customer id:  " +  id);
+        response.addObject("customerId", id);
 
         List<Order> orders = orderDAO.findByCustomerId(Integer.valueOf(id));
         response.addObject("ordersKey", orders);

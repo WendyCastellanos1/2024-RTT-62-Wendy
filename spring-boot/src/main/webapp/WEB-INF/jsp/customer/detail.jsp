@@ -24,7 +24,8 @@
                         <tr><td><b>Contact First Name</b></td>       <td>${customerKey.contactFirstName}</td>  </tr>
                         <tr><td><b>Contact Last Name</b></td>        <td>${customerKey.contactLastName}</td>  </tr>
                         <tr><td><b>Phone</b></td>                    <td>${customerKey.phone}</td>               </tr>
-                        <tr><td><b>Sales Rep Employee ID</b></td>    <td><a href="../employee/${customerKey.salesRepEmployeeId}"></a>${customerKey.salesRepEmployeeId}</td> </tr>
+                        <tr><td><b>Sales Rep Employee ID</b></td>    <td><a href="../employee/${customerKey.salesRepEmployeeId}">${customerKey.salesRepEmployeeId}</a></td> </tr>
+                        <tr><td><b>Customer's Orders</b></td>        <td><a href="../order/list-by-customer?id=${customerKey.id}">orders</a></td></tr>
                     </table>
                 </div>
             </div>
@@ -52,7 +53,6 @@
         </div>
     </div>
 </section>
-
 
 
 
