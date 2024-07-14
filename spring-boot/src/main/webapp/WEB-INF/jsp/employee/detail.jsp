@@ -22,6 +22,7 @@
     <tr><td><b>Email</b></td>  <td>${employeeKey.email}</td></tr>
 </table>
 
+<!-- links at bottom of page -->
 <div>
     <a href="../employee/list">View all employees</a>
     <br>

@@ -14,7 +14,7 @@ public interface OrderDAO extends JpaRepository<Order, Long> {
 
     // get LIST of orders.... by customer_id (this is a JPA query just like we did in the Hibernate module)
     @Query("select o from Order o, Customer c " +
-            " where o.customerId = c.id")
+            " where o.customerId = :id")
     List<Order> findByCustomerId(Integer id);
 
     // get LIST of orders... by customer name, or like customer name

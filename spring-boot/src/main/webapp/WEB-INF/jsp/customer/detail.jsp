@@ -31,6 +31,8 @@
         </div>
     </div>
 </section>
+
+<!-- links at bottom of page -->
 <section>
     <div class="container">
         <div class="table">

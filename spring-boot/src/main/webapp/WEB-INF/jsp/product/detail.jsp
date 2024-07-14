@@ -20,6 +20,7 @@
         <tr><td><b>Description</b></td>  <td>${productKey.productDescription}</td></tr>
     </table>
 
+    <!-- links at bottom of page -->
     <div>
         <a href="../product/list">View all products</a>
         <br>

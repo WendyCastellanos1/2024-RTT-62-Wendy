@@ -41,7 +41,7 @@
                             <td>${customer.contactLastName}</td>
                             <td>${customer.phone}</td>
                             <td><a href="../employee/${customer.salesRepEmployeeId}">${customer.salesRepEmployeeId}</a></td>
-                            <td><i>orders</i></td>
+                            <td><a href="../order/list-by-customer?id=${customer.id}">orders</a></td>
                         </tr>
                     </c:forEach>
 

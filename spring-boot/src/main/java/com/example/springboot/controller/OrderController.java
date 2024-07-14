@@ -12,50 +12,65 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.data.domain.Page;
 
+import java.nio.file.Path;
 import java.util.List;
 import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
 @Controller
-@RequestMapping("/order")    // ????
+@RequestMapping("/order/")    // ????
 public class OrderController {
 
     @Autowired
     private OrderDAO orderDAO;
 
     // listens on url: localhost:8080/order/list
-    @GetMapping("/order/list")
+    @GetMapping("/list")
     public ModelAndView list() {
 
-        ModelAndView response = new ModelAndView("list");
+        ModelAndView response = new ModelAndView("/order/list");
         List<Order> orders = orderDAO.findAll();
-        response.addObject("ordersToken", orders);
+        response.addObject("ordersKey", orders);
 
         return response;
     }
 
-    // listens on url: localhost:8080/order/detail
-    @GetMapping("/order/{id}")
+    // listens on url: localhost:8080/order/{id}        for   order id
+    @GetMapping("/{id}")
     public ModelAndView detail(@PathVariable Integer id) {
 
-        ModelAndView response = new ModelAndView("detail");
+        ModelAndView response = new ModelAndView("/order/detail");   // summary in this case
         log.debug("The user wants the order with id:  " +  id);
 
         Order order = orderDAO.findById(id);
-        response.addObject("orderToken", order);
+        response.addObject("orderKey", order);
+
+        return response;
+    }
+
+    // listens on url: localhost:8080/order/list-by-customer        ?????????
+    // for when  customer's list...someone clicks on orders link to see orders list for that customer
+    @GetMapping("/list-by-customer")
+    public ModelAndView listByCustomerId(@RequestParam(required=false) String id) {
+
+        ModelAndView response = new ModelAndView("/order/list-by-customer");
+        log.debug("The user wants the order(s) for customer id:  " +  id);
+
+        List<Order> orders = orderDAO.findByCustomerId(Integer.valueOf(id));
+        response.addObject("ordersKey", orders);
 
         return response;
     }
 
     // listens on url: localhost:8080/order/search
-    @GetMapping("/order/search")
-    public ModelAndView search(@RequestParam(required=false) String userInput) {
+    @GetMapping("/search")
+    public ModelAndView searchByCustomerName(@RequestParam(required=false) String search) {
 
-        ModelAndView response = new ModelAndView("search");
-        log.debug("The user wants the order with this customer id:  " +  userInput);
+        ModelAndView response = new ModelAndView("/order/search");
+        log.debug("The user wants the order for this customer name:  " +  search);
 
-        List<Order> orders = orderDAO.findByCustomerName(userInput);
-        response.addObject("ordersToken", orders);
+        List<Order> orders = orderDAO.findByCustomerName(search);
+        response.addObject("ordersKey", orders);
 
         return response;
     }

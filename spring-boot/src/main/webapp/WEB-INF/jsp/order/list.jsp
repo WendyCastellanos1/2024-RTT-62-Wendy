@@ -39,14 +39,14 @@
                         <th><b>Order Details</b></th>
                     </tr>
 
-                    <!-- loop to print rows in product list -->
+                    <!-- loop to print rows in order list -->
                     <c:forEach items="${ordersKey}" var="order">
                         <tr>
                             <td>${order.id}</td>
                             <td><a href="../customer/${order.customerId}">${order.customerId}</a></td>
                             <td>${order.orderDate}</td>
                             <td>${order.shippedDate}</td>
-                            <td>${order.dateRequired}</td>
+                            <td>${order.requiredDate}</td>
                             <td>${order.status}</td>
                             <td>${order.comments}</td>
                             <td><i>order details</i></td>

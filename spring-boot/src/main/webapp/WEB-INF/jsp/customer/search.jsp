@@ -38,13 +38,13 @@
             </div>
         </div>
 
-        <!-- show the rows of products -->
+        <!-- show the rows of customers -->
         <div class="row">
             <div class ="col-12">
                 <table class="table">
                     <tr>
                         <th><b>Id</b></th>
-                        <th><b>Name</b></th>
+                        <th><b>Customer Name</b></th>
                         <th><b>Contact First Name</b></th>
                         <th><b>Contact Last Name</b></th>
                         <th><b>Phone</b></th>
@@ -60,7 +60,7 @@
                             <td>${customer.contactLastName}</td>
                             <td>${customer.phone}</td>
                             <td><a href="../employee/${customer.salesRepEmployeeId}">${customer.salesRepEmployeeId}</a></td>
-                            <td><i>orders</i></td>
+                            <td><a href="../order/list-by-customer?id=${customer.id}">orders</a></td>
                         </tr>
                     </c:forEach>
 
