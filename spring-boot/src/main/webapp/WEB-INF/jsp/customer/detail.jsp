@@ -32,11 +32,9 @@
                                     <div class="row">
                                         <div class ="col-12">
                                             <table class="table">
-
                                                 <!-- header row for order list -->
                                                 <tr>
                                                     <th><b>Id</b></th>
-
                                                     <th><b>Order Date</b></th>
                                                     <th><b>Shipped Date</b></th>
                                                     <th><b>Date Required</b></th>
@@ -49,7 +47,6 @@
                                                 <c:forEach items="${ordersKey}" var="order">
                                                     <tr>
                                                         <td>${order.id}</td>
-
                                                         <td>${order.orderDate}</td>
                                                         <td>${order.shippedDate}</td>
                                                         <td>${order.requiredDate}</td>
@@ -58,7 +55,6 @@
                                                         <td><i>order details</i></td>
                                                     </tr>
                                                 </c:forEach>
-
                                             </table>
                                         </div>
                                     </div>

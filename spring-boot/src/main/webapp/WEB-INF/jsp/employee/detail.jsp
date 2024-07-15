@@ -25,7 +25,7 @@
                         <tr><td><b>First Name</b></td>          <td>${employeeKey.firstName}</td></tr>
                         <tr><td><b>Extension</b></td>           <td>${employeeKey.extension}</td></tr>
                         <tr><td><b>Email</b></td>               <td>${employeeKey.email}</td></tr>
-                        <tr><td><b>Assigned Customers:  ${customersKey.size()} result(s)</b></td>       <td></td></tr>
+                        <tr><td><b>Assigned Customers:  </b></td>       <td>${customersKey.size()} result(s)</td></tr>
                          <tr>
                              <section>
                                  <div class="container">
