@@ -25,7 +25,7 @@ public class ProductController {
 
     // listens on url: localhost:8080/product/list
     @GetMapping("/list")
-    public ModelAndView list() {
+    public ModelAndView listAll() {
 
         ModelAndView response = new ModelAndView("/product/list");
         List<Product> products = productDAO.findAll();
@@ -36,7 +36,7 @@ public class ProductController {
 
     // listens on url: localhost:8080/product/{id}
     @GetMapping("/{id}")
-    public ModelAndView detail(@PathVariable Integer id){
+    public ModelAndView showDetail(@PathVariable Integer id){
 
         ModelAndView response = new ModelAndView("/product/detail");
         Product product = productDAO.findById(id);
@@ -47,7 +47,7 @@ public class ProductController {
 
     // listens on url: localhost:8080/product/search
     @GetMapping("/search")
-    public ModelAndView search(@RequestParam(required=false) String search) {
+    public ModelAndView searchByNameorCode(@RequestParam(required=false) String search) {
 
         ModelAndView response = new ModelAndView("/product/search");
         log.debug("The user searched for the term: " + search);

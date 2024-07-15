@@ -26,7 +26,7 @@ public class OrderController {
 
     // listens on url: localhost:8080/order/list
     @GetMapping("/list")
-    public ModelAndView list() {
+    public ModelAndView listAll() {
 
         ModelAndView response = new ModelAndView("/order/list");
         List<Order> orders = orderDAO.findAll();
@@ -37,7 +37,7 @@ public class OrderController {
 
     // listens on url: localhost:8080/order/{id}        for   order id
     @GetMapping("/{id}")
-    public ModelAndView detail(@PathVariable Integer id) {
+    public ModelAndView showDetail(@PathVariable Integer id) {
 
         ModelAndView response = new ModelAndView("/order/detail");   // summary in this case
         log.debug("The user wants the order with id:  " +  id);
@@ -51,11 +51,13 @@ public class OrderController {
     // listens on url: localhost:8080/order/list-by-customer        ?????????
     // for when  customer's list...someone clicks on orders link to see orders list for that customer
     @GetMapping("/list-by-customer")
-    public ModelAndView listByCustomerId(@RequestParam(required=false) String id) {
+    public ModelAndView listByCustomerId(@RequestParam String id,
+                                         @RequestParam(required=false) String name) {
 
         ModelAndView response = new ModelAndView("/order/list-by-customer");
-        log.debug("The user wants the order(s) for customer id:  " +  id);
+        log.debug("The user wants the order(s) for customer id:  " +  id + " and customer name:  " + name);
         response.addObject("customerId", id);
+        response.addObject("customerName", name);
 
         List<Order> orders = orderDAO.findByCustomerId(Integer.valueOf(id));
         response.addObject("ordersKey", orders);

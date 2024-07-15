@@ -25,7 +25,47 @@
                         <tr><td><b>Contact Last Name</b></td>        <td>${customerKey.contactLastName}</td>  </tr>
                         <tr><td><b>Phone</b></td>                    <td>${customerKey.phone}</td>               </tr>
                         <tr><td><b>Sales Rep Employee ID</b></td>    <td><a href="../employee/${customerKey.salesRepEmployeeId}">${customerKey.salesRepEmployeeId}</a></td> </tr>
-                        <tr><td><b>Customer's Orders</b></td>        <td><a href="../order/list-by-customer?id=${customerKey.id}">orders</a></td></tr>
+                        <tr><td><b>Orders: </b></td>        <td>${ordersKey.size()} result(s)</td></tr>
+                        <tr>
+                            <section>
+                                <div class="container">
+                                    <div class="row">
+                                        <div class ="col-12">
+                                            <table class="table">
+
+                                                <!-- header row for order list -->
+                                                <tr>
+                                                    <th><b>Id</b></th>
+
+                                                    <th><b>Order Date</b></th>
+                                                    <th><b>Shipped Date</b></th>
+                                                    <th><b>Date Required</b></th>
+                                                    <th><b>Status</b></th>
+                                                    <th><b>Comments</b></th>
+                                                    <th><b>Order Details</b></th>
+                                                </tr>
+
+                                                <!-- loop to print rows in order list -->
+                                                <c:forEach items="${ordersKey}" var="order">
+                                                    <tr>
+                                                        <td>${order.id}</td>
+
+                                                        <td>${order.orderDate}</td>
+                                                        <td>${order.shippedDate}</td>
+                                                        <td>${order.requiredDate}</td>
+                                                        <td>${order.status}</td>
+                                                        <td>${order.comments}</td>
+                                                        <td><i>order details</i></td>
+                                                    </tr>
+                                                </c:forEach>
+
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </section>
+
+                        </tr>
                     </table>
                 </div>
             </div>
@@ -53,7 +93,5 @@
         </div>
     </div>
 </section>
-
-
 
 <jsp:include page="../include/footer.jsp" />

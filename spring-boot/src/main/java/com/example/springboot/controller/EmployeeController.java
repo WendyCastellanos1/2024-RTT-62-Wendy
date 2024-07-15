@@ -1,6 +1,7 @@
 package com.example.springboot.controller;
 
 import com.example.springboot.database.dao.EmployeeDAO;
+import com.example.springboot.database.entity.Customer;
 import com.example.springboot.database.entity.Employee;
 
 import org.springframework.data.domain.Page;
@@ -43,6 +44,9 @@ public class EmployeeController {
 
         Employee employee = employeeDAO.findById(id);
         response.addObject("employeeKey", employee);
+
+        List<Customer> customers = employee.getCustomers();
+        response.addObject("customersKey", customers);
 
         return response;
     }

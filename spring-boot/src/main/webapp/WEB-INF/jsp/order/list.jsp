@@ -8,7 +8,7 @@
 <section style="background-color:orange">
     <div class="container">
         <div class="row pt-5 pb-5">
-            <h1 class="text-center">Order List</h1>
+            <h1 class="text-center">Orders</h1>
         </div>
     </div>
 </section>
@@ -43,7 +43,7 @@
                     <c:forEach items="${ordersKey}" var="order">
                         <tr>
                             <td>${order.id}</td>
-                            <td><a href="../customer/${order.customerId}">${order.customerId}</a></td>
+                            <td><a href="../customer/${order.customerId}">  ${order.customerId}   </a>   </td>
                             <td>${order.orderDate}</td>
                             <td>${order.shippedDate}</td>
                             <td>${order.requiredDate}</td>

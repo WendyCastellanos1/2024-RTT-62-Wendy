@@ -13,18 +13,42 @@
     </section>
 
     <!-- product detail for one product -->
-    <table class="table">
-        <tr><td><b>Id</b></td>  <td>${productKey.id}</td></tr>
-        <tr><td><b>Code</b></td>  <td>${productKey.productCode}</td></tr>
-        <tr><td><b>Name</b></td>  <td>${productKey.productName}</td></tr>
-        <tr><td><b>Description</b></td>  <td>${productKey.productDescription}</td></tr>
-    </table>
+    <section>
+        <div class="container">
+            <div class="table">
+                <div class="row">
+                    <div class="col-12">
+                        <table class="table">
+                            <tr><td><b>Id</b></td>  <td>${productKey.id}</td></tr>
+                            <tr><td><b>Code</b></td>  <td>${productKey.productCode}</td></tr>
+                            <tr><td><b>Name</b></td>  <td>${productKey.productName}</td></tr>
+                            <tr><td><b>Description</b></td>  <td>${productKey.productDescription}</td></tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
     <!-- links at bottom of page -->
-    <div>
-        <a href="../product/list">View all products</a>
-        <br>
-        <a href="../product/search">Search for products</a>
-    </div>
+    <section>
+        <div class="container">
+            <div class="table">
+                <div class="row">
+                    <div class="col-12">
+                        <table class="table">
+                            <tr>
+                                <td>
+                                    <a href="../product/list">View all products</a>
+                                    <br>
+                                    <a href="../product/search">Search for products</a>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
 <jsp:include page="../include/footer.jsp" />
