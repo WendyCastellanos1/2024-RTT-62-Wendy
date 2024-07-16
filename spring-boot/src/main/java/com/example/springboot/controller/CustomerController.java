@@ -26,7 +26,7 @@ public class CustomerController {
 
     // listens for url: localhost:8080/customer/list
     @GetMapping("/list")
-    public ModelAndView listAll() {
+    public ModelAndView list() {
 
         ModelAndView response = new ModelAndView("/customer/list");
         List<Customer> customers = customerDAO.findAll();
@@ -37,7 +37,7 @@ public class CustomerController {
 
     // listens for url: localhost:8080/customer/{id}
     @GetMapping("/{id}")
-    public ModelAndView showDetail(@PathVariable Integer id) {
+    public ModelAndView detail(@PathVariable Integer id) {
 
         ModelAndView response = new ModelAndView("/customer/detail");
         Customer customer = customerDAO.findById(id);
@@ -79,8 +79,6 @@ public class CustomerController {
 
         return response;
     }
-
-
 
 }
 

@@ -22,4 +22,6 @@ public interface OrderDAO extends JpaRepository<Order, Long> {
             " where o.customerId = c.id and c.customerName like concat('%', :name, '%') " )
     List<Order> findByCustomerName(String name);
 
+
+
 }

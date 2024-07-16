@@ -3,6 +3,7 @@ package com.example.springboot.controller;
 import com.example.springboot.database.entity.Order;
 import com.example.springboot.database.dao.OrderDAO;
 
+import com.example.springboot.database.entity.OrderDetail;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
@@ -37,7 +38,7 @@ public class OrderController {
 
     // listens on url: localhost:8080/order/{id}        for   order id
     @GetMapping("/{id}")
-    public ModelAndView showDetail(@PathVariable Integer id) {
+    public ModelAndView detail(@PathVariable Integer id) {
 
         ModelAndView response = new ModelAndView("/order/detail");   // summary in this case
         log.debug("The user wants the order with id:  " +  id);

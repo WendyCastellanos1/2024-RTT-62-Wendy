@@ -16,6 +16,10 @@ public interface CustomerDAO extends JpaRepository<Customer, Long> {
             "where c.customerName like concat('%', :name, '%')")
     List<Customer> findByCustomerName(String name);
 
+
+    // same as one below
+    //List<Customer> findBySalesRepId(Integer id);
+
     // get LIST of customers....by assigned sales rep (which is an employee)
     @Query("select c from Customer c, Employee e " +
             " where c.salesRepEmployeeId  = e.id " +

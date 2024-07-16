@@ -1,9 +1,12 @@
 package com.example.springboot.controller;
 
 import com.example.springboot.database.dao.EmployeeDAO;
+import com.example.springboot.database.dao.OfficeDAO;
 import com.example.springboot.database.entity.Customer;
 import com.example.springboot.database.entity.Employee;
 
+import com.example.springboot.database.entity.Office;
+import com.example.springboot.form.CreateEmployeeFormBean;
 import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -18,15 +21,18 @@ import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
 @Controller
-@RequestMapping("/employee/")    // ???? the directory?
+@RequestMapping("/employee/")    // the directory
 public class EmployeeController {
 
     @Autowired
     private EmployeeDAO employeeDAO;
 
+    @Autowired
+    private OfficeDAO officeDAO;
+
     // listens on url: localhost:8080/employee/list
     @GetMapping("/list")
-    public ModelAndView list() {
+    public ModelAndView findAll() {
 
         ModelAndView response = new ModelAndView("/employee/list");
         List<Employee> employees = employeeDAO.findAll();
@@ -66,4 +72,51 @@ public class EmployeeController {
 
         return response;
     }
+
+    @GetMapping("/create")
+    public ModelAndView create() {
+
+        // this method is setting up the view for rendering
+        ModelAndView response = new ModelAndView("/employee/create");
+
+        // this list of employees is used in the Reports To dropdown to list all the employees
+        List<Employee> reportsToEmployees = employeeDAO.findAll();
+        response.addObject("reportsToEmployeesKey", reportsToEmployees);
+
+        // add your office query to get all of the offices and add it to the model
+        List<Office> officesKey = officeDAO.findAll();
+        response.addObject("officesKey", officesKey);
+
+        return response;
+    }
+
+    @GetMapping("/createSubmit")
+    public  ModelAndView createSubmit(CreateEmployeeFormBean form) {
+        ModelAndView response = new ModelAndView();
+        log.debug(form.toString());     // prints the form data to the console using the CreateEmployeeForm Bean form
+
+        Employee  employee = new Employee();
+        employee.setEmail(form.getEmail());
+        employee.setFirstName(form.getFirstName());
+        employee.setLastName(form.getLastName());
+        employee.setReportsTo(form.getReportsTo());
+        employee.setOfficeId(form.getOfficeId());
+        employee.setExtension(form.getExtension());
+        employee.setJobTitle(String.valueOf(form.getJobTitle()));
+        employee.setVacationHours(form.getVacationHours());
+        employee.setProfileImageUrl(form.getProfileImageUrl());
+
+        // when we save to the db, it will autoincrement to give us a new id
+        //the new Id is available in the return from the save method.
+        //basically returns the same object ...after its been inserted into the db
+       employee = employeeDAO.save(employee); //want this bc has next Id number in it
+
+        // this is a URL, NOT a view name
+        // in some ways this is overriding the behavior of the setViewName to use a URL rather than a JSP file location
+        //redirecting to the employee detail page, but usually you'd go to fully populated EDIT page, take emp id on url and use it to populate all the fields before rendering
+        response.setViewName("redirect:/employee/detail?employeeId=" + employee.getId());
+
+        return null;
+    }
+
 }

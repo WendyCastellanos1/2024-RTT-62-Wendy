@@ -49,7 +49,7 @@
                             <td>${order.requiredDate}</td>
                             <td>${order.status}</td>
                             <td>${order.comments}</td>
-                            <td><i>order details</i></td>
+                            <td><a href="../order-detail/list-by-order?orderId=${order.id}">order details</a></td>
                         </tr>
                     </c:forEach>
 

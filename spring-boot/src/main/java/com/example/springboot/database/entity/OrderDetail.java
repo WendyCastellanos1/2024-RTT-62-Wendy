@@ -23,13 +23,13 @@ public class OrderDetail {
     @Column(name = "id")
     private Integer id;
 
-    @ToString.Exclude
-    @ManyToOne(fetch = FetchType.LAZY, optional = false)
-    @JoinColumn(name = "order_id", nullable = false)
-    private Order order;
+//    @ToString.Exclude
+//    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+//    @JoinColumn(name = "order_id", nullable = false)
+//    private Order order;
 
-//    @Column(name = "order_id")
-//    private int orderId;
+    @Column(name = "order_id")
+    private int orderId;
 
     @ToString.Exclude
     @ManyToOne(fetch = FetchType.LAZY, optional = false)

@@ -8,7 +8,7 @@
 <section style="background-color:orange">
     <div class="container">
         <div class="row pt-5 pb-5">
-            <h1 class="text-center">Order Detail(s)</h1>
+            <h1 class="text-center">Order Detail(s) for Order: ${orderIdKey}</h1>
         </div>
     </div>
 </section>
