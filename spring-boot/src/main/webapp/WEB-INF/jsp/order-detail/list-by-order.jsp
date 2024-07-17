@@ -8,7 +8,7 @@
 <section style="background-color:orange">
     <div class="container">
         <div class="row pt-5 pb-5">
-            <h1 class="text-center">Order Detail(s) for Order: ${orderIdKey}</h1>
+            <h1 class="text-center">Order Detail(s) for Order: <a href="../order/${orderIdKey}">${orderIdKey}</a></h1>
         </div>
     </div>
 </section>
@@ -30,7 +30,6 @@
                     <!-- header row for order detail list -->
                     <tr>
                         <th><b>Id</b></th>
-                        <th><b>Order Id</b></th>
                         <th><b>Product Id</b></th>
                         <th><b>Quantity Ordered</b></th>
                         <th><b>Price Each</b></th>
@@ -41,7 +40,6 @@
                     <c:forEach items="${orderDetailsKey}" var="orderDetail">
                         <tr>
                             <td>${orderDetail.id}</td>
-                            <td><a href="../order/${orderDetail.orderId}">${orderDetail.orderId}</a></td>
                             <td><a href="../product/${orderDetail.productId}">  ${orderDetail.productId}   </a>   </td>
                             <td>${orderDetail.quantityOrdered}</td>
                             <td>${orderDetail.priceEach}</td>

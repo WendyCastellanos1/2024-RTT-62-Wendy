@@ -55,7 +55,8 @@ public class OrderDetailController {
 
         ModelAndView response = new ModelAndView("/order-detail/list-by-order");
         log.debug("The user wants the order detail row(s) for order id:  " +  orderId);
-        response.addObject("orderIdKey", Integer.valueOf(orderId));
+        // response.addObject("orderIdKey", Integer.valueOf(orderId));
+        response.addObject("orderIdKey", orderId);
 
         List<OrderDetail> orderDetails = orderDetailDAO.findByOrderId(Integer.valueOf(orderId));
         response.addObject("orderDetailsKey", orderDetails);

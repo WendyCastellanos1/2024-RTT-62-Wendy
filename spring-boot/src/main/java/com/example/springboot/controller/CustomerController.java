@@ -1,8 +1,11 @@
 package com.example.springboot.controller;
 
+import com.example.springboot.database.dao.EmployeeDAO;
 import com.example.springboot.database.entity.Customer;
 import com.example.springboot.database.dao.CustomerDAO;
 
+import com.example.springboot.database.entity.Employee;
+import com.example.springboot.database.entity.Office;
 import com.example.springboot.database.entity.Order;
 import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Controller;
@@ -23,6 +26,9 @@ public class CustomerController {
 
     @Autowired
     private CustomerDAO customerDAO;
+
+    @Autowired
+    private EmployeeDAO employeeDAO;
 
     // listens for url: localhost:8080/customer/list
     @GetMapping("/list")
@@ -76,6 +82,19 @@ public class CustomerController {
 
         List<Customer> customers = customerDAO.findByEmployeeId(Integer.valueOf(id));
         response.addObject("customersKey", customers);
+
+        return response;
+    }
+
+    @GetMapping("/create")
+    public ModelAndView create() {
+
+        // this method is setting up the view for rendering
+        ModelAndView response = new ModelAndView("/customer/create");
+
+        // this list of employees is used in the dropdown to list all the employees
+        //List<Employee> employees = employeeDAO.findAll();
+       // response.addObject("EmployeesKey", employees);  // TODO: filter for sales reps?, order by name asc
 
         return response;
     }

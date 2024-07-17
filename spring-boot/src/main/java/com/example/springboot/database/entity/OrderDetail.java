@@ -23,22 +23,23 @@ public class OrderDetail {
     @Column(name = "id")
     private Integer id;
 
-//    @ToString.Exclude
-//    @ManyToOne(fetch = FetchType.LAZY, optional = false)
-//    @JoinColumn(name = "order_id", nullable = false)
-//    private Order order;
 
-    @Column(name = "order_id")
+
+    @ToString.Exclude
+    @ManyToOne(fetch = FetchType.LAZY)
+   // @JoinColumn(name = "order_id", nullable = false)
+    private Order order;
+
+    @Column(name = "order_id", insertable = false, updatable = false)
     private int orderId;
 
     @ToString.Exclude
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
-   // @JoinColumn(name = "productId", nullable = false)
-    @JoinColumn(name = "product_id", nullable = false)
+    @JoinColumn(name = "product_id")
     private Product product;
 
-//    @Column(name = "product_id")
-//    private Integer productId;
+    @Column(name = "product_id", insertable=false, updatable=false)
+    private Integer productId;
 
     @Column(name = "quantity_ordered") //could put default to 0
     private Integer quantityOrdered = 0;

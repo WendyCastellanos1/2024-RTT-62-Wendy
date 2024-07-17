@@ -59,7 +59,7 @@
                     <a class="nav-link" href="/order/list">Order List</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/homework">Homework</a>
+                    <a class="nav-link" href="/customer/create">Create Customer</a>
                 </li>
             </ul>
         </div>

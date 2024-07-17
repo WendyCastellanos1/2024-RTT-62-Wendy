@@ -27,7 +27,7 @@ public class Order {
     // foreign key situation: "many" orders can belong to "one" customer
     @ToString.Exclude
     @ManyToOne(fetch = FetchType.LAZY, optional = true)
-    @JoinColumn(name = "customer_id", nullable = true)
+    @JoinColumn(name = "customer_id", nullable = false)
     private Customer customer;
 
     @Column(name = "customer_id", insertable=false, updatable=false)

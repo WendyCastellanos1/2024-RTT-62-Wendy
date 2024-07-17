@@ -19,36 +19,40 @@
         <div class="row pt-5 justify-content-center">
             <div class="col-12">
                 <form action="/employee/createSubmit">
+
                     <div class="row align-items-center pb-3">
 
-                        <div class="row align-items-center pb-3">
-                            <div class="col-2">
-                                <label for="emailId" class="col-form-label">Email</label>
-                            </div>
-                            <div class="col-auto">
-                                <input type="text" id="emailId" name="email" class="form-control">
-                            </div>
-                        </div>
+                        div>
+                        <label for="emailId" class="col-form-label">Email</label>
+                        <input type="text" id="emailId" name="email"
+                               class="form-control <c:if test="${bindingResult.hasFieldErrors('email')}">is-invalid</c:if>"
+                               value="${form.email}">
+                        <c:if test="${bindingResult.hasFieldErrors('email')}">
+                            <c:forEach items="${bindingResult.getFieldErrors('email')}" var="error">
+                                <div class="text-danger">${error.defaultMessage}</div>
+                            </c:forEach>
+                        </c:if>
+                    </div>
 
-                        <div class="row align-items-center pb-3">
+                        <div class="row align-items-center justify-content-center pb-3">
                             <div class="col-2">
                                 <label for="firstNameId" class="col-form-label">First Name</label>
                             </div>
                             <div class="col-auto">
-                                <input type="text" id="firstNameId" name="firstName" class="form-control">
+                                <input type="text" id="firstNameId" name="firstName" class="form-control" value="${form.firstName}>
                             </div>
                         </div>
 
-                        <div class="row align-items-center pb-3">
+                        <div class="row align-items-center justify-content-center pb-3">
                             <div class="col-2">
                                 <label for="lastNameId" class="col-form-label">Last Name</label>
                             </div>
                             <div class="col-auto">
-                                <input type="text" id="lastNameId" name="lastName" class="form-control">
+                                <input type="text" id="lastNameId" name="lastName" class="form-control" value="${form.lastName}>
                             </div>
                         </div>
 
-                        <div class="row align-items-center pb-3">
+                        <div class="row align-items-center justify-content-center pb-3">
                             <div class="col-2">
                                 <label for="extensionId" class="col-form-label">Extension</label>
                             </div>
@@ -89,24 +93,30 @@
                                 <label for="reportsToId" class="col-form-label">Reports To</label>
                             </div>
 
-                            <div class="col-2">
+                            <div class="col-4">
                                 <select id="reportsToId" name="reportsTo" class="form-control">
                                     <c:forEach items="${reportsToEmployeesKey}" var="employee">
-                                        <option value="${employee.id}">${employee.firstName} ${employee.lastName}</option>
+                                        <option
+                                                value="${employee.id}"
+                                                <c:if test="${employee.id} == form.reportsTo">selected></c:if>>
+                                                ${employee.firstName} ${employee.lastName}
+                                        </option>
                                     </c:forEach>
                                 </select>
                             </div>
                         </div>
-
-                        <div class="row align-items-center  pb-3">
+                        <div class="row align-items-center justify-content-center pb-3>
                             <div class="col-2">
                                 <label for="officeId" class="col-form-label">Office</label>
                             </div>
-
-                            <div class="col-2">
-                                <select id="officeId" name="officeId" class="form-control">
+                            <div class="col-4">
+                                <select id="officeId" anem="officeId" class = "form-control">
                                     <c:forEach items="${officesKey}" var="office">
-                                        <option value="${office.id}">${office.city}, ${office.state}; ${office.country}</option>
+                                        <option value="${office.id}"
+                                        <c:if test="${office.id == form.officeId}">selected</c:if>
+                                        >
+                                            ${office.city}
+                                        </option>
                                     </c:forEach>
                                 </select>
                             </div>
