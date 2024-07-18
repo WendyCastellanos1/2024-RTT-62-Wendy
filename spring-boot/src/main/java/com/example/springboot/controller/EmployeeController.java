@@ -122,18 +122,25 @@ public class EmployeeController {
 
         } else {
             // log out the incoming variable that are in the CreateEmployerForm Bean
+            log.debug(form.toString());
+
             // variable name
             Employee  employee = new Employee();
             employee.setEmail(form.getEmail());
             employee.setFirstName(form.getFirstName());
             employee.setLastName(form.getLastName());
             employee.setReportsTo(form.getReportsTo());
-            employee.setOfficeId(form.getOfficeId());
-            employee.setExtension(form.getExtension());
-            employee.setJobTitle(String.valueOf(form.getJobTitle()));
+            // employee.setOfficeId(form.getOfficeId());        // won't work bc not nullable, etc.
+            //employee.setExtension(form.getExtension());       // add back when field is on the form
+            employee.setExtension("x357");
+            //employee.setJobTitle(String.valueOf(form.getJobTitle()));     //not working, but need to make drop-down anyway, and clean up data
+            //employee.setJobTitle(form.getJobTitle());                     // not working
+            employee.setJobTitle("SomeJob");
             employee.setVacationHours(form.getVacationHours());
             employee.setProfileImageUrl(form.getProfileImageUrl());
 
+            Office office = officeDAO.findById(form.getOfficeId());
+            employee.setOffice(office);
             // when we save to the db, it will autoincrement to give us a new id
             //the new Id is available in the return from the save method.
             //basically returns the same object ...after its been inserted into the db
@@ -142,7 +149,7 @@ public class EmployeeController {
             // this is a URL, NOT a view name
             // in some ways this is overriding the behavior of the setViewName to use a URL rather than a JSP file location
             //redirecting to the employee detail page, but usually you'd go to fully populated EDIT page, take emp id on url and use it to populate all the fields before rendering
-            response.setViewName("redirect:/employee/detail?employeeId=" + employee.getId());
+            response.setViewName("redirect:/employee/" + employee.getId());
 
             return response;
         }

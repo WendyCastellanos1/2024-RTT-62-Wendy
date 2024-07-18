@@ -16,106 +16,261 @@
 
 <section>
     <div class="container">
-        <div class="row pt-5 justify-content-center">
+        <div class="row pt-5">
             <div class="col-12">
                 <form action="/customer/createSubmit">
+
                     <div class="row align-items-center pb-3">
 
-                        <div class="row align-items-center pb-3">
+                        <div class="row align-items-center justify-content-center">
                             <div class="col-2">
                                 <label for="customerNameId" class="col-form-label">Customer Name</label>
                             </div>
-                            <div class="col-auto">
+                            <div class="col-4">
                                 <input type="text" id="customerNameId" name="customerName" class="form-control">
+                                <c:if test="${bindingResult.hasFieldErrors('customerName')}">is-invalid</c:if>
                             </div>
                         </div>
 
-                        <div class="row align-items-center pb-3">
+                        <c:if test="${bindingResult.hasFieldErrors('customerName')}">
+                            <div class="row align-items-center justify-content-center">
+                                <div class="offset-2 col-4">
+                                    <div class="text-danger">
+                                        <c:forEach items="${bindingResult.getFieldErrors('customerName')}" var="error">
+                                            ${error.defaultMessage}<br>
+                                        </c:forEach>
+                                    </div>
+                                </div>
+                            </div>
+                        </c:if>
+
+
+
+                        <div class="row align-items-center justify-content-center pt-3">
                             <div class="col-2">
                                 <label for="contactFirstNameId" class="col-form-label">Contact First Name</label>
                             </div>
-                            <div class="col-auto">
+                            <div class="col-4">
                                 <input type="text" id="contactFirstNameId" name="contactFirstName" class="form-control">
+                                <c:if test="${bindingResult.hasFieldErrors('contactFirstName')}">is-invalid</c:if>
                             </div>
                         </div>
 
-                        <div class="row align-items-center pb-3">
+                        <c:if test="${bindingResult.hasFieldErrors('contactFirstName')}">
+                            <div class="row align-items-center justify-content-center">
+                                <div class="offset-2 col-4">
+                                    <div class="text-danger">
+                                        <c:forEach items="${bindingResult.getFieldErrors('contactFirstName')}" var="error">
+                                            ${error.defaultMessage}<br>
+                                        </c:forEach>
+                                    </div>
+                                </div>
+                            </div>
+                        </c:if>
+
+                        <div class="row align-items-center justify-content-center pt-3">
                             <div class="col-2">
                                 <label for="contactLastNameId" class="col-form-label">Contact Last Name</label>
                             </div>
-                            <div class="col-auto">
+                            <div class="col-4">
                                 <input type="text" id="contactLastNameId" name="contactLastName" class="form-control">
+                                <c:if test="${bindingResult.hasFieldErrors('contactLastName')}">is-invalid</c:if>
                             </div>
                         </div>
 
-                        <div class="row align-items-center pb-3">
+                        <c:if test="${bindingResult.hasFieldErrors('contactLastName')}">
+                            <div class="row align-items-center justify-content-center">
+                                <div class="offset-2 col-4">
+                                    <div class="text-danger">
+                                        <c:forEach items="${bindingResult.getFieldErrors('contactLastName')}" var="error">
+                                            ${error.defaultMessage}<br>
+                                        </c:forEach>
+                                    </div>
+                                </div>
+                            </div>
+                        </c:if>
+
+                        <div class="row align-items-center justify-content-center pt-3">
                             <div class="col-2">
                                 <label for="phoneId" class="col-form-label">Phone</label>
                             </div>
-                            <div class="col-auto">
+                            <div class="col-4">
                                 <input type="text" id="phoneId" name="phone" class="form-control">
+                                <c:if test="${bindingResult.hasFieldErrors('phone')}">is-invalid</c:if>
                             </div>
                         </div>
 
-                        <div class="row align-items-center pb-3">
+                        <c:if test="${bindingResult.hasFieldErrors('phone')}">
+                            <div class="row align-items-center justify-content-center">
+                                <div class="offset-2 col-4">
+                                    <div class="text-danger">
+                                        <c:forEach items="${bindingResult.getFieldErrors('phone')}" var="error">
+                                            ${error.defaultMessage}<br>
+                                        </c:forEach>
+                                    </div>
+                                </div>
+                            </div>
+                        </c:if>
+
+                        <div class="row align-items-center justify-content-center pt-3">
                             <div class="col-2">
                                 <label for="addressLine1Id" class="col-form-label">Address Line 1</label>
                             </div>
-                            <div class="col-auto">
+                            <div class="col-4">
                                 <input type="text" id="addressLine1Id" name="addressLine1" class="form-control">
+                                <c:if test="${bindingResult.hasFieldErrors('addressLine1')}">is-invalid</c:if>
                             </div>
                         </div>
 
-                        <div class="row align-items-center pb-3">
+                        <c:if test="${bindingResult.hasFieldErrors('addressLine1')}">
+                            <div class="row align-items-center justify-content-center">
+                                <div class="offset-2 col-4">
+                                    <div class="text-danger">
+                                        <c:forEach items="${bindingResult.getFieldErrors('addressLine1')}" var="error">
+                                            ${error.defaultMessage}<br>
+                                        </c:forEach>
+                                    </div>
+                                </div>
+                            </div>
+                        </c:if>
+
+                        <div class="row align-items-center justify-content-center pt-3">
                             <div class="col-2">
                                 <label for="addressLine2Id" class="col-form-label">Address Line 2</label>
                             </div>
-                            <div class="col-auto">
+                            <div class="col-4">
                                 <input type="text" id="addressLine2Id" name="addressLine2" class="form-control">
+                                <c:if test="${bindingResult.hasFieldErrors('addressLine2')}">is-invalid</c:if>
                             </div>
                         </div>
 
-                        <div class="row align-items-center pb-3">
+                        <c:if test="${bindingResult.hasFieldErrors('addressLine2')}">
+                            <div class="row align-items-center justify-content-center">
+                                <div class="offset-2 col-4">
+                                    <div class="text-danger">
+                                        <c:forEach items="${bindingResult.getFieldErrors('addressLine2')}" var="error">
+                                            ${error.defaultMessage}<br>
+                                        </c:forEach>
+                                    </div>
+                                </div>
+                            </div>
+                        </c:if>
+
+                        <div class="row align-items-center justify-content-center pt-3">
                             <div class="col-2">
                                 <label for="cityId" class="col-form-label">City</label>
                             </div>
-                            <div class="col-auto">
+                            <div class="col-4">
                                 <input type="text" id="cityId" name="city" class="form-control">
+                                <c:if test="${bindingResult.hasFieldErrors('city')}">is-invalid</c:if>
                             </div>
                         </div>
 
-                        <div class="row align-items-center pb-3">
+                        <c:if test="${bindingResult.hasFieldErrors('city')}">
+                            <div class="row align-items-center justify-content-center">
+                                <div class="offset-2 col-4">
+                                    <div class="text-danger">
+                                        <c:forEach items="${bindingResult.getFieldErrors('city')}" var="error">
+                                            ${error.defaultMessage}<br>
+                                        </c:forEach>
+                                    </div>
+                                </div>
+                            </div>
+                        </c:if>
+
+                        <div class="row align-items-center justify-content-center pt-3">
                             <div class="col-2">
                                 <label for="stateId" class="col-form-label">State</label>
                             </div>
-                            <div class="col-auto">
+                            <div class="col-4">
                                 <input type="text" id="stateId" name="state" class="form-control">
+                                <c:if test="${bindingResult.hasFieldErrors('state')}">is-invalid</c:if>
                             </div>
                         </div>
 
-                        <div class="row align-items-center pb-3">
+                        <c:if test="${bindingResult.hasFieldErrors('state')}">
+                            <div class="row align-items-center justify-content-center">
+                                <div class="offset-2 col-4">
+                                    <div class="text-danger">
+                                        <c:forEach items="${bindingResult.getFieldErrors('state')}" var="error">
+                                            ${error.defaultMessage}<br>
+                                        </c:forEach>
+                                    </div>
+                                </div>
+                            </div>
+                        </c:if>
+
+                        <div class="row align-items-center justify-content-center pt-3">
+                            <div class="col-2">
+                                <label for="postalCodeId" class="col-form-label">Postal Code</label>
+                            </div>
+                            <div class="col-4">
+                                <input type="text" id="postalCodeId" name="postalCode" class="form-control">
+                                <c:if test="${bindingResult.hasFieldErrors('postalCode')}">is-invalid</c:if>
+                            </div>
+                        </div>
+
+                        <c:if test="${bindingResult.hasFieldErrors('postalCode')}">
+                            <div class="row align-items-center justify-content-center">
+                                <div class="offset-2 col-4">
+                                    <div class="text-danger">
+                                        <c:forEach items="${bindingResult.getFieldErrors('postalCode')}" var="error">
+                                            ${error.defaultMessage}<br>
+                                        </c:forEach>
+                                    </div>
+                                </div>
+                            </div>
+                        </c:if>
+
+                        <div class="row align-items-center justify-content-center pt-3">
                             <div class="col-2">
                                 <label for="countryId" class="col-form-label">Country</label>
                             </div>
-                            <div class="col-auto">
+                            <div class="col-4">
                                 <input type="text" id="countryId" name="country" class="form-control">
-                            </div>
-                        </div>
-                        <div class="row align-items-center pb-3">
-                            <div class="col-2">
-                                <label for="creditLimitId" class="col-form-label">Credit Limit</label>
-                            </div>
-                            <div class="col-auto">
-                                <input type="text" id="creditLimitId" name="creditLimit" class="form-control">
+                                <c:if test="${bindingResult.hasFieldErrors('country')}">is-invalid</c:if>
                             </div>
                         </div>
 
-                        <div class="row align-items-center pb-3">
+                        <c:if test="${bindingResult.hasFieldErrors('country')}">
+                            <div class="row align-items-center justify-content-center">
+                                <div class="offset-2 col-4">
+                                    <div class="text-danger">
+                                        <c:forEach items="${bindingResult.getFieldErrors('country')}" var="error">
+                                            ${error.defaultMessage}<br>
+                                        </c:forEach>
+                                    </div>
+                                </div>
+                            </div>
+                        </c:if>
+                        <div class="row align-items-center justify-content-center pt-3">
+                            <div class="col-2">
+                                <label for="creditLimitId" class="col-form-label">Credit Limit</label>
+                            </div>
+                            <div class="col-4">
+                                <input type="text" id="creditLimitId" name="creditLimit" class="form-control">
+                                <c:if test="${bindingResult.hasFieldErrors('creditLimit')}">is-invalid</c:if>
+                            </div>
+                        </div>
+
+                        <c:if test="${bindingResult.hasFieldErrors('creditLimit')}">
+                            <div class="row align-items-center justify-content-center">
+                                <div class="offset-2 col-4">
+                                    <div class="text-danger">
+                                        <c:forEach items="${bindingResult.getFieldErrors('creditLimit')}" var="error">
+                                            ${error.defaultMessage}<br>
+                                        </c:forEach>
+                                    </div>
+                                </div>
+                            </div>
+                        </c:if>
+
+                        <div class="row align-items-center justify-content-center pt-3">
                             <div class="col-2">
                                 <label for="salesRepEmployeeIdId" class="col-form-label">Sales Representative</label>
                             </div>
 
-                            <div class="col-2">
+                            <div class="col-4">
                                 <select id="salesRepEmployeeIdId" name="salesRepEmployeeId" class="form-control">
                                     <c:forEach items="${EmployeesKey}" var="employee">
                                         <option value="${employee.id}">${employee.firstName} ${employee.lastName}</option>
