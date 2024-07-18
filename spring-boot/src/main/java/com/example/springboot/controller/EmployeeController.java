@@ -85,7 +85,7 @@ public class EmployeeController {
 
         // this list of employees is used in the Reports To dropdown to list all the employees
         List<Employee> reportsToEmployees = employeeDAO.findAll();
-        response.addObject("reportsToEmployeesKey", reportsToEmployees);
+        response.addObject("employeesKey", reportsToEmployees);
 
         // add your office query to get all of the offices and add it to the model
         List<Office> officesKey = officeDAO.findAll();
@@ -108,11 +108,11 @@ public class EmployeeController {
 
             // this list of employees is used in the Reports To dropdown to list all the employees
             List<Employee> reportsToEmployees = employeeDAO.findAll();
-            response.addObject("reportsToEmployeesKey", reportsToEmployees);
+            response.addObject("employeesKey", reportsToEmployees);
 
             // add your office query to get all of the offices and add it to the model
-            List<Office> officesKey = officeDAO.findAll();
-            response.addObject("officesKey", officesKey);
+            List<Office> offices = officeDAO.findAll();
+            response.addObject("officesKey", offices);
 
             response.setViewName("employee/create");
 
@@ -125,22 +125,30 @@ public class EmployeeController {
             log.debug(form.toString());
 
             // variable name
-            Employee  employee = new Employee();
+            Employee  employee = employeeDAO.findById(form.getId());
+            if (employee == null){
+                // this means it was not found in the db so we are going to consider this a create
+                employee = new Employee();
+            }
             employee.setEmail(form.getEmail());
             employee.setFirstName(form.getFirstName());
             employee.setLastName(form.getLastName());
+
             employee.setReportsTo(form.getReportsTo());
-            // employee.setOfficeId(form.getOfficeId());        // won't work bc not nullable, etc.
-            //employee.setExtension(form.getExtension());       // add back when field is on the form
+
+            //employee.setExtension(form.getExtension());       // add field to  the form
             employee.setExtension("x357");
-            //employee.setJobTitle(String.valueOf(form.getJobTitle()));     //not working, but need to make drop-down anyway, and clean up data
-            //employee.setJobTitle(form.getJobTitle());                     // not working
+
+            //employee.setJobTitle(form.getJobTitle());         // add field to the form
             employee.setJobTitle("SomeJob");
+
             employee.setVacationHours(form.getVacationHours());
             employee.setProfileImageUrl(form.getProfileImageUrl());
 
+            // employee.setOfficeId(form.getOfficeId());        // won't work bc not nullable, etc.
             Office office = officeDAO.findById(form.getOfficeId());
             employee.setOffice(office);
+
             // when we save to the db, it will autoincrement to give us a new id
             //the new Id is available in the return from the save method.
             //basically returns the same object ...after its been inserted into the db
@@ -153,5 +161,43 @@ public class EmployeeController {
 
             return response;
         }
+    }
+
+    @GetMapping("/edit")
+    public ModelAndView edit(@RequestParam (required = false) Integer id) {
+
+        // by setting required = false on the incoming parameter we allow
+        ModelAndView response = new ModelAndView("/employee/create");
+
+        // re-duplicated code here, could be factored into a method
+        // this list of employees to be used in the Reports To dropdown to list all the employees
+        List<Employee> reportsToEmployees = employeeDAO.findAll();
+        response.addObject("EmployeesKey", reportsToEmployees);
+
+        List<Office> offices = officeDAO.findAll();
+        response.addObject("officesKey", offices);
+
+        // load the employee from the database and set the form bean with all the employee values
+        // this is because the form bean is on the JSP page and we need to pre-populate the form with the employeee data
+        if ( id != null) {
+            // we only do this code if we found an emp in the db
+            Employee employee = employeeDAO.findById(id);
+            if (employee != null) {
+                CreateEmployeeFormBean form = new CreateEmployeeFormBean();
+                form.setId(employee.getId());
+                form.setEmail(employee.getEmail());
+                form.setFirstName(employee.getFirstName());
+                form.setLastName(employee.getLastName());
+                form.setReportsTo(employee.getReportsTo());
+                form.setOfficeId(employee.getOffice().getId());
+                // form.setExtension(employee.getExtension());
+                // form.setJobTitle(employee.getJobTitle());
+                // form.setVacationHours(employee.getVacationHours());
+
+                response.addObject("form", form);
+                }
+        }
+
+        return response;
     }
 }

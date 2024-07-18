@@ -32,6 +32,8 @@
                         <th><b>First Name</b></th>
                         <th><b>Extension</b></th>
                         <th><b>Email</b></th>
+                        <th><b>Reports To</b></th>
+                        <th><b>Action</b></th>
                     </tr>
 
                     <c:forEach items="${employeesKey}" var="employee">
@@ -43,6 +45,8 @@
                             <td>${employee.firstName}</td>
                             <td>${employee.extension}</td>
                             <td>${employee.email}</td>
+                            <td><a href="../employee/${employee.reportsTo}">${employee.reportsTo}</a></td>
+                            <td><a href="../employee/edit?id=${employee.id}">edit</a></td>
                         </tr>
                     </c:forEach>
 

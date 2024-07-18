@@ -27,7 +27,7 @@ import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
 @Controller
-@RequestMapping("/customer/")    // ???? the directory?
+@RequestMapping("/customer/")   // the directory?
 public class CustomerController {
 
     @Autowired
@@ -119,7 +119,7 @@ public class CustomerController {
 
             // this list of employees is used in the Reports To dropdown to list all the employees
             List<Employee> reportsToEmployees = employeeDAO.findAll();
-            response.addObject("reportsToEmployeesKey", reportsToEmployees);
+            response.addObject("EmployeesKey", reportsToEmployees);
 
             response.setViewName("customer/create");
 
