@@ -10,7 +10,9 @@ import org.hibernate.validator.constraints.Length;
 
 public class CreateCustomerFormBean{
 
-private Integer id;
+    //this field is for when *edit*
+    private Integer id;
+
     @Pattern(regexp="[a-zA-Z]+", message = "Customer Name must have characters only.")
     @Length(max = 50, message = "Customer Name must be less than 50 characters")
     @NotEmpty(message = "Customer Name is required.")
@@ -41,11 +43,11 @@ private Integer id;
     @Length(max = 50, message = "City must be less than 50 characters")
     private String city;
 
-    @Pattern(regexp="[a-zA-Z]+", message = "State must have characters only.")
-    @Length(max = 50, message = "State must be less than 50 characters")
+   // @Pattern(regexp="[a-zA-Z]+", message = "State must have characters only.")
+    //@Length(max = 50, message = "State must be less than 50 characters")
     private String state;
 
-    @Length(max = 15, message = "State must be less than 15 characters")
+    @Length(max = 15, message = "Postal code must be less than 15 characters")
     private String postalCode;
 
     @Pattern(regexp="[a-zA-Z]+", message = "Country must have characters only.")

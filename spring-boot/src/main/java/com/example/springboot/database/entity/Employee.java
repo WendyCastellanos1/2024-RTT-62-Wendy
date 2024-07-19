@@ -28,10 +28,10 @@ public class Employee {
     @OneToMany(mappedBy = "employee", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private List<Customer> customers;
 
-@ToString.Exclude
-@ManyToOne(fetch=FetchType.LAZY)
-@JoinColumn(name="office_id", nullable = true)
-private Office office;
+    @ToString.Exclude
+    @ManyToOne(fetch=FetchType.LAZY)
+    @JoinColumn(name="office_id", nullable = true)
+    private Office office;
 
     // in essence, this field is a read only field and the db will ignore it on update or insert
     @Column(name = "office_id", insertable = false, updatable = false)

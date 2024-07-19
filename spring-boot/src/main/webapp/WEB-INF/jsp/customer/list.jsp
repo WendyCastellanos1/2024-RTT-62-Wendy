@@ -31,6 +31,7 @@
                         <th><b>Phone</b></th>
                         <th><b>Sales Rep Employee Id</b></th>
                         <th><b>Orders</b></th>
+                        <th><b>Action</b></th>
                     </tr>
 
                     <c:forEach items="${customersKey}" var="customer">
@@ -42,6 +43,7 @@
                             <td>${customer.phone}</td>
                             <td><a href="../employee/${customer.salesRepEmployeeId}">${customer.salesRepEmployeeId}</a></td>
                             <td><a href="../order/list-by-customer?id=${customer.id}&name=${customer.customerName}">orders</a></td>
+                            <td><a href="../customer/edit?id=${customer.id}">edit</a></td>
                         </tr>
                     </c:forEach>
 

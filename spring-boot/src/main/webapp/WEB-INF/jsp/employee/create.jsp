@@ -50,9 +50,7 @@
                         </div>
                     </c:if>
 
-
                     <!-- firstName input field -->
-
                     <div class="row align-items-center justify-content-center pt-3">
                         <div class="col-2">
                             <label for="firstNameId" class="col-form-label">First Name</label>
@@ -74,7 +72,6 @@
                             </div>
                         </div>
                     </c:if>
-
 
                     <div class="row align-items-center justify-content-center pt-3">
                         <div class="col-2">

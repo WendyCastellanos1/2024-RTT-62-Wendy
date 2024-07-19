@@ -96,6 +96,7 @@ public class EmployeeController {
 
     @GetMapping("/createSubmit")
     public  ModelAndView createSubmit(@Valid CreateEmployeeFormBean form, BindingResult bindingResult) {
+
         ModelAndView response = new ModelAndView();
         log.debug(form.toString());     // prints the form data to the console using the CreateEmployeeForm Bean form
 

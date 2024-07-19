@@ -100,13 +100,15 @@ public class CustomerController {
 
         // this list of employees is used in the dropdown to list all the employees
         List<Employee> employees = employeeDAO.findAll();
-        response.addObject("EmployeesKey", employees);  // TODO: filter for sales reps?, order by name asc
+        response.addObject("employeesKey", employees);  // TODO: filter for sales reps?, order by name asc
 
         return response;
     }
 
     @GetMapping("/createSubmit")
+
     public ModelAndView createSubmit(@Valid CreateCustomerFormBean form, BindingResult bindingResult) {
+
         ModelAndView response = new ModelAndView();
         log.debug(form.toString());     // prints the form data to the console using the CreateCustomerFormBean form
 
@@ -119,7 +121,7 @@ public class CustomerController {
 
             // this list of employees is used in the Reports To dropdown to list all the employees
             List<Employee> reportsToEmployees = employeeDAO.findAll();
-            response.addObject("EmployeesKey", reportsToEmployees);
+            response.addObject("employeesKey", reportsToEmployees);
 
             response.setViewName("customer/create");
 
@@ -128,7 +130,7 @@ public class CustomerController {
             return response;
 
         } else {
-            // log out the incoming variable that are in the CreateEmployerForm Bean
+            // log out the incoming variable that are in the CreateCustomerForm Bean
             log.debug(form.toString());
 
             // variable name
@@ -143,10 +145,10 @@ public class CustomerController {
             customer.setPostalCode(form.getPostalCode());
             customer.setCountry(form.getCountry());
             customer.setCreditLimit(form.getCreditLimit());
+            customer.setSalesRepEmployeeId(form.getSalesRepEmployeeId());
 
-           // customer.setSalesRepEmployeeId(form.getSalesRepEmployeeId());
-            Employee employee = employeeDAO.findById(form.getSalesRepEmployeeId());
-            customer.setEmployee(employee);
+            //Employee employee = employeeDAO.findById(form.getSalesRepEmployeeId());
+            //customer.setEmployee(employee);
 
             customer = customerDAO.save(customer);  //want this bc has next Id number in it
 
@@ -157,5 +159,45 @@ public class CustomerController {
 
             return response;
         }
+    }
+
+    @GetMapping("/edit")
+    public ModelAndView edit(@RequestParam (required = false) Integer id) {
+
+        // by setting required = false on the incoming parameter we allow
+        ModelAndView response = new ModelAndView("/customer/create");
+
+        // re-duplicated code here, could be factored into a method
+        // this list of employees to be used in the Sale Rep Employee Id dropdown to list all the employees
+        List<Employee> employees = employeeDAO.findAll();
+        response.addObject("employeesKey", employees);
+
+        // load the customer from the database and set the form bean with all the customer values
+        // this is because the form bean is on the JSP page and we need to pre-populate the form with the customer data
+        if ( id != null) {
+            // we only do this code if we found an emp in the db
+            Customer customer = customerDAO.findById(id);
+            if (customer != null) {
+                CreateCustomerFormBean form = new CreateCustomerFormBean();
+                form.setId(customer.getId());
+                form.setCustomerName(customer.getCustomerName());
+                form.setContactFirstName(customer.getContactFirstName());
+                form.setContactLastName(customer.getContactLastName());
+                form.setPhone(customer.getPhone());
+                form.setAddressLine1(customer.getAddressLine1());
+                form.setAddressLine2(customer.getAddressLine2());
+                form.setCity(customer.getCity());
+                form.setState(customer.getState());
+                form.setPostalCode(customer.getPostalCode());
+                form.setCountry(customer.getCountry());
+                form.setCreditLimit(customer.getCreditLimit());
+                form.setSalesRepEmployeeId(customer.getSalesRepEmployeeId());
+                response.addObject("form", form);
+            }
+        }else{
+            response.addObject("message", "The employee was not found in the database.");
+        }
+
+        return response;
     }
 }
