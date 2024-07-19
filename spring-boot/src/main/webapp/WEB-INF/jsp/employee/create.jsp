@@ -34,8 +34,12 @@
                             <label for="emailId" class="col-form-label">Email</label>
                         </div>
                         <div class="col-4">
-                            <input type="text" id="emailId" name="email" class="form-control
-                                <c:if test="${bindingResult.hasFieldErrors('email')}">is-invalid</c:if>" value="${form.email}" >
+                            <input type="text"
+                                   id="emailId"
+                                   name="email"
+                                   class="form-control
+                                        <c:if test="${bindingResult.hasFieldErrors('email')}">is-invalid</c:if>"
+                                   value="${form.email}" >
                         </div>
                     </div>
                     <c:if test="${bindingResult.hasFieldErrors('email')}">
@@ -56,8 +60,12 @@
                             <label for="firstNameId" class="col-form-label">First Name</label>
                         </div>
                         <div class="col-4">
-                            <input type="text" id="firstNameId" name="firstName" class="form-control
-                            <c:if test="${bindingResult.hasFieldErrors('firstName')}">is-invalid</c:if>" value="${form.firstName} ">
+                            <input type="text"
+                                   id="firstNameId"
+                                   name="firstName"
+                                   class="form-control
+                                           <c:if test="${bindingResult.hasFieldErrors('firstName')}">is-invalid</c:if>"
+                                   value="${form.firstName} ">
                         </div>
                     </div>
 
@@ -78,8 +86,12 @@
                             <label for="lastNameId" class="col-form-label">Last Name</label>
                         </div>
                         <div class="col-4">
-                            <input type="text" id="lastNameId" name="lastName" class="form-control
-                            <c:if test="${bindingResult.hasFieldErrors('lastName')}">is-invalid</c:if>" value="${form.lastName} ">
+                            <input type="text"
+                                   id="lastNameId"
+                                   name="lastName"
+                                   class="form-control
+                                        <c:if test="${bindingResult.hasFieldErrors('lastName')}">is-invalid</c:if>"
+                                   value="${form.lastName} ">
                         </div>
                     </div>
                     <c:if test="${bindingResult.hasFieldErrors('lastName')}">
@@ -99,14 +111,16 @@
                             <label for="reportsTo" class="col-form-label">Reports To</label>
                         </div>
                         <div class="col-4">
-                            <select id="reportsTo" name="reportsTo" class="form-control">
-                                <c:forEach items ="${employeesKey}" var="employee">
-                                    <option
-                                            value="${employee.id}"
-                                            <c:if test="${employee.reportsTo == form.reportsTo}">selected</c:if>
-                                    >
-                                            ${employee.firstName} ${employee.lastName}
-                                    </option>
+                            <select id="reportsTo"
+                                    name="reportsTo"
+                                    class="form-control">
+                                        <c:forEach items ="${employeesKey}" var="employee">
+                                            <option
+                                                    value="${employee.id}"
+                                                    <c:if test="${employee.reportsTo == form.reportsTo}">selected</c:if>
+                                            >
+                                                    ${employee.firstName} ${employee.lastName}
+                                            </option>
                                 </c:forEach>
                             </select>
                         </div>
@@ -116,15 +130,17 @@
                             <label for="officeId" class="col-form-label">Office</label>
                         </div>
                         <div class="col-4">
-                            <select id="officeId" name="officeId" class="form-control">
-                                <c:forEach items="${officesKey}" var="office">
-                                    <option
-                                            value="${office.id}"
-                                            <c:if test="${office.id == form.officeId}">selected</c:if>
-                                    >
-                                            ${office.city}
-                                    </option>
-                                </c:forEach>
+                            <select id="officeId"
+                                    name="officeId"
+                                    class="form-control">
+                                        <c:forEach items="${officesKey}" var="office">
+                                            <option
+                                                    value="${office.id}"
+                                                    <c:if test="${office.id == form.officeId}">selected</c:if>
+                                            >
+                                                    ${office.city}
+                                            </option>
+                                        </c:forEach>
                             </select>
                         </div>
                     </div>

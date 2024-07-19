@@ -51,6 +51,9 @@ public class Customer {
     @Column(name = "country")
     private String country;
 
+    @Column(name = "sales_rep_employee_id", insertable=false, updatable=false)  // makes it read-only   can only use a primitive if column is nullable
+    private Integer salesRepEmployeeId;  // can return nulls, primitive int would have exploded with NULL
+
     // foreign key situation: any customers are mapped to a single employee
     // allow Hibernate to make the sql query: select e.* from customers c, employee e where c.sales_rep_employee_id = e.id
     @ToString.Exclude
@@ -58,14 +61,13 @@ public class Customer {
     @JoinColumn(name = "sales_rep_employee_id", nullable = true)
     private Employee employee;
 
+
     // foreign key situation: one customer has 0 to many orders. an order is for one and only one customer.
     // allow Hibernate to make the sql query: select o.* from orders o , customers c where o.customer_id = c.id
     @ToString.Exclude
     @OneToMany(mappedBy = "customer", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private List<Order> orders;
 
-    @Column(name = "sales_rep_employee_id", insertable=false, updatable=false)  // makes it read-only   can only use a primitive if column is nullable
-    private Integer salesRepEmployeeId;  // can return nulls, primitive int would have exploded with NULL
 
     @Column(name = "credit_limit", columnDefinition = "DECIMAL" )
     private Double creditLimit;

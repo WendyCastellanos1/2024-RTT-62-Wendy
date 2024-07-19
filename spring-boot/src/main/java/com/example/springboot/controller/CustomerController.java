@@ -134,10 +134,17 @@ public class CustomerController {
             log.debug(form.toString());
 
             // variable name
-            Customer customer = new Customer();
+            Customer customer = customerDAO.findById(form.getId());
+            if (customer == null){
+                // this means it was not found in the db so we are going to consider this a create
+                customer = new Customer();
+            }
+
+            // variable name Customer customer = new Customer();
             customer.setCustomerName(form.getCustomerName());
             customer.setContactFirstName(form.getContactFirstName());
             customer.setContactLastName(form.getContactLastName());
+            customer.setPhone(form.getPhone());
             customer.setAddressLine1(form.getAddressLine1());
             customer.setAddressLine2(form.getAddressLine2());
             customer.setCity(form.getCity());
@@ -147,8 +154,8 @@ public class CustomerController {
             customer.setCreditLimit(form.getCreditLimit());
             customer.setSalesRepEmployeeId(form.getSalesRepEmployeeId());
 
-            //Employee employee = employeeDAO.findById(form.getSalesRepEmployeeId());
-            //customer.setEmployee(employee);
+            Employee employee = employeeDAO.findById(form.getSalesRepEmployeeId());
+            customer.setEmployee(employee);
 
             customer = customerDAO.save(customer);  //want this bc has next Id number in it
 
@@ -179,7 +186,7 @@ public class CustomerController {
             Customer customer = customerDAO.findById(id);
             if (customer != null) {
                 CreateCustomerFormBean form = new CreateCustomerFormBean();
-                form.setId(customer.getId());
+                form.setId(customer.getId());  // **********************************************************
                 form.setCustomerName(customer.getCustomerName());
                 form.setContactFirstName(customer.getContactFirstName());
                 form.setContactLastName(customer.getContactLastName());

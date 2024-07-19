@@ -325,8 +325,8 @@
                                 <select id="salesRepEmployeeIdId" name="salesRepEmployeeId" class="form-control" >
                                     <c:forEach items="${employeesKey}" var="employee">
                                         <option
-                                            value="${customer.salesRepEmployeeId}"
-                                            <c:if test="${customer.salesRepEmployeeId == form.salesRepEmployeeId}">selected</c:if>
+                                            value="${employee.id}"
+                                            <c:if test="${employee.id == form.salesRepEmployeeId}">selected</c:if>
                                             >
                                                 ${employee.firstName} ${employee.lastName}
                                         </option>

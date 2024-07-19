@@ -22,10 +22,10 @@
                         <tr><td><b>Customer Id</b></td>              <td>${customerKey.id}</td>                </tr>
                         <tr><td><b>Name</b></td>                     <td>${customerKey.customerName}</td>      </tr>
                         <tr><td><b>Contact First Name</b></td>       <td>${customerKey.contactFirstName}</td>  </tr>
-                        <tr><td><b>Contact Last Name</b></td>        <td>${customerKey.contactLastName}</td>  </tr>
-                        <tr><td><b>Phone</b></td>                    <td>${customerKey.phone}</td>               </tr>
+                        <tr><td><b>Contact Last Name</b></td>        <td>${customerKey.contactLastName}</td>   </tr>
+                        <tr><td><b>Phone</b></td>                    <td>${customerKey.phone}</td>             </tr>
                         <tr><td><b>Sales Rep Employee ID</b></td>    <td><a href="../employee/${customerKey.salesRepEmployeeId}">${customerKey.salesRepEmployeeId}</a></td> </tr>
-                        <tr><td><b>Orders: </b></td>        <td>${ordersKey.size()} result(s)</td></tr>
+                        <tr><td><b>Orders: </b></td>                  <td>${ordersKey.size()} result(s)</td>    </tr>
                         <tr>
                             <section>
                                 <div class="container">
