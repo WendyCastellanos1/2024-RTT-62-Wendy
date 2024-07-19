@@ -43,9 +43,9 @@
             <div class ="col-12">
                 <table class="table">
                     <tr>
-                        <th><b>Id</b></th>
-                        <th><b>Code</b></th>
-                        <th><b>Name</b></th>
+                        <th><b>Product Id</b></th>
+                        <th><b>Product Code</b></th>
+                        <th><b>Product Name</b></th>
                         <th><b>Description</b></th>
                     </tr>
 

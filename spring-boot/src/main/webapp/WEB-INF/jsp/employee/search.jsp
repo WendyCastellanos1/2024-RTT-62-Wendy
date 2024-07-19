@@ -44,7 +44,7 @@
             <div class ="col-12">
                 <table class="table">
                     <tr>
-                        <th><b>Id</b></th>
+                        <th><b>Employee Id</b></th>
                         <th><b>Office Id</b></th>
                         <th><b>Job Title</b></th>
                         <th><b>Last Name</b></th>

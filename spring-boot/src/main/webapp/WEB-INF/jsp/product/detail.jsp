@@ -19,7 +19,7 @@
                 <div class="row">
                     <div class="col-12">
                         <table class="table">
-                            <tr><td><b>Id</b></td>  <td>${productKey.id}</td></tr>
+                            <tr><td><b>Product Id</b></td>  <td>${productKey.id}</td></tr>
                             <tr><td><b>Code</b></td>  <td>${productKey.productCode}</td></tr>
                             <tr><td><b>Name</b></td>  <td>${productKey.productName}</td></tr>
                             <tr><td><b>Description</b></td>  <td>${productKey.productDescription}</td></tr>

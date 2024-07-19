@@ -1,9 +1,12 @@
 package com.example.springboot.controller;
 
+import com.example.springboot.database.dao.OrderDetailDAO;
+import com.example.springboot.database.dao.ProductDAO;
 import com.example.springboot.database.entity.Order;
 import com.example.springboot.database.dao.OrderDAO;
 
 import com.example.springboot.database.entity.OrderDetail;
+import com.example.springboot.database.entity.Product;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
@@ -19,11 +22,16 @@ import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
 @Controller
-@RequestMapping("/order/")    // ????
+@RequestMapping("/order/")    // directory
 public class OrderController {
 
     @Autowired
     private OrderDAO orderDAO;
+
+    @Autowired
+    private ProductDAO productDAO;
+    @Autowired
+    private OrderDetailDAO orderDetailDAO;
 
     // listens on url: localhost:8080/order/list
     @GetMapping("/list")
@@ -46,6 +54,11 @@ public class OrderController {
         Order order = orderDAO.findById(id);
         response.addObject("orderKey", order);
 
+        List<OrderDetail> orderDetails = orderDetailDAO.findByOrderId(id);
+        response.addObject("orderDetailsKey", orderDetails);
+
+//        Product product = productDAO.findById(order.);
+            
         return response;
     }
 

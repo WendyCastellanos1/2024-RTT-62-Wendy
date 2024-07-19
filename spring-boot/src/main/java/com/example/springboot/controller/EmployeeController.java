@@ -172,7 +172,7 @@ public class EmployeeController {
         // re-duplicated code here, could be factored into a method
         // this list of employees to be used in the Reports To dropdown to list all the employees
         List<Employee> reportsToEmployees = employeeDAO.findAll();
-        response.addObject("EmployeesKey", reportsToEmployees);
+        response.addObject("employeesKey", reportsToEmployees);
 
         List<Office> offices = officeDAO.findAll();
         response.addObject("officesKey", offices);

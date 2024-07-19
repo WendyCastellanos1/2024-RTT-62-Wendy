@@ -8,6 +8,7 @@ import lombok.*;
 
 public class CreateOfficeFormBean {
 
+    private Integer id;
     private String phone;
     private String city;
     private String state;
@@ -16,6 +17,5 @@ public class CreateOfficeFormBean {
     private String territory;
     private String addressLine1;
     private String addressLine2;
-
 
 }

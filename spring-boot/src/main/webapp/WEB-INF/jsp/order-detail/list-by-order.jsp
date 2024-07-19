@@ -29,21 +29,23 @@
 
                     <!-- header row for order detail list -->
                     <tr>
-                        <th><b>Id</b></th>
+                        <th><b>Order Line Number</b></th>
                         <th><b>Product Id</b></th>
+                        <th><b>Product Name</b></th>
                         <th><b>Quantity Ordered</b></th>
                         <th><b>Price Each</b></th>
-                        <th><b>Order Line Number</b></th>
+                        <th><b>Order Detail Id</b></th>
                     </tr>
 
                     <!-- loop to print rows in order detail list -->
                     <c:forEach items="${orderDetailsKey}" var="orderDetail">
                         <tr>
-                            <td>${orderDetail.id}</td>
+                            <td>${orderDetail.orderLineNumber}</td>
                             <td><a href="../product/${orderDetail.productId}">  ${orderDetail.productId}   </a>   </td>
+                            <td>${orderDetail.productName}</td>
                             <td>${orderDetail.quantityOrdered}</td>
                             <td>${orderDetail.priceEach}</td>
-                            <td>${orderDetail.orderLineNumber}</td>
+                            <td>${orderDetail.id}</td>
                         </tr>
                     </c:forEach>
 

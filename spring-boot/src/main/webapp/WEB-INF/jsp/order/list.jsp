@@ -29,11 +29,11 @@
 
                     <!-- header row for order list -->
                     <tr>
-                        <th><b>Id</b></th>
+                        <th><b>Order Id</b></th>
                         <th><b>Customer Id</b></th>
                         <th><b>Order Date</b></th>
                         <th><b>Shipped Date</b></th>
-                        <th><b>Date Required</b></th>
+                        <th><b>Required Date</b></th>
                         <th><b>Status</b></th>
                         <th><b>Comments</b></th>
                         <th><b>Order Details</b></th>
@@ -42,14 +42,14 @@
                     <!-- loop to print rows in order list -->
                     <c:forEach items="${ordersKey}" var="order">
                         <tr>
-                            <td>${order.id}</td>
+                            <td><a href="../order/${order.id}">${order.id}</a></td>
                             <td><a href="../customer/${order.customerId}">  ${order.customerId}   </a>   </td>
                             <td>${order.orderDate}</td>
                             <td>${order.shippedDate}</td>
                             <td>${order.requiredDate}</td>
                             <td>${order.status}</td>
                             <td>${order.comments}</td>
-                            <td><a href="../order-detail/list-by-order?orderId=${order.id}">order details</a></td>
+                            <td><a href="../order-detail/list-by-order?id=${order.id}">order details</a></td>
                         </tr>
                     </c:forEach>
 

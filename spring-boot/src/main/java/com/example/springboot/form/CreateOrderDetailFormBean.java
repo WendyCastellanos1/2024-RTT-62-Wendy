@@ -1,6 +1,5 @@
 package com.example.springboot.form;
 
-
 import lombok.*;
 
 @Getter

@@ -43,7 +43,7 @@
             <div class ="col-12">
                 <table class="table">
                     <tr>
-                        <th><b>Id</b></th>
+                        <th><b>Customer Id</b></th>
                         <th><b>Customer Name</b></th>
                         <th><b>Contact First Name</b></th>
                         <th><b>Contact Last Name</b></th>

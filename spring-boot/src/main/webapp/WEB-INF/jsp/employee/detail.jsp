@@ -19,7 +19,7 @@
                 <div class="col-12">
                     <!-- employee detail for one employee -->
                     <table class="table">
-                        <tr><td><b>Id</b></td>                  <td>${employeeKey.id}</td></tr>
+                        <tr><td><b>Employee Id</b></td>         <td>${employeeKey.id}</td></tr>
                         <tr><td><b>Office Id</b></td>           <td>${employeeKey.officeId}</td></tr>
                         <tr><td><b>Last Name</b></td>           <td>${employeeKey.lastName}</td></tr>
                         <tr><td><b>First Name</b></td>          <td>${employeeKey.firstName}</td></tr>

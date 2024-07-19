@@ -7,6 +7,9 @@ import java.util.Date;
 import java.util.List;
 import java.util.Objects;
 
+import static org.eclipse.tags.shaded.org.apache.xalan.lib.ExsltDatetime.date;
+import static org.eclipse.tags.shaded.org.apache.xalan.lib.ExsltDatetime.dateTime;
+
 //lombok does the getters and setters
 @Setter
 @Getter
@@ -43,8 +46,8 @@ public class Order {
     @Temporal(TemporalType.DATE)  // if a timestamp
     private Date orderDate;
 
-    @Column(name = "required_date")
-    @Temporal(TemporalType.DATE)  // TODO only need a date for now, not a timestamp
+   @Column(name = "required_date")
+   @Temporal(TemporalType.DATE)  // TODO only need a date for now, not a timestamp
     private Date requiredDate;
 
     @Column(name = "shipped_date")

@@ -14,8 +14,10 @@ public interface OrderDetailDAO extends JpaRepository<OrderDetail, Long> {
     OrderDetail findById(Integer id);
 
     // get LIST of order details.... by order_id (this is a JPA query just like we did in the Hibernate module)
-    @Query("select od from OrderDetail od " +
-            " where od.orderId= :orderId")         // TODO
-    List<OrderDetail> findByOrderId(Integer orderId);
+    @Query("select od, p.productName from OrderDetail od inner join Product p " +
+            " on od.productId = p.id " +
+            " where od.orderId= :id " +
+            " order by od.orderLineNumber")
+    List<OrderDetail> findByOrderId(Integer id);
 
 }

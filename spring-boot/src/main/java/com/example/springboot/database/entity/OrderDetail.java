@@ -23,8 +23,6 @@ public class OrderDetail {
     @Column(name = "id")
     private Integer id;
 
-
-
     @ToString.Exclude
     @ManyToOne(fetch = FetchType.LAZY)
    // @JoinColumn(name = "order_id", nullable = false)
@@ -49,6 +47,15 @@ public class OrderDetail {
 
     @Column(name = "order_line_number")
     private Short orderLineNumber;
+
+    @Transient
+    private String productName;
+
+    @Transient
+    public String productName() {
+        return productName;
+    }
+
 
 //    @Override
 //    public boolean equals(Object o) {

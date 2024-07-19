@@ -19,7 +19,7 @@
             <div class="row">
                 <div class="col-12">
                     <table class="table">
-                        <tr><td><b>Id</b></td>                       <td>${customerKey.id}</td>                </tr>
+                        <tr><td><b>Customer Id</b></td>              <td>${customerKey.id}</td>                </tr>
                         <tr><td><b>Name</b></td>                     <td>${customerKey.customerName}</td>      </tr>
                         <tr><td><b>Contact First Name</b></td>       <td>${customerKey.contactFirstName}</td>  </tr>
                         <tr><td><b>Contact Last Name</b></td>        <td>${customerKey.contactLastName}</td>  </tr>
@@ -34,7 +34,7 @@
                                             <table class="table">
                                                 <!-- header row for order list -->
                                                 <tr>
-                                                    <th><b>Id</b></th>
+                                                    <th><b>Order Id</b></th>
                                                     <th><b>Order Date</b></th>
                                                     <th><b>Shipped Date</b></th>
                                                     <th><b>Date Required</b></th>
@@ -52,7 +52,7 @@
                                                         <td>${order.requiredDate}</td>
                                                         <td>${order.status}</td>
                                                         <td>${order.comments}</td>
-                                                        <td><a href="../order-detail/list-by-order?orderId=${order.id}">order details</a></td>
+                                                        <td><a href="../order-detail/list-by-order?id=${order.id}">order details</a></td>
                                                     </tr>
                                                 </c:forEach>
                                             </table>
