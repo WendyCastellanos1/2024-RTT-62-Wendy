@@ -1,9 +1,10 @@
 package com.example.springboot.database.dao;
 
 import com.example.springboot.database.entity.Customer;
-import com.example.springboot.database.entity.Employee;
+
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
+
 import java.util.List;
 
 public interface CustomerDAO extends JpaRepository<Customer, Long> {

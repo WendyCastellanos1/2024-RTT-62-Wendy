@@ -1,26 +1,27 @@
 package com.example.springboot.controller;
 
-import com.example.springboot.database.dao.EmployeeDAO;
 import com.example.springboot.database.entity.Customer;
 import com.example.springboot.database.dao.CustomerDAO;
-
 import com.example.springboot.database.entity.Employee;
-import com.example.springboot.database.entity.Office;
+import com.example.springboot.database.dao.EmployeeDAO;
 import com.example.springboot.database.entity.Order;
 import com.example.springboot.form.CreateCustomerFormBean;
-import com.example.springboot.form.CreateEmployeeFormBean;
+
 import jakarta.validation.Valid;
-import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Controller;
-import org.springframework.validation.BindingResult;
-import org.springframework.validation.FieldError;
-import org.springframework.validation.ObjectError;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+
+
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.FieldError;
+import org.springframework.validation.ObjectError;
+import org.springframework.data.domain.Page;
+
 
 import java.util.List;
 import lombok.extern.slf4j.Slf4j;
@@ -130,7 +131,7 @@ public class CustomerController {
             return response;
 
         } else {
-            // log out the incoming variable that are in the CreateCustomerForm Bean
+            // log the incoming variables that are in the CreateCustomerForm Bean
             log.debug(form.toString());
 
             // variable name
@@ -140,7 +141,7 @@ public class CustomerController {
                 customer = new Customer();
             }
 
-            // variable name Customer customer = new Customer();
+            // get customer data from form to load up customer object
             customer.setCustomerName(form.getCustomerName());
             customer.setContactFirstName(form.getContactFirstName());
             customer.setContactLastName(form.getContactLastName());
@@ -157,11 +158,11 @@ public class CustomerController {
             Employee employee = employeeDAO.findById(form.getSalesRepEmployeeId());
             customer.setEmployee(employee);
 
-            customer = customerDAO.save(customer);  //want this bc has next Id number in it
+            customer = customerDAO.save(customer);  // want this bc has next Id number in it
 
             // this is a URL, NOT a view name
             // in some ways this is overriding the behavior of the setViewName to use a URL rather than a JSP file location
-            //redirecting to the customer detail page, but usually you'd go to fully populated EDIT page, take emp id on url and use it to populate all the fields before rendering
+            // redirecting to the customer detail page, but usually you'd go to fully populated EDIT page, take emp id on url and use it to populate all the fields before rendering
             response.setViewName("redirect:/customer/" + customer.getId());
 
             return response;
@@ -184,7 +185,9 @@ public class CustomerController {
         if ( id != null) {
             // we only do this code if we found an emp in the db
             Customer customer = customerDAO.findById(id);
+
             if (customer != null) {
+
                 CreateCustomerFormBean form = new CreateCustomerFormBean();
                 form.setId(customer.getId());  // **********************************************************
                 form.setCustomerName(customer.getCustomerName());

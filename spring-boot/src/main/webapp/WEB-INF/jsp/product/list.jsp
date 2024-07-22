@@ -28,10 +28,17 @@
 
                         <!-- header row for product list -->
                         <tr>
-                            <th><b>Id</b></th>
-                            <th><b>Code</b></th>
-                            <th><b>Name</b></th>
+                            <th><b>Product Id</b></th>
+                            <th><b>Product Code</b></th>
+                            <th><b>Product Name</b></th>
                             <th><b>Description</b></th>
+                            <th><b>Quantity-In-Stock</b></th>
+                            <th><b>Buy Price</b></th>
+                            <th><b>MSRP</b></th>
+                            <th><b>Vendor</b></th>
+                            <th><b>Product Scale</b></th>
+                            <th><b>Product Line Id</b></th>
+                            <th><b>Action</b></th>
                         </tr>
 
                         <!-- loop to print rows in product list -->
@@ -40,8 +47,14 @@
                                 <td>${product.id}</td>
                                 <td>${product.productCode}</td>
                                 <td>  <a href="../product/${product.id}">   ${product.productName}   </a>  </td>
-                                <td>${product.productName}</td>
                                 <td>${product.productDescription}</td>
+                                <td>${product.quantityInStock}</td>
+                                <td>${product.buyPrice}</td>
+                                <td>${product.msrp}</td>
+                                <td>${product.productVendor}</td>
+                                <td>${product.productScale}</td>
+                                <td>${product.productLineId}</td>
+                                <td><a href="../product/edit?id=${product.id}">edit</a></td>
                             </tr>
                         </c:forEach>
 
