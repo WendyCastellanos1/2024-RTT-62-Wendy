@@ -19,7 +19,7 @@ public class CreateEmployeeFormBean {
 
     @Length(max=100, message = "Email must be less than 100 characters")
     @NotEmpty(message="Email is required.")
-    @Email(message="This must be a valid email")
+   // @Email(message="This must be a valid email")
     private String email;
 
     @Length(max = 50, message = "Last Name must be less than 50 characters")
@@ -38,6 +38,7 @@ public class CreateEmployeeFormBean {
     private Integer officeId;
     private Integer reportsTo;
 
+   // public boolean getEmployeeId() {}
 }
 
 

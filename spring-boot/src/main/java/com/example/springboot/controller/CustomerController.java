@@ -113,6 +113,8 @@ public class CustomerController {
         ModelAndView response = new ModelAndView();
         log.debug(form.toString());     // prints the form data to the console using the CreateCustomerFormBean form
 
+
+
         //this is a pattern
         if (bindingResult.hasErrors()) {
             for (ObjectError error : bindingResult.getAllErrors()) {

@@ -63,7 +63,7 @@ public class EmployeeController {
 
     // listens on url: localhost:8080/employee/search
     @GetMapping("/search")
-    public ModelAndView search(@RequestParam(required=false) String search) {
+    public ModelAndView search(@RequestParam(required = false) String search) {
 
         ModelAndView response = new ModelAndView("/employee/search");
         log.debug("The user searched for the term: " + search);
@@ -83,13 +83,7 @@ public class EmployeeController {
         // this method is setting up the view for rendering
         ModelAndView response = new ModelAndView("/employee/create");
 
-        // this list of employees is used in the Reports To dropdown to list all the employees
-        List<Employee> reportsToEmployees = employeeDAO.findAll();
-        response.addObject("employeesKey", reportsToEmployees);
-
-        // add your office query to get all of the offices and add it to the model
-        List<Office> officesKey = officeDAO.findAll();
-        response.addObject("officesKey", officesKey);
+        loadDropdowns(response);
 
         return response;
     }
@@ -100,6 +94,17 @@ public class EmployeeController {
         ModelAndView response = new ModelAndView();
         log.debug(form.toString());     // prints the form data to the console using the CreateEmployeeForm Bean form
 
+        // we want to validate the email doesn't exist in the db, but also check if it's a create
+        // when doing a manual check in the controller, we want this before the binding result.haErrrors check so that it will fall into that block of code
+        // if this is a create:
+        if(form.getId() == null) {
+            Employee e = employeeDAO.findByEmailIgnoreCase(form.getEmail());
+
+            if ( e != null){
+                bindingResult.rejectValue("email", "email", "This email is already in use. Manual check.");
+            }
+        }
+
         //this is a pattern
         if (bindingResult.hasErrors()) {
             for (ObjectError error : bindingResult.getAllErrors()) {
@@ -107,13 +112,7 @@ public class EmployeeController {
             }
             response.addObject("bindingResult", bindingResult); // error has occurred;, use on jsp page to show user the errors
 
-            // this list of employees is used in the Reports To dropdown to list all the employees
-            List<Employee> reportsToEmployees = employeeDAO.findAll();
-            response.addObject("employeesKey", reportsToEmployees);
-
-            // add your office query to get all of the offices and add it to the model
-            List<Office> offices = officeDAO.findAll();
-            response.addObject("officesKey", offices);
+            loadDropdowns(response);
 
             response.setViewName("employee/create");
 
@@ -170,13 +169,7 @@ public class EmployeeController {
         // by setting required = false on the incoming parameter we allow
         ModelAndView response = new ModelAndView("/employee/create");
 
-        // re-duplicated code here, could be factored into a method
-        // this list of employees to be used in the Reports To dropdown to list all the employees
-        List<Employee> reportsToEmployees = employeeDAO.findAll();
-        response.addObject("employeesKey", reportsToEmployees);
-
-        List<Office> offices = officeDAO.findAll();
-        response.addObject("officesKey", offices);
+        loadDropdowns(response);
 
         // load the employee from the database and set the form bean with all the employee values
         // this is because the form bean is on the JSP page and we need to pre-populate the form with the employeee data
@@ -200,5 +193,15 @@ public class EmployeeController {
         }
 
         return response;
+    }
+
+    private void loadDropdowns(ModelAndView response){
+        // this list of employees is used in the Reports To dropdown to list all the employees
+        List<Employee> reportsToEmployees = employeeDAO.findAll();
+        response.addObject("employeesKey", reportsToEmployees);
+
+        // add your office query to get all offices and add it to the model
+        List<Office> offices = officeDAO.findAll();
+        response.addObject("officesKey", offices);
     }
 }

@@ -18,6 +18,8 @@ import org.springframework.data.domain.Page;
 
 import java.nio.file.Path;
 import java.util.List;
+import java.util.Map;
+
 import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
@@ -88,6 +90,17 @@ public class OrderController {
 
         List<Order> orders = orderDAO.findByCustomerName(search);
         response.addObject("ordersKey", orders);
+
+        return response;
+    }
+
+    @GetMapping("/orderdetail")
+    public ModelAndView orderDetail(@RequestParam Integer orderId) {
+        ModelAndView response = new ModelAndView("/order/orderdetail");
+
+        List<Map<String, Object>> orderDetails = orderDAO.getOrderDetails(orderId);
+        response.addObject("orderDetailsKey", orderDetails);
+        response.addObject("orderIdKey", orderId);
 
         return response;
     }
