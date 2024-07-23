@@ -26,7 +26,9 @@
                         <tr><td><b>Extension</b></td>           <td>${employeeKey.extension}</td></tr>
                         <tr><td><b>Email</b></td>               <td>${employeeKey.email}</td></tr>
                         <tr><td><b>Job Title</b></td>            <td>${employeeKey.jobTitle}</td></tr>
+                        <tr><td><b>Vacation Hours</b></td>       <td>${employeeKey.vacationHours}</td></tr>
                         <tr><td><b>ReportsTo</b></td>            <td><a href="../employee/${employeeKey.reportsTo}">${employeeKey.reportsTo}</a></td></tr>
+                        <tr><td><b>Profile Image URL</b></td>      <td><img src="${employeeKey.profileImageUrl}" alt="employee profile image"></td></tr>
 
                         <tr><td><b>Assigned Customers:  </b></td>       <td>${customersKey.size()} result(s)</td></tr>
                          <tr>

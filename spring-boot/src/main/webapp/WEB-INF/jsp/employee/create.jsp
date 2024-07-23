@@ -25,7 +25,7 @@
     <div class="container">
         <div class="row pt-5 ">
             <div class="col-12">
-                <form action="/employee/createSubmit">
+                <form action="/employee/createSubmit" method="post">    <!--  <form action="/employee/createSubmit">   -->
                     <input type="hidden" name="id" value="${form.id}">  <!-- id is the employee id -->
 
                     <!-- email input -->

@@ -64,6 +64,9 @@
                 <li class="nav-item">
                     <a class="nav-link" href="/order/list">Order List</a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/file-upload">File Upload</a>
+                </li>
 
             </ul>
         </div>

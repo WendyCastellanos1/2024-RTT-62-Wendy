@@ -13,12 +13,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.FieldError;
 import org.springframework.validation.ObjectError;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.List;
 import lombok.extern.slf4j.Slf4j;
@@ -89,6 +86,7 @@ public class EmployeeController {
     }
 
     @GetMapping("/createSubmit")
+   // @PostMapping("/createSubmit")
     public  ModelAndView createSubmit(@Valid CreateEmployeeFormBean form, BindingResult bindingResult) {
 
         ModelAndView response = new ModelAndView();
@@ -157,7 +155,12 @@ public class EmployeeController {
             // this is a URL, NOT a view name
             // in some ways this is overriding the behavior of the setViewName to use a URL rather than a JSP file location
             //redirecting to the employee detail page, but usually you'd go to fully populated EDIT page, take emp id on url and use it to populate all the fields before rendering
+
             response.setViewName("redirect:/employee/" + employee.getId());
+
+           // we added these two lines of code so that we coudl demonstrate using the network tab in the browswer
+//            loadDropdowns(response);
+//            response.setViewName("employee/create");
 
             return response;
         }
