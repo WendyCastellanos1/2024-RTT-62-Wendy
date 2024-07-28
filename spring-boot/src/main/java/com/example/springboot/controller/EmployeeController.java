@@ -7,6 +7,7 @@ import com.example.springboot.database.entity.Employee;
 
 import com.example.springboot.database.entity.Office;
 import com.example.springboot.form.CreateEmployeeFormBean;
+import com.example.springboot.service.EmployeeService;
 import jakarta.validation.Valid;
 import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Controller;
@@ -30,6 +31,12 @@ public class EmployeeController {
 
     @Autowired
     private OfficeDAO officeDAO;
+
+    @Autowired
+    private EmployeeService employeeService;
+
+//    @Autowired
+//    private EmployeeService    employeeService;
 
     // listens on url: localhost:8080/employee/list
     @GetMapping("/list")
@@ -85,8 +92,10 @@ public class EmployeeController {
         return response;
     }
 
-    @GetMapping("/createSubmit")
-   // @PostMapping("/createSubmit")
+   // @GetMapping("/createSubmit")                                                                   before adding the file upload
+    // @RequestMapping(value = "/createSubmit", method = {RequestMethod.POST, RequestMethod.GET})   example of what is possible - either
+   // @RequestMapping(value = "/createSubmit", method = {RequestMethod.POST})                       another way of what is below
+    @PostMapping("/createSubmit")
     public  ModelAndView createSubmit(@Valid CreateEmployeeFormBean form, BindingResult bindingResult) {
 
         ModelAndView response = new ModelAndView();
@@ -119,46 +128,15 @@ public class EmployeeController {
             return response;
 
         } else {
-            // log out the incoming variable that are in the CreateEmployerForm Bean
-            log.debug(form.toString());
 
-            // variable name
-            Employee  employee = employeeDAO.findById(form.getId());
-            if (employee == null){
-                // this means it was not found in the db so we are going to consider this a create
-                employee = new Employee();
-            }
-            employee.setEmail(form.getEmail());
-            employee.setFirstName(form.getFirstName());
-            employee.setLastName(form.getLastName());
-
-            employee.setReportsTo(form.getReportsTo());
-
-            //employee.setExtension(form.getExtension());       // add field to  the form
-            employee.setExtension("x357");
-
-            //employee.setJobTitle(form.getJobTitle());         // add field to the form
-            employee.setJobTitle("SomeJob");
-
-            employee.setVacationHours(form.getVacationHours());
-            employee.setProfileImageUrl(form.getProfileImageUrl());
-
-            // employee.setOfficeId(form.getOfficeId());        // won't work bc not nullable, etc.
-            Office office = officeDAO.findById(form.getOfficeId());
-            employee.setOffice(office);
-
-            // when we save to the db, it will autoincrement to give us a new id
-            //the new Id is available in the return from the save method.
-            //basically returns the same object ...after its been inserted into the db
-           employee = employeeDAO.save(employee); //want this bc has next Id number in it
+            Employee employee = employeeService.createEmployee(form);
 
             // this is a URL, NOT a view name
             // in some ways this is overriding the behavior of the setViewName to use a URL rather than a JSP file location
             //redirecting to the employee detail page, but usually you'd go to fully populated EDIT page, take emp id on url and use it to populate all the fields before rendering
-
             response.setViewName("redirect:/employee/" + employee.getId());
 
-           // we added these two lines of code so that we coudl demonstrate using the network tab in the browswer
+           // we added these two lines of code so that we could demonstrate using the network tab in the browswer
 //            loadDropdowns(response);
 //            response.setViewName("employee/create");
 
@@ -166,8 +144,8 @@ public class EmployeeController {
         }
     }
 
-    @GetMapping("/edit")
-    public ModelAndView edit(@RequestParam (required = false) Integer id) {
+    @RequestMapping(value = "/edit", method = {RequestMethod.GET})
+    public ModelAndView edit(@RequestParam  (required = false) Integer id) {
 
         // by setting required = false on the incoming parameter we allow
         ModelAndView response = new ModelAndView("/employee/create");
@@ -185,8 +163,10 @@ public class EmployeeController {
                 form.setEmail(employee.getEmail());
                 form.setFirstName(employee.getFirstName());
                 form.setLastName(employee.getLastName());
+                form.setProfileImageUrl(employee.getProfileImageUrl());
                 form.setReportsTo(employee.getReportsTo());
                 form.setOfficeId(employee.getOffice().getId());
+                form.setProfileImageUrl(employee.getProfileImageUrl());
                 // form.setExtension(employee.getExtension());
                 // form.setJobTitle(employee.getJobTitle());
                 // form.setVacationHours(employee.getVacationHours());
@@ -194,7 +174,6 @@ public class EmployeeController {
                 response.addObject("form", form);
                 }
         }
-
         return response;
     }
 

@@ -27,14 +27,13 @@
                         <tr><td><b>Email</b></td>               <td>${employeeKey.email}</td></tr>
                         <tr><td><b>Job Title</b></td>            <td>${employeeKey.jobTitle}</td></tr>
                         <tr><td><b>Vacation Hours</b></td>       <td>${employeeKey.vacationHours}</td></tr>
-                        <tr><td><b>ReportsTo</b></td>            <td><a href="../employee/${employeeKey.reportsTo}">${employeeKey.reportsTo}</a></td></tr>
-                        <tr><td><b>Profile Image URL</b></td>      <td><img src="${employeeKey.profileImageUrl}" alt="employee profile image"></td></tr>
+                        <tr><td><b>Reports To</b></td>           <td><a href="../employee/${employeeKey.reportsTo}">${employeeKey.reportsTo}</a></td></tr>
+                        <tr><td><b>Profile Image URL</b></td>    <td><img src="${employeeKey.profileImageUrl}" alt="employee profile image"></td></tr>
 
-                        <tr><td><b>Assigned Customers:  </b></td>       <td>${customersKey.size()} result(s)</td></tr>
+                        <tr><td><b>Assigned Customers:  </b></td>  <td>${customersKey.size()} result(s)</td></tr>
                          <tr>
                              <section>
                                  <div class="container">
-
                                      <div class="row">
                                          <div class ="col-12">
                                              <table class="table">

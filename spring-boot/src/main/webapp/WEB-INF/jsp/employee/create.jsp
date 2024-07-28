@@ -25,7 +25,7 @@
     <div class="container">
         <div class="row pt-5 ">
             <div class="col-12">
-                <form action="/employee/createSubmit" method="post">    <!--  <form action="/employee/createSubmit">   -->
+                <form action="/employee/createSubmit" method="post" enctype="multipart/form-data">    <!--  <form action="/employee/createSubmit">   -->
                     <input type="hidden" name="id" value="${form.id}">  <!-- id is the employee id -->
 
                     <!-- email input -->
@@ -81,6 +81,7 @@
                         </div>
                     </c:if>
 
+                    <!-- lastName input field -->
                     <div class="row align-items-center justify-content-center pt-3">
                         <div class="col-2">
                             <label for="lastNameId" class="col-form-label">Last Name</label>
@@ -106,6 +107,17 @@
                         </div>
                     </c:if>
 
+                    <!-- File upload to put a profile photo url in the db   -->
+                    <div class="row align-items-center justify-content-center pt-3">
+                        <div class="col-2">
+                            <label for="file" class="col-form-label">File</label>
+                        </div>
+                        <div class="col-4">
+                            <input type="file" id="file" name="file" class="form-control">
+                        </div>
+                    </div>
+
+                    <!-- reportsTo input field -->
                     <div class="row align-items-center justify-content-center pt-3">
                         <div class="col-2">
                             <label for="reportsTo" class="col-form-label">Reports To</label>
@@ -125,10 +137,13 @@
                             </select>
                         </div>
                     </div>
+
+                    <!-- office input field -->
                     <div class="row align-items-center justify-content-center pt-3">
                         <div class="col-2">
                             <label for="officeId" class="col-form-label">Office</label>
                         </div>
+
                         <div class="col-4">
                             <select id="officeId"
                                     name="officeId"
@@ -144,6 +159,8 @@
                             </select>
                         </div>
                     </div>
+
+                    <!-- submit button for the form -->
                     <div class="row justify-content-center pt-3 ">
                         <div class="col-auto text-center">
                             <button type="submit" class="btn btn-primary">Submit</button>

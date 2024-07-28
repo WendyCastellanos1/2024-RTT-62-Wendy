@@ -65,7 +65,10 @@
                     <a class="nav-link" href="/order/list">Order List</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/file-upload">File Upload</a>
+                    <a class="nav-link" href="/account/create-account">Create Account</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/account/login">Login</a>
                 </li>
 
             </ul>

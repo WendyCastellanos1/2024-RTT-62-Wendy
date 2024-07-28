@@ -3,6 +3,7 @@ package com.example.springboot.form;
 import lombok.*;
 import jakarta.validation.constraints.*;
 import org.hibernate.validator.constraints.Length;
+import org.springframework.web.multipart.MultipartFile;
 
 @Getter
 @Setter
@@ -38,7 +39,9 @@ public class CreateEmployeeFormBean {
     private Integer officeId;
     private Integer reportsTo;
 
-   // public boolean getEmployeeId() {}
+    private MultipartFile file;
+
+    // public boolean getEmployeeId() {}
 }
 
 

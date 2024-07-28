@@ -1,7 +1,6 @@
 <!-- goes at TOP -->
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
-
 <jsp:include page="../include/header.jsp" />
 
 <!-- a page header -->
@@ -47,6 +46,8 @@
                             <td>${employee.email}</td>
                             <td><a href="../employee/${employee.reportsTo}">${employee.reportsTo}</a></td>
                             <td><a href="../employee/edit?id=${employee.id}">edit</a></td>
+
+
                         </tr>
                     </c:forEach>
 
