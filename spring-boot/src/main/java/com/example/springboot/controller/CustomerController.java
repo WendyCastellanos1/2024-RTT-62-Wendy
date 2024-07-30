@@ -28,7 +28,7 @@ import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
 @Controller
-@RequestMapping("/customer/")   // the directory?
+@RequestMapping("/customer")   // the directory?
 public class CustomerController {
 
     @Autowired
@@ -41,7 +41,7 @@ public class CustomerController {
     @GetMapping("/list")
     public ModelAndView list() {
 
-        ModelAndView response = new ModelAndView("/customer/list");
+        ModelAndView response = new ModelAndView("customer/list");
         List<Customer> customers = customerDAO.findAll();
         response.addObject("customersKey", customers);
 
@@ -52,7 +52,7 @@ public class CustomerController {
     @GetMapping("/{id}")
     public ModelAndView detail(@PathVariable Integer id) {
 
-        ModelAndView response = new ModelAndView("/customer/detail");
+        ModelAndView response = new ModelAndView("customer/detail");
         Customer customer = customerDAO.findById(id);
         response.addObject("customerKey", customer);
 
@@ -66,7 +66,7 @@ public class CustomerController {
     @GetMapping("/search")
     public ModelAndView searchByCustomerName(String search) {
 
-        ModelAndView response = new ModelAndView("/customer/search");
+        ModelAndView response = new ModelAndView("customer/search");
         log.debug("The user searched for: " + search);
         response.addObject("searchKey", search);
 
@@ -82,7 +82,7 @@ public class CustomerController {
     public ModelAndView listByEmployeeId(@RequestParam String id,
                                          @RequestParam(required = false) String name) {
 
-        ModelAndView response = new ModelAndView("/customer/list-by-employee");
+        ModelAndView response = new ModelAndView("customer/list-by-employee");
         log.debug("The user wants the customer(s) for employee id:  " + id + " and employee name:  " + name);
         response.addObject("employeeId", id);
         response.addObject("employeeName", name);
@@ -97,7 +97,7 @@ public class CustomerController {
     public ModelAndView create() {
 
         // this method is setting up the view for rendering
-        ModelAndView response = new ModelAndView("/customer/create");
+        ModelAndView response = new ModelAndView("customer/create");
 
         // this list of employees is used in the dropdown to list all the employees
         List<Employee> employees = employeeDAO.findAll();
@@ -175,7 +175,7 @@ public class CustomerController {
     public ModelAndView edit(@RequestParam (required = false) Integer id) {
 
         // by setting required = false on the incoming parameter we allow
-        ModelAndView response = new ModelAndView("/customer/create");
+        ModelAndView response = new ModelAndView("customer/create");
 
         // re-duplicated code here, could be factored into a method
         // this list of employees to be used in the Sale Rep Employee Id dropdown to list all the employees

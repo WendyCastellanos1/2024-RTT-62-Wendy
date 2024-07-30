@@ -24,7 +24,7 @@ import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
 @Controller
-@RequestMapping("/order/")    // directory
+@RequestMapping("/order")    // directory
 public class OrderController {
 
     @Autowired
@@ -39,7 +39,7 @@ public class OrderController {
     @GetMapping("/list")
     public ModelAndView listAll() {
 
-        ModelAndView response = new ModelAndView("/order/list");
+        ModelAndView response = new ModelAndView("order/list");
         List<Order> orders = orderDAO.findAll();
         response.addObject("ordersKey", orders);
 
@@ -50,7 +50,7 @@ public class OrderController {
     @GetMapping("/{id}")
     public ModelAndView detail(@PathVariable Integer id) {
 
-        ModelAndView response = new ModelAndView("/order/detail");   // summary in this case
+        ModelAndView response = new ModelAndView("order/detail");   // summary in this case
         log.debug("The user wants the order with id:  " +  id);
 
         Order order = orderDAO.findById(id);
@@ -70,7 +70,7 @@ public class OrderController {
     public ModelAndView listByCustomerId(@RequestParam String id,
                                          @RequestParam(required=false) String name) {
 
-        ModelAndView response = new ModelAndView("/order/list-by-customer");
+        ModelAndView response = new ModelAndView("order/list-by-customer");
         log.debug("The user wants the order(s) for customer id:  " +  id + " and customer name:  " + name);
         response.addObject("customerId", id);
         response.addObject("customerName", name);
@@ -85,7 +85,7 @@ public class OrderController {
     @GetMapping("/search")
     public ModelAndView searchByCustomerName(@RequestParam(required=false) String search) {
 
-        ModelAndView response = new ModelAndView("/order/search");
+        ModelAndView response = new ModelAndView("order/search");
         log.debug("The user wants the order for this customer name:  " +  search);
 
         List<Order> orders = orderDAO.findByCustomerName(search);
@@ -96,7 +96,7 @@ public class OrderController {
 
     @GetMapping("/orderdetail")
     public ModelAndView orderDetail(@RequestParam Integer orderId) {
-        ModelAndView response = new ModelAndView("/order/orderdetail");
+        ModelAndView response = new ModelAndView("order/orderdetail");
 
         List<Map<String, Object>> orderDetails = orderDAO.getOrderDetails(orderId);
         response.addObject("orderDetailsKey", orderDetails);

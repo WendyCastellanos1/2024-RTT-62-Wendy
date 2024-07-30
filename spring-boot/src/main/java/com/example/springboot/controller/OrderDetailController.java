@@ -19,7 +19,7 @@ import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
 @Controller
-@RequestMapping("/order-detail/")    // the directory
+@RequestMapping("/order-detail")    // the directory
 public class OrderDetailController {
 
     @Autowired
@@ -29,7 +29,7 @@ public class OrderDetailController {
     @GetMapping("/list")
     public ModelAndView list() {
 
-        ModelAndView response = new ModelAndView("/order-detail/list");
+        ModelAndView response = new ModelAndView("order-detail/list");
         List<OrderDetail> orderDetails = orderDetailDAO.findAll();
         response.addObject("orderDetailsKey", orderDetails);
 
@@ -40,7 +40,7 @@ public class OrderDetailController {
     @GetMapping("/{id}")
     public ModelAndView detail(@PathVariable Integer id) {
 
-        ModelAndView response = new ModelAndView("/order/detail");   //
+        ModelAndView response = new ModelAndView("order/detail");   //
         log.debug("The user wants the orderDetail with order detail id:  " +  id);
 
         OrderDetail orderDetail = orderDetailDAO.findById(id);
@@ -54,7 +54,7 @@ public class OrderDetailController {
     @GetMapping("/list-by-order")
     public ModelAndView listByOrderId(@RequestParam Integer id) {
 
-        ModelAndView response = new ModelAndView("/order-detail/list-by-order");
+        ModelAndView response = new ModelAndView("order-detail/list-by-order");
         log.debug("The user wants the order detail row(s) for order id:  " +  id);
         // response.addObject("orderIdKey", Integer.valueOf(orderId));
         response.addObject("orderIdKey", id);

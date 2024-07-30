@@ -23,7 +23,7 @@ import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
 @Controller
-@RequestMapping("/product/")
+@RequestMapping("/product")
 public class ProductController {
 
     @Autowired
@@ -33,7 +33,7 @@ public class ProductController {
     @GetMapping("/list")
     public ModelAndView listAll() {
 
-        ModelAndView response = new ModelAndView("/product/list");
+        ModelAndView response = new ModelAndView("product/list");
         List<Product> products = productDAO.findAll();
         response.addObject("productsKey", products);
 
@@ -44,7 +44,7 @@ public class ProductController {
     @GetMapping("/{id}")
     public ModelAndView showDetail(@PathVariable Integer id){
 
-        ModelAndView response = new ModelAndView("/product/detail");
+        ModelAndView response = new ModelAndView("product/detail");
         Product product = productDAO.findById(id);
         response.addObject("productKey", product);
 
@@ -55,7 +55,7 @@ public class ProductController {
     @GetMapping("/search")
     public ModelAndView searchByNameorCode(@RequestParam(required=false) String search) {
 
-        ModelAndView response = new ModelAndView("/product/search");
+        ModelAndView response = new ModelAndView("product/search");
         log.debug("The user searched for the term: " + search);
 
         // Add the user input back to the model so that we can display the search term in the input field
@@ -71,7 +71,7 @@ public class ProductController {
     public ModelAndView create() {
 
         // this method is setting up the view for rendering
-        ModelAndView response = new ModelAndView("/product/create");
+        ModelAndView response = new ModelAndView("product/create");
 
         return response;
     }
@@ -134,7 +134,7 @@ public class ProductController {
     public ModelAndView edit(@RequestParam (required = false) Integer id) {
 
         // by setting required = false on the incoming parameter we allow
-        ModelAndView response = new ModelAndView("/product/create");
+        ModelAndView response = new ModelAndView("product/create");
 
         // load the product from the database and set the form bean with all the product values
         // this is because the form bean is on the JSP page and we need to pre-populate the form with the product data

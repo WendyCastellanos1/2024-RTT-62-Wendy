@@ -23,7 +23,7 @@ import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
 @Controller
-@RequestMapping("/employee/")    // the directory
+@RequestMapping("/employee")    // the directory
 public class EmployeeController {
 
     @Autowired
@@ -42,7 +42,7 @@ public class EmployeeController {
     @GetMapping("/list")
     public ModelAndView findAll() {
 
-        ModelAndView response = new ModelAndView("/employee/list");
+        ModelAndView response = new ModelAndView("employee/list");
         List<Employee> employees = employeeDAO.findAll();
         response.addObject("employeesKey", employees);
 
@@ -53,7 +53,7 @@ public class EmployeeController {
     @GetMapping("/{id}")
     public ModelAndView detail(@PathVariable Integer id) {
 
-        ModelAndView response = new ModelAndView("/employee/detail");
+        ModelAndView response = new ModelAndView("employee/detail");
         log.debug("The user wants the employee with id:  " +  id);
 
         Employee employee = employeeDAO.findById(id);
@@ -69,7 +69,7 @@ public class EmployeeController {
     @GetMapping("/search")
     public ModelAndView search(@RequestParam(required = false) String search) {
 
-        ModelAndView response = new ModelAndView("/employee/search");
+        ModelAndView response = new ModelAndView("employee/search");
         log.debug("The user searched for the term: " + search);
 
         // Add the user input back to the model so that we can display the search term in the input field
@@ -85,7 +85,7 @@ public class EmployeeController {
     public ModelAndView create() {
 
         // this method is setting up the view for rendering
-        ModelAndView response = new ModelAndView("/employee/create");
+        ModelAndView response = new ModelAndView("employee/create");
 
         loadDropdowns(response);
 
@@ -148,7 +148,7 @@ public class EmployeeController {
     public ModelAndView edit(@RequestParam  (required = false) Integer id) {
 
         // by setting required = false on the incoming parameter we allow
-        ModelAndView response = new ModelAndView("/employee/create");
+        ModelAndView response = new ModelAndView("employee/create");
 
         loadDropdowns(response);
 
