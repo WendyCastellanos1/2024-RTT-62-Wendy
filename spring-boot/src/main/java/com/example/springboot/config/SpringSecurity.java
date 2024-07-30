@@ -3,13 +3,17 @@ package com.example.springboot.config;
 import jakarta.validation.groups.ConvertGroup;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;        // noted very early in component scan
+import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 
 @Configuration
+@EnableWebSecurity
+@EnableGlobalMethodSecurity(prePostEnabled = true)
 public class SpringSecurity {
 
     @Bean
@@ -20,19 +24,22 @@ public class SpringSecurity {
 
         // this section says allow all pages EXCEPT the ones that are in the AntPathRequestMatcher
         // anything in AntPathRequestMatcher will require the user to be authenticated
+        // 1)users, not logged in, can see public resources
+        // 2) users, logged in, but no user roles that grant access to a resource
+        // 3) users, logged in, HAVE user role that grans access to a resource
         http.authorizeRequests()
                 .requestMatchers(
                         new AntPathRequestMatcher("/admin/**"),
                         new AntPathRequestMatcher("/user/**")).authenticated()
-                .anyRequest().permitAll();
+                .anyRequest().permitAll();                                          // the URLs are what's noted, not relative or absolute paths
 
         // the loginPage parameter is the actual URL of the login page
-        // the loginProcessingUrl is the URL that the form will submit to
+        // the loginProcessingUrl is the URL that the form will submit to  TODO add comments from Eric's code
         http.formLogin(formLogin -> formLogin
-                .loginPage("/account/login")    // this indicates the controller method!
+                .loginPage("/account/login")    // login url in browswer derived from controller work; we built th emethod
                 // this URL is part of spring security and we do not need to implement it in our controller
-                // we just need to make user submit to this URL
-                .loginProcessingUrl("/account/loginProcessingURL"));  // magic Spring: does not exist in MY controller methods
+                // we just need to make user submit to this URL, this is in th form action of web page
+                .loginProcessingUrl("/account/loginProcessingURL"));  // magic Spring Security: does not exist in MY controller methods
 
 
         // this is the URL that will log a user out

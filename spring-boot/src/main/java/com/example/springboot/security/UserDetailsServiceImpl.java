@@ -41,7 +41,7 @@ public class UserDetailsServiceImpl implements UserDetailsService {
             throw new UsernameNotFoundException("Username ' " + username + " ' not found in the database.");
         }
 
-        // check the account status
+        // check the account status (only used during login, set with my own flag from db)
         boolean accountIsEnabled = true;
         boolean accountNonExpired = true;
         boolean credentialsNonExpired = true;
