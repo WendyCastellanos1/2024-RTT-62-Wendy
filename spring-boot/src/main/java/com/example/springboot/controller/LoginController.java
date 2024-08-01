@@ -5,8 +5,10 @@ import com.example.springboot.database.dao.UserDAO;
 import com.example.springboot.database.entity.Employee;
 import com.example.springboot.database.entity.User;
 import com.example.springboot.form.CreateAccountFormBean;
+import com.example.springboot.security.AuthenticatedUserUtilities;
 import com.example.springboot.service.EmployeeService;
 import com.example.springboot.service.UserService;
+import jakarta.servlet.http.HttpSession;
 import jakarta.validation.Valid;
 import lombok.extern.slf4j.*;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -34,13 +36,15 @@ public class LoginController {
     @Autowired
     private UserService userService;
 
+    @Autowired
+    private AuthenticatedUserUtilities authenticatedUserUtilities;
+
     @GetMapping("/login")           // just displaying our login page, could just do the 'return a String' approach here
     public ModelAndView doLogin() {
         ModelAndView response = new ModelAndView("auth/login");
 
         return response;
     }
-
 
     @GetMapping("/create-account")
     public ModelAndView createAccount() {
@@ -50,7 +54,7 @@ public class LoginController {
     }
 
     @PostMapping("/create-account")
-    public ModelAndView createAccountSubmit(@Valid CreateAccountFormBean form, BindingResult bindingResult) {
+    public ModelAndView createAccountSubmit(@Valid CreateAccountFormBean form, BindingResult bindingResult, HttpSession session) {
         ModelAndView response = new ModelAndView("auth/create-account");
 
         // check to make sure the email does not already exist, but ALSO check to see if its a create
@@ -73,9 +77,9 @@ public class LoginController {
             response.addObject("form", form);
         } else {
             userService.createUser(form);
+            authenticatedUserUtilities.manualAuthentication(session, form.getEmail(), form.getPassword());
         }
         return response;
     }
-
 
 }

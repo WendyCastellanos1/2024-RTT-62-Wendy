@@ -49,11 +49,12 @@ public class UserDetailsServiceImpl implements UserDetailsService {
 
         // Use the user object from the database to get the user roles
         List<UserRole> userRoles = userRoleDAO.findByUserId(user.getId());
+
         // passing the user roles to create the granted authorities
         Collection<? extends GrantedAuthority> authorities = buildGrantAuthorities(userRoles);
 
         // this User object is part of Spring Security
-        // because both objets are named User, we have to use the full path to the object
+        // because both objects are named User, we have to use the full path to the object
         UserDetails userDetails = new org.springframework.security.core.userdetails.User(
                 user.getEmail(),  // this parameter is the username, in our case the user from the database
                 user.getPassword(), // this is the users encrypted password from the database
